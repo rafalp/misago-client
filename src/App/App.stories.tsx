@@ -1,4 +1,3 @@
-import React from "react"
 import AppError from "./AppError"
 import AppLoader from "./AppLoader"
 

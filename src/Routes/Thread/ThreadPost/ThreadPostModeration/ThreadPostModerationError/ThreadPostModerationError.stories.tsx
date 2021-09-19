@@ -1,7 +1,6 @@
+import { ApolloError } from "@apollo/client"
 import { action } from "@storybook/addon-actions"
 import { withKnobs, boolean } from "@storybook/addon-knobs"
-import { ApolloError } from "apollo-client"
-import React from "react"
 import { ModalContainer } from "../../../../../UI/Storybook"
 import ThreadPostModerationError from "./ThreadPostModerationError"
 

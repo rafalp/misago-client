@@ -1,6 +1,6 @@
+import { ApolloError } from "@apollo/client"
 import { t } from "@lingui/macro"
 import React from "react"
-import { ApolloError } from "apollo-client"
 import { MutationError } from "../../types"
 import getNetworkErrorCode from "../getNetworkErrorCode"
 

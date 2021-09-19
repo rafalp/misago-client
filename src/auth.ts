@@ -1,4 +1,4 @@
-import { useApolloClient } from "@apollo/react-hooks"
+import { useApolloClient } from "@apollo/client"
 import { getItem, removeItem, setItem } from "./localStorage"
 
 const AUTH_TOKEN = "token"

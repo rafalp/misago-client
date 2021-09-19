@@ -1,6 +1,5 @@
-import { MockedProvider } from "@apollo/react-testing"
+import { MockedProvider } from '@apollo/client/testing';
 import { actions } from "@storybook/addon-actions"
-import React from "react"
 import { Modal } from "../UI/Modal"
 import { RootContainer } from "../UI/Storybook"
 import AuthModalLogin from "./AuthModalLogin"

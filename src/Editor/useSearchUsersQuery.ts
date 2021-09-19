@@ -1,5 +1,4 @@
-import { useApolloClient } from "@apollo/react-hooks"
-import gql from "graphql-tag"
+import { gql, useApolloClient } from "@apollo/client"
 import { useCallback } from "react"
 import { AvatarData } from "../types"
 

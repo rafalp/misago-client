@@ -1,4 +1,4 @@
-import { ApolloError } from "apollo-client"
+import { ApolloError } from "@apollo/client"
 import React from "react"
 import { CardLoader } from "../../../UI/Card"
 import { CategoryAcl, Thread } from "../Threads.types"

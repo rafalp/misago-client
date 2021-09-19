@@ -25,10 +25,8 @@ const ThreadsModerationSelectedThreadsList: React.FC<ThreadsModerationSelectedTh
   )
 
   React.useEffect(() => {
-    if (register && unregister) {
-      register({ name: "threads" })
-      return () => unregister("threads")
-    }
+    register("threads")
+    return () => unregister("threads")
   }, [register, unregister])
 
   React.useEffect(() => {

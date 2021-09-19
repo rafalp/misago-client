@@ -1,5 +1,5 @@
+import { ApolloError } from "@apollo/client"
 import React from "react"
-import { ApolloError } from "apollo-client"
 import RootError from "../../../UI/RootError"
 import { ThreadValidationError } from "../../../UI/ValidationError"
 import { MutationError } from "../../../types"

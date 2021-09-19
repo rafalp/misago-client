@@ -1,6 +1,5 @@
-import { MockedProvider } from "@apollo/react-testing"
+import { MockedProvider } from '@apollo/client/testing';
 import { withKnobs, boolean, number, text } from "@storybook/addon-knobs"
-import React from "react"
 import { AuthContext } from "../../../Context"
 import { RootContainer, categories, userFactory } from "../../../UI/Storybook"
 import ThreadHeader from "./ThreadHeader"

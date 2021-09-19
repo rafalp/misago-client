@@ -1,5 +1,4 @@
-import { ApolloError } from "apollo-client"
-import React from "react"
+import { ApolloError } from "@apollo/client"
 import { Error as BaseError, GraphQLError, NotFoundError } from "../Error"
 import RouteContainer from "../RouteContainer"
 import { RouteLoaderSpinner } from "../RouteLoader"

@@ -1,6 +1,5 @@
-import { MockedProvider } from "@apollo/react-testing"
+import { MockedProvider } from '@apollo/client/testing';
 import { action } from "@storybook/addon-actions"
-import React from "react"
 import { SettingsContextFactory } from "../UI/Storybook"
 import SiteWizardCompleted from "./SiteWizardCompleted"
 import SiteWizardForm from "./SiteWizardForm"

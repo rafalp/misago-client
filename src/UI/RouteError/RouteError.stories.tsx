@@ -1,5 +1,4 @@
-import { ApolloError } from "apollo-client"
-import React from "react"
+import { ApolloError } from "@apollo/client"
 import { SettingsContextFactory } from "../Storybook"
 import RouteAuthRequiredError from "./RouteAuthRequiredError"
 import RouteError from "./RouteError"

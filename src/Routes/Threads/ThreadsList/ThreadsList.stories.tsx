@@ -1,6 +1,6 @@
+import { ApolloError } from "@apollo/client"
 import { action } from "@storybook/addon-actions"
 import { withKnobs, boolean } from "@storybook/addon-knobs"
-import { ApolloError } from "apollo-client"
 import React from "react"
 import { Layout, LayoutMain, LayoutSide } from "../../../UI/Layout"
 import { RootContainer, categories } from "../../../UI/Storybook"

@@ -1,5 +1,4 @@
-import { useQuery } from "@apollo/react-hooks"
-import gql from "graphql-tag"
+import { gql, useQuery } from "@apollo/client"
 
 const THREAD_LAST_POST_URL_QUERY = gql`
   query ThreadLastPostUrl($id: ID!) {

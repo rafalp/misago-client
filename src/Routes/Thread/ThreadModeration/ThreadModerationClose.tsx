@@ -1,5 +1,5 @@
+import { ApolloError } from "@apollo/client"
 import { Trans } from "@lingui/macro"
-import { ApolloError } from "apollo-client"
 import React from "react"
 import { useModalContext } from "../../../Context"
 import { Modal, ModalDialog } from "../../../UI/Modal"

@@ -14,7 +14,7 @@ const EditorPreviewButton: React.FC<EditorPreviewButtonProps> = ({
   onClick,
 }) => {
   const context = useFormContext()
-  const value = context.watch<string, string>(name, "") as string
+  const value = context.watch<string>(name, "") as string
   const length = React.useMemo(() => (value || "").trim().length, [value])
 
   return (

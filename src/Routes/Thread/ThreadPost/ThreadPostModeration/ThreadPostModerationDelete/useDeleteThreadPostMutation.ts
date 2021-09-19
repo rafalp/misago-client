@@ -1,5 +1,4 @@
-import { useMutation } from "@apollo/react-hooks"
-import gql from "graphql-tag"
+import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../../../types"
 import { Post } from "../../../Thread.types"
 import { THREAD_QUERY, ThreadData } from "../../../useThreadQuery"

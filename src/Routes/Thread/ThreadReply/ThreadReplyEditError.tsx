@@ -1,5 +1,5 @@
+import { ApolloError } from "@apollo/client"
 import { Trans } from "@lingui/macro"
-import { ApolloError } from "apollo-client"
 import React from "react"
 import { ErrorMessage, GraphQLErrorMessage } from "../../../UI/Error"
 import GraphQLErrorRenderer from "../../../UI/GraphQLErrorRenderer"

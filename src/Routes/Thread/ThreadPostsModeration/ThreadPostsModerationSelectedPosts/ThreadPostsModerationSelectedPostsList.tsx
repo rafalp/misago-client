@@ -22,10 +22,8 @@ const ThreadPostsModerationSelectedPostsList: React.FC<ThreadPostsModerationSele
   const { change, selection, selected } = useSelection<Post>(posts, posts)
 
   React.useEffect(() => {
-    if (register && unregister) {
-      register({ name: "posts" })
-      return () => unregister("posts")
-    }
+    register("posts")
+    return () => unregister("posts")
   }, [register, unregister])
 
   React.useEffect(() => {

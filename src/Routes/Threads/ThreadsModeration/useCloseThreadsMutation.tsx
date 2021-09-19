@@ -1,7 +1,4 @@
-import { MutationResult } from "@apollo/react-common"
-import { useMutation } from "@apollo/react-hooks"
-import gql from "graphql-tag"
-import React from "react"
+import { ApolloError, MutationResult, gql, useMutation } from "@apollo/client"
 import { useModalContext } from "../../../Context"
 import { MutationError } from "../../../types"
 import { Thread } from "../Threads.types"
@@ -72,8 +69,10 @@ const useCloseThreadsMutation = (
       if (errors) {
         openModal(<ErrorModal threads={threads} errors={errors} />)
       }
-    } catch (graphqlError) {
-      openModal(<ErrorModal threads={threads} graphqlError={graphqlError} />)
+    } catch (error) {
+      if (error instanceof ApolloError) {
+        openModal(<ErrorModal threads={threads} graphqlError={error} />)
+      }
     }
   }
 

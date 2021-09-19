@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup"
 import { t } from "@lingui/macro"
 import React from "react"
-import { UseFormMethods, useForm } from "react-hook-form"
+import { UseFormReturn, useForm } from "react-hook-form"
 import * as Yup from "yup"
 import { useSettingsContext } from "../../../Context"
 import useNewReplyDraft from "./useNewReplyDraft"
@@ -21,7 +21,7 @@ export interface ThreadReplyContextData {
   minimized: boolean
   mode: string
   post: ThreadReplyPost | null
-  form: UseFormMethods<ThreadReplyFormValues>
+  form: UseFormReturn<ThreadReplyFormValues>
   quote: (range: Range) => void
   startReply: () => boolean
   editReply: (post: ThreadReplyPost) => void

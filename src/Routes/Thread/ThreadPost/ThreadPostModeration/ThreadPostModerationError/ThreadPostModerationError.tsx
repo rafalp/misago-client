@@ -1,4 +1,4 @@
-import { ApolloError } from "apollo-client"
+import { ApolloError } from "@apollo/client"
 import React from "react"
 import { ModalCloseFooter, ModalErrorBody } from "../../../../../UI/Modal"
 import { MutationError } from "../../../../../types"

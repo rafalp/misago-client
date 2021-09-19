@@ -1,6 +1,5 @@
-import { MockedProvider } from "@apollo/react-testing"
+import { MockedProvider } from '@apollo/client/testing';
 import { GraphQLError } from "graphql"
-import React from "react"
 import { ButtonPrimary, ButtonSecondary } from "../../../UI/Button"
 import { PostingForm } from "../../../UI/PostingForm"
 import { RootContainer, SettingsContextFactory } from "../../../UI/Storybook"

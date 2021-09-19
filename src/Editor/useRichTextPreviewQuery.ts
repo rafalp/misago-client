@@ -1,5 +1,4 @@
-import { useQuery } from "@apollo/react-hooks"
-import gql from "graphql-tag"
+import { gql, useQuery } from "@apollo/client"
 import { RichText } from "../types"
 
 export const RICH_TEXT_PREVIEW_QUERY = gql`

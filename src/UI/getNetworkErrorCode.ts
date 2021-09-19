@@ -1,4 +1,4 @@
-import { ApolloError } from "apollo-client"
+import { ApolloError } from "@apollo/client"
 
 const getNetworkErrorCode = (error: ApolloError): number => {
   if (!error.networkError) return 0

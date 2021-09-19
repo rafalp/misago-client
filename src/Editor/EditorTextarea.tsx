@@ -1,12 +1,13 @@
 import classnames from "classnames"
 import React from "react"
+import { FieldValues, UseFormRegister } from "react-hook-form"
 
 interface EditorTextareaProps {
   disabled?: boolean
   hidden?: boolean
   invalid?: boolean
   name: string
-  register?: (instance: HTMLTextAreaElement | undefined | null) => void
+  register?: UseFormRegister<FieldValues>
 }
 
 const EditorTextarea: React.FC<EditorTextareaProps> = ({
@@ -26,7 +27,7 @@ const EditorTextarea: React.FC<EditorTextareaProps> = ({
     )}
     disabled={disabled}
     name={name}
-    ref={register}
+    {...register}
   />
 )
 

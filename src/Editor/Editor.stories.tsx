@@ -1,6 +1,6 @@
-import { MockedProvider } from "@apollo/react-testing"
+import { MockedProvider } from '@apollo/client/testing';
 import { action } from "@storybook/addon-actions"
-import { ApolloError } from "apollo-client"
+import { ApolloError } from "@apollo/client"
 import React from "react"
 import * as Yup from "yup"
 import { Card, CardFooter, CardFormBody, CardHeader } from "../UI/Card"

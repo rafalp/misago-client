@@ -1,5 +1,4 @@
-import { ApolloProvider } from "@apollo/react-hooks"
-import React from "react"
+import { ApolloProvider } from "@apollo/client"
 import ReactDOM from "react-dom"
 import App from "./App"
 import { client } from "./apolloClient"

@@ -1,5 +1,4 @@
-import { ApolloError } from "apollo-client"
-import React from "react"
+import { ApolloError } from "@apollo/client"
 import { ButtonPrimary } from "../Button"
 import { RootContainer } from "../Storybook"
 import BaseError from "./Error"

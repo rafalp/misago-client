@@ -1,6 +1,5 @@
-import { useLazyQuery, useQuery, useSubscription } from "@apollo/react-hooks"
+import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client"
 import { DocumentNode } from "graphql"
-import gql from "graphql-tag"
 import React from "react"
 import { Thread } from "./Threads.types"
 

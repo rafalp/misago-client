@@ -1,5 +1,4 @@
-import { useMutation } from "@apollo/react-hooks"
-import gql from "graphql-tag"
+import { gql, useMutation } from "@apollo/client"
 import { MutationError, RichText } from "../../../types"
 
 const EDIT_POST = gql`
