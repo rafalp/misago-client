@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React from "react"
-import { useFormContext } from "react-hook-form"
 import { useFieldContext } from "../Form"
+import useRegisterFieldHook from "../useRegisterFieldHook"
 
 interface InputProps {
   className?: string
@@ -35,7 +35,10 @@ const Input: React.FC<InputProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const hookContext = useFormContext() || {}
+  const register = useRegisterFieldHook<HTMLInputElement>(name || context.name, {
+    onBlur,
+    onChange,
+  })
 
   return (
     <input
@@ -50,14 +53,11 @@ const Input: React.FC<InputProps> = ({
       disabled={disabled || context.disabled}
       id={id || context.id}
       maxLength={maxLength}
-      name={name || context.name}
       placeholder={placeholder}
-      ref={hookContext.register}
       required={required || context.required}
       type={type || "text"}
       value={value}
-      onBlur={onBlur}
-      onChange={onChange}
+      {...register}
     />
   )
 }

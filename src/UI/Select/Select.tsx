@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React from "react"
-import { useFormContext } from "react-hook-form"
 import { useFieldContext } from "../Form"
+import useRegisterFieldHook from "../useRegisterFieldHook"
 
 interface SelectProps {
   className?: string
@@ -36,7 +36,7 @@ const Select: React.FC<SelectProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const hookContext = useFormContext() || {}
+  const register = useRegisterFieldHook<HTMLSelectElement>(name || context.name, { onBlur, onChange })
 
   return (
     <select
@@ -47,11 +47,8 @@ const Select: React.FC<SelectProps> = ({
       )}
       disabled={disabled || context.disabled}
       id={id || context.id}
-      name={name || context.name}
-      ref={hookContext.register}
       required={required || context.required}
-      onBlur={onBlur}
-      onChange={onChange}
+      {...register}
     >
       {typeof emptyValue !== "undefined" && (
         <option value={emptyValue}>{emptyLabel || null}</option>

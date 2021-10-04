@@ -22,21 +22,21 @@ const Editor: React.FC<EditorProps> = ({ name, disabled, submit }) => {
   const hookContext = useFormContext()
   const [preview, setPreview] = React.useState<string | null>(null)
 
-  const finName = name || context.name
+  const nameFinal = name || context.name
 
   const setValueInState = hookContext?.setValue
   const setValue = React.useCallback(
     (value: string) => {
-      if (finName && setValueInState) setValueInState(finName, value)
+      if (nameFinal && setValueInState) setValueInState(nameFinal, value)
     },
-    [finName, setValueInState]
+    [nameFinal, setValueInState]
   )
 
   if (!hookContext) return null
-  if (!finName) return null
+  if (!nameFinal) return null
 
   const openPreview = () => {
-    const value = hookContext.getValues(finName) || ""
+    const value = hookContext.getValues(nameFinal) || ""
     if (value.trim().length > 0) {
       setPreview(value.trim())
     }
@@ -52,8 +52,7 @@ const Editor: React.FC<EditorProps> = ({ name, disabled, submit }) => {
           disabled={disabled || context.disabled}
           hidden={!!preview}
           invalid={context.invalid}
-          name={finName}
-          register={hookContext.register}
+          register={hookContext.register(nameFinal)}
         />
       </EditorMentions>
       <EditorToolbar>
@@ -72,7 +71,7 @@ const Editor: React.FC<EditorProps> = ({ name, disabled, submit }) => {
             ) : (
               <EditorPreviewButton
                 disabled={disabled || context.disabled}
-                name={finName}
+                name={nameFinal}
                 onClick={openPreview}
               />
             )}

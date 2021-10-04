@@ -179,7 +179,7 @@ export const Mentions = () => (
             },
           ]}
         >
-          <EditorTextarea name="markup" />
+          <EditorTextarea />
         </EditorMentions>
       </EditorBody>
     </Container>

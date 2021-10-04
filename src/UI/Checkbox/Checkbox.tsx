@@ -1,6 +1,6 @@
 import React from "react"
-import { useFormContext } from "react-hook-form"
 import { useFieldContext } from "../Form"
+import useRegisterFieldHook from "../useRegisterFieldHook"
 
 interface CheckboxProps {
   checked?: boolean
@@ -20,19 +20,17 @@ const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const hookContext = useFormContext() || {}
+  const register = useRegisterFieldHook<HTMLInputElement>(name || context.name, { onChange })
 
   return (
     <span className="form-check-input">
       <input
         id={id || context.id}
         type="checkbox"
-        checked={!!hookContext.register ? undefined : checked}
+        checked={checked}
         disabled={disabled || context.disabled}
-        name={name || context.name}
-        ref={hookContext.register}
         required={required}
-        onChange={onChange}
+        {...register}
       />
     </span>
   )

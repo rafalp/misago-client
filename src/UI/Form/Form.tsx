@@ -7,14 +7,15 @@ import {
   FieldValues,
   FormProvider as HookFormProvider,
   UnpackNestedValue,
+  UseFormClearErrors,
   useForm,
 } from "react-hook-form"
 import { FormContext } from "./FormContext"
 
 interface OnSubmit<FormValues extends FieldValues = FieldValues> {
-  data: FormValues
+  data: UnpackNestedValue<FormValues>
   event?: React.BaseSyntheticEvent<object, any, any>
-  clearErrors(name?: FieldName<FieldValues> | FieldName<FieldValues>[]): void
+  clearErrors: UseFormClearErrors<FormValues>
   setError(name: FieldName<FieldValues>, error: ErrorOption): void
 }
 

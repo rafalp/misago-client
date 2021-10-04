@@ -1,6 +1,5 @@
 import { actions } from "@storybook/addon-actions"
 import { withKnobs, text } from "@storybook/addon-knobs"
-import React from "react"
 import AuthChangedLoggedInAlert from "./AuthChangedLoggedInAlert"
 import AuthChangedLoggedOutAlert from "./AuthChangedLoggedOutAlert"
 
@@ -13,16 +12,20 @@ const { reload } = actions({
   reload: "reload app",
 })
 
-export const LoggedIn = () => (
-  <AuthChangedLoggedInAlert
-    username={text("User name", "JohnDoe")}
-    reload={reload}
-  />
-)
+const args = {
+  username: "JohnDoe"
+}
 
-export const LoggedOut = () => (
-  <AuthChangedLoggedOutAlert
-    username={text("User name", "JohnDoe")}
+export const LoggedIn = ({ username }) => (
+  <AuthChangedLoggedInAlert
+    username={username}
     reload={reload}
   />
-)
+).args = args
+
+export const LoggedOut = ({ username }) => (
+  <AuthChangedLoggedOutAlert
+    username={username}
+    reload={reload}
+  />
+).args = args

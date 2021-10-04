@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React from "react"
-import { useFormContext } from "react-hook-form"
 import { useFieldContext } from "../Form"
+import useRegisterFieldHook from "../useRegisterFieldHook" 
 
 interface TextareaProps {
   className?: string
@@ -31,7 +31,7 @@ const Textarea: React.FC<TextareaProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const hookContext = useFormContext() || {}
+  const register = useRegisterFieldHook<HTMLTextAreaElement>(name || context.name, { onBlur, onChange })
 
   return (
     <textarea
@@ -43,13 +43,10 @@ const Textarea: React.FC<TextareaProps> = ({
       disabled={disabled || context.disabled}
       id={id || context.id}
       maxLength={maxLength}
-      name={name || context.name}
       placeholder={placeholder}
-      ref={hookContext.register}
       required={required || context.required}
       rows={rows || 5}
-      onBlur={onBlur}
-      onChange={onChange}
+      {...register}
     />
   )
 }

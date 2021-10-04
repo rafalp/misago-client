@@ -1,5 +1,5 @@
 import React from "react"
-import { useFormContext } from "react-hook-form"
+import { useFormContext, useFormState } from "react-hook-form"
 import classnames from "classnames"
 import { FieldContext } from "./FieldContext"
 import { FieldLabel } from "./FieldLabel"
@@ -36,7 +36,8 @@ const Field: React.FC<FieldProps> = ({
   const { disabled: formDisabled, id: formId } = React.useContext(FormContext)
   const fieldId = getFieldId(formId, id, name)
 
-  const { errors, getValues } = useFormContext()
+  const { control, getValues } = useFormContext()
+  const { errors } = useFormState({ control })
   const fieldError = name ? errors[name] : undefined
   const fieldValue = name ? getValues()[name] : undefined
 

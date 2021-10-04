@@ -1,4 +1,4 @@
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from '@hookform/resolvers/yup';
 import { t } from "@lingui/macro"
 import React from "react"
 import { UseFormReturn, useForm } from "react-hook-form"
@@ -59,7 +59,7 @@ const ThreadReplyProvider: React.FC<ThreadReplyProviderProps> = (props) => {
 
   const { getDraft, setDraft, removeDraft } = useNewReplyDraft(props.threadId)
 
-  const validators = Yup.object().shape({
+  const validators = Yup.object({
     markup: Yup.string()
       .required("value_error.missing")
       .min(postMinLength, "value_error.any_str.min_length"),
@@ -84,7 +84,7 @@ const ThreadReplyProvider: React.FC<ThreadReplyProviderProps> = (props) => {
   const formReset = form.reset
   const resetValue = React.useCallback(
     (value?: string) => {
-      formReset({ markup: value || "" }, { submitCount: true })
+      formReset({ markup: value || "" }, { keepSubmitCount: true })
     },
     [formReset]
   )
