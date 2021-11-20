@@ -1,0 +1,40 @@
+#!/bin/bash
+# Bootstrap script used to run setup tasks for Misago client image
+
+# Text styles
+RED='\033[0;31m'
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+
+# Utility functions used by action commands
+error() {
+    echo -e "${RED}Error:${NORMAL} $1"
+}
+# Commands
+install_plugins() {
+    # If plugins are present, install their node requirements
+    if [[ ! -d /client/plugins ]]; then
+        echo "SKIP"
+        exit 0
+    fi
+
+    if compgen -G "/client/plugins/*/client/package.json" > /dev/null; then
+        for requirements in /client/plugins/*/client/package.json; do
+            pip install -r $requirements
+        done
+    fi
+}
+
+# Command dispatcher
+if [[ $1 ]]; then
+    if [[ $1 = "plugins" ]]; then
+        install_plugins
+    else
+        invalid_argument $1
+        echo -e "Invalid argument: ${RED}$1${NORMAL}"
+        exit 1
+    fi
+else
+    error "This command needs to be ran with an argument."
+    exit 1
+fi
