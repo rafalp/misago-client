@@ -12,20 +12,16 @@ const { reload } = actions({
   reload: "reload app",
 })
 
-const args = {
-  username: "JohnDoe"
-}
-
-export const LoggedIn = ({ username }) => (
+export const LoggedIn = () => (
   <AuthChangedLoggedInAlert
-    username={username}
+    username={text("User name", "JohnDoe")}
     reload={reload}
   />
-).args = args
+)
 
-export const LoggedOut = ({ username }) => (
+export const LoggedOut = () => (
   <AuthChangedLoggedOutAlert
-    username={username}
+    username={text("User name", "JohnDoe")}
     reload={reload}
   />
-).args = args
+)
