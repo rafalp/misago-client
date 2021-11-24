@@ -18,11 +18,8 @@ install_plugins() {
         exit 0
     fi
 
-    if compgen -G "/client/plugins/*/client/package.json" > /dev/null; then
-        for requirements in /client/plugins/*/client/package.json; do
-            pip install -r $requirements
-        done
-    fi
+    # Run setup script for plugins JS
+    node bootstrap.js
 }
 
 # Command dispatcher

@@ -1,9 +1,10 @@
 import { t } from "@lingui/macro"
-import React from "react"
+import React, { Component } from "react"
 import LoadMoreButton from "../../UI/LoadMoreButton"
 import RouteLoader from "../../UI/RouteLoader"
 import WindowTitle from "../../UI/WindowTitle"
 import { useForumStatsContext, useSettingsContext } from "../../Context"
+import hooks from "../../hooks"
 import { ThreadsHeaderAll } from "./ThreadsHeader"
 import ThreadsLayout from "./ThreadsLayout"
 import ThreadsList from "./ThreadsList"
@@ -34,6 +35,9 @@ const ThreadsAll: React.FC = () => {
         title={t({ id: "threads.title", message: "Threads" })}
         alerts={update.threads}
       />
+      {hooks.THREADS_ALL_TOP.map((Component, index) => (
+        <Component key={index} />
+      ))}
       <ThreadsHeaderAll settings={settings} stats={forumStats} />
       <ThreadsToolbar acl={acl} />
       <ThreadsList
