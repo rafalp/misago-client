@@ -7,6 +7,7 @@ const path = require('path')
 const main = () => {
   const plugins = glob.sync("plugins/**/client/src")
   copyPluginsToSrc(plugins)
+  registerPluginsTs(plugins)
 }
 
 const copyPluginsToSrc = (plugins) => {
@@ -15,6 +16,32 @@ const copyPluginsToSrc = (plugins) => {
     const dst = `src/plugins/${name}`
     fs.copySync(src, dst)
   })
+}
+
+const registerPluginsTs = (plugins) => {
+  const imports = []
+  const registers = []
+
+  plugins.forEach((src, i) => {
+    const name = getPluginName(src)
+    imports.push(`import register${i} from "./${name}/plugin"`)
+    registers.push(`register${i}()`)
+  })
+
+  let file = imports.join("\n")
+  if (imports.length) file += "\n\n"
+
+  file += "const setupPlugins = () => {"
+  if (registers.length) {
+    file += "\n  "
+    file += registers.join("\n  ")
+    file += "\n"
+  } else {
+    file += " "
+  }
+  file += "}\n\nexport default setupPlugins"
+
+  fs.writeFileSync("src/plugins/index.ts", file)
 }
 
 const getPluginName = (src) => {
