@@ -1,4 +1,3 @@
-const setupPlugins = () => {
-}
+const setupPlugins = () => { }
 
 export default setupPlugins

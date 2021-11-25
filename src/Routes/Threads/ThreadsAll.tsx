@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro"
-import React, { Component } from "react"
+import React from "react"
 import LoadMoreButton from "../../UI/LoadMoreButton"
 import RouteLoader from "../../UI/RouteLoader"
 import WindowTitle from "../../UI/WindowTitle"

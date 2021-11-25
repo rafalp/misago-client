@@ -19,12 +19,15 @@ install_plugins() {
     fi
 
     # Run setup script for plugins JS
-    node bootstrap.js
+    node setupPlugins.js
 }
 
 # Command dispatcher
 if [[ $1 ]]; then
-    if [[ $1 = "plugins" ]]; then
+    if [[ $1 = "start" ]]; then
+        install_plugins
+        npm run start
+    elif [[ $1 = "plugins" ]]; then
         install_plugins
     else
         invalid_argument $1
