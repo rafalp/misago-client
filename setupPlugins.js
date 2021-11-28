@@ -8,6 +8,7 @@ const main = () => {
   const plugins = glob.sync("plugins/**/client/src")
   copyPluginsToSrc(plugins)
   registerPluginsTs(plugins)
+  registerPluginsSass()
 }
 
 const copyPluginsToSrc = (plugins) => {
@@ -46,6 +47,52 @@ const registerPluginsTs = (plugins) => {
 
 const getPluginName = (src) => {
   return src.split(path.sep)[1]
+}
+
+const MODE = {
+  COPY: 0,
+  SKIP: 1,
+}
+
+const registerPluginsSass = () => {
+  const variables = glob.sync("src/plugins/**/styles/variables.scss")
+  const components = glob.sync("src/plugins/**/styles/components.scss")
+
+  const styles = new String(fs.readFileSync("src/styles/index.scss")).split("\n")
+  const stylesNew = []
+
+  let mode = MODE.COPY
+  styles.forEach((l) => {
+    const line = l.trim()
+    if (mode === MODE.COPY) {
+      if (line === "// Plugins variables") {
+        stylesNew.push(line)
+        stylesNew.push("")
+        variables.forEach((plugin) => {
+          stylesNew.push(`@import "..${plugin.substr(3)}";`)
+        })
+        if (variables.length) stylesNew.push("")
+        mode = MODE.SKIP
+      } else if (line === "// Plugins components") {
+        stylesNew.push(line)
+        stylesNew.push("")
+        components.forEach((plugin) => {
+          stylesNew.push(`@import "..${plugin.substr(3)}";`)
+        })
+        if (components.length) stylesNew.push("")
+        mode = MODE.SKIP
+      } else {
+        stylesNew.push(line)
+      }
+    } else if (mode === MODE.SKIP) {
+      if (line.substring(0, 2) === "//") {
+        stylesNew.push(line)
+        mode = MODE.COPY
+      }
+    }
+  })
+
+  fs.writeFileSync("src/styles/index.scss", stylesNew.join("\n"))
 }
 
 main()
