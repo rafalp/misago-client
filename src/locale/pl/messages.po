@@ -171,807 +171,1034 @@ msgstr ""
 #~ msgid "You need to be this thread's author to perform this action."
 #~ msgstr ""
 
-#: UI/Error/GraphQLErrorMessage.tsx:3
+#: UI/Error/GraphQLErrorMessage.tsx:5
 msgid "api_error.message"
 msgstr ""
 
-#: UI/Error/GraphQLError.tsx:6
+#: UI/Error/GraphQLError.tsx:20
 msgid "api_error.title"
 msgstr ""
 
-#: AuthChangedAlert/AuthChangedLoggedInAlert.tsx:13
+#: AuthChangedAlert/AuthChangedLoggedInAlert.tsx:25
 msgid "auth_alert.logged_in.cta"
 msgstr ""
 
-#: AuthChangedAlert/AuthChangedLoggedInAlert.tsx:8
+#: AuthChangedAlert/AuthChangedLoggedInAlert.tsx:18
 msgid "auth_alert.logged_in.title"
 msgstr ""
 
-#: AuthChangedAlert/AuthChangedLoggedOutAlert.tsx:13
+#: AuthChangedAlert/AuthChangedLoggedOutAlert.tsx:25
 msgid "auth_alert.logged_out.cta"
 msgstr ""
 
-#: AuthChangedAlert/AuthChangedLoggedOutAlert.tsx:8
+#: AuthChangedAlert/AuthChangedLoggedOutAlert.tsx:18
 msgid "auth_alert.logged_out.title"
 msgstr ""
 
-#: UI/ValidationError/CategoryValidationError.tsx:34
+#: UI/ValidationError/CategoryValidationError.tsx:47
 msgid "auth_error.category.closed"
 msgstr ""
 
-#: UI/RouteError/RouteAuthRequiredError.tsx:15
+#: UI/RouteError/RouteAuthRequiredError.tsx:39
 msgid "auth_error.message"
 msgstr ""
 
-#: UI/RootError/RootError.tsx:39
+#: UI/RootError/RootError.tsx:68
 msgid "auth_error.not_authorized"
 msgstr ""
 
-#: UI/ValidationError/ValidationError.tsx:18
+#: UI/ValidationError/ValidationError.tsx:30
 msgid "auth_error.not_moderator"
 msgstr ""
 
-#: UI/ValidationError/CategoryValidationError.tsx:26
+#: UI/ValidationError/CategoryValidationError.tsx:38
 msgid "auth_error.not_moderator.category"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:18
+#: UI/ValidationError/PostValidationError.tsx:29
 msgid "auth_error.not_moderator.post"
 msgstr ""
 
-#: UI/ValidationError/ThreadValidationError.tsx:18
+#: UI/ValidationError/ThreadValidationError.tsx:29
 msgid "auth_error.not_moderator.thread"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:42
+#: UI/ValidationError/PostValidationError.tsx:56
 msgid "auth_error.post.not_author"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:26
+#: UI/ValidationError/PostValidationError.tsx:38
 msgid "auth_error.post_category.closed"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:34
-#: UI/ValidationError/ThreadValidationError.tsx:34
+#: UI/ValidationError/PostValidationError.tsx:47
+#: UI/ValidationError/ThreadValidationError.tsx:47
 msgid "auth_error.thread.closed"
 msgstr ""
 
-#: UI/ValidationError/ThreadValidationError.tsx:42
+#: UI/ValidationError/ThreadValidationError.tsx:56
 msgid "auth_error.thread.not_author"
 msgstr ""
 
-#: UI/ValidationError/ThreadValidationError.tsx:26
+#: UI/ValidationError/ThreadValidationError.tsx:38
 msgid "auth_error.thread_category.closed"
 msgstr ""
 
-#: UI/RouteError/RouteAuthRequiredError.tsx:13
+#: UI/RouteError/RouteAuthRequiredError.tsx:32
 msgid "auth_error.title"
 msgstr ""
 
-#: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:10
+#: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:22
 msgid "btn.new-thread"
 msgstr ""
 
-#: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:4
+#: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:24
 msgid "btn.update-threads-list"
 msgstr ""
 
-#: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:4
+#: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:22
 msgid "btn.updating-threads-list"
 msgstr ""
 
-#: UI/Form/FormFooter.tsx:7
+#: UI/Form/FormFooter.tsx:27
 msgid "cancel"
 msgstr ""
 
-#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModal.tsx:18
+#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModal.tsx:25
 msgid "category_picker.title"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationMenu.tsx:7
-#: Routes/Threads/ThreadsModeration/ThreadsModeration.tsx:19
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationMenu.tsx:30
+#: Routes/Threads/ThreadsModeration/ThreadsModeration.tsx:60
 msgid "clear_selection"
 msgstr ""
 
-#: UI/RootError/RootError.tsx:15
+#: UI/RootError/RootError.tsx:44
 msgid "client_error.graphql"
 msgstr ""
 
-#: UI/RootError/RootError.tsx:25
+#: UI/RootError/RootError.tsx:53
 msgid "client_error.network"
 msgstr ""
 
-#: Toasts/Toast.tsx:33
-#: UI/Form/FieldErrorFloating.tsx:11
-#: UI/Modal/ModalCloseFooter.tsx:6
-#: UI/Modal/ModalHeader.tsx:8
+#: Toasts/Toast.tsx:55
+#: UI/Form/FieldErrorFloating.tsx:26
+#: UI/Modal/ModalCloseFooter.tsx:17
+#: UI/Modal/ModalHeader.tsx:27
 msgid "close"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:72
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:87
 msgid "edit_reply.message"
 msgstr ""
 
-#: Editor/EditorPreviewError.tsx:10
+#: Editor/EditorControls.tsx:32
+msgid "editor.bold"
+msgstr ""
+
+#: Editor/EditorControls.tsx:41
+msgid "editor.bold_default"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlCodeModal.tsx:22
+#: Editor/EditorControls.tsx:181
+msgid "editor.code"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlCodeForm.tsx:84
+msgid "editor.code_default"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlCodeForm.tsx:99
+msgid "editor.code_modal.syntax"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlCodeForm.tsx:58
+msgid "editor.code_model.no_syntax"
+msgstr ""
+
+#: Editor/EditorControls.tsx:53
+msgid "editor.emphasis"
+msgstr ""
+
+#: Editor/EditorControls.tsx:62
+msgid "editor.emphasis_default"
+msgstr ""
+
+#: Editor/EditorPreviewError.tsx:17
 msgid "editor.error_message"
 msgstr ""
 
-#: Editor/EditorPreviewButton.tsx:9
+#: Editor/EditorControls.tsx:95
+msgid "editor.hr"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlImageModal.tsx:22
+#: Editor/EditorControls.tsx:121
+msgid "editor.image"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlImageForm.tsx:57
+msgid "editor.image_modal.label"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlImageForm.tsx:46
+msgid "editor.image_modal.link"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlLinkModal.tsx:22
+#: Editor/EditorControls.tsx:112
+msgid "editor.link"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlLinkForm.tsx:56
+msgid "editor.link_modal.label"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlLinkForm.tsx:46
+msgid "editor.link_modal.link"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlListModal.tsx:22
+#: Editor/EditorControls.tsx:130
+msgid "editor.list"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlListForm.tsx:61
+#: Editor/EditorControl/EditorControlListInput.tsx:53
+msgid "editor.list_modal.list"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlListForm.tsx:78
+msgid "editor.list_modal.ordered"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlListForm.tsx:71
+msgid "editor.list_modal.type"
+msgstr ""
+
+#: Editor/EditorControl/EditorControlListForm.tsx:85
+msgid "editor.list_modal.unordered"
+msgstr ""
+
+#: Editor/EditorPreviewButton.tsx:27
 msgid "editor.preview"
 msgstr ""
 
-#: Editor/Editor.tsx:38
+#: Editor/EditorControls.tsx:139
+msgid "editor.quote"
+msgstr ""
+
+#: Editor/EditorControls.tsx:148
+msgid "editor.quote_default"
+msgstr ""
+
+#: Editor/EditorControls.tsx:160
+msgid "editor.spoiler"
+msgstr ""
+
+#: Editor/EditorControls.tsx:169
+msgid "editor.spoiler_default"
+msgstr ""
+
+#: Editor/EditorControls.tsx:74
+msgid "editor.strikethrough"
+msgstr ""
+
+#: Editor/EditorControls.tsx:83
+msgid "editor.strikethrough_default"
+msgstr ""
+
+#: Editor/Editor.tsx:69
 msgid "editor.write"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostHeader.tsx:33
+#: Routes/Thread/ThreadPost/ThreadPostHeader.tsx:67
 msgid "edits"
 msgstr ""
 
-#: UI/Error/ErrorMessage.tsx:3
+#: UI/Error/ErrorMessage.tsx:5
 msgid "generic_error.message"
 msgstr ""
 
-#: UI/Error/Error.tsx:9
+#: UI/Error/Error.tsx:24
 msgid "generic_error.title"
 msgstr ""
 
-#: UI/Paginator/PaginatorDropdownMenu.tsx:30
+#: UI/Paginator/PaginatorDropdownMenu.tsx:52
 msgid "go"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:84
+#: AuthModal/AuthModalRegister.tsx:127
+#: SiteWizard/SiteWizardForm.tsx:179
 msgid "input.email"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:81
+#: AuthModal/AuthModalRegister.tsx:112
+#: SiteWizard/SiteWizardForm.tsx:164
 msgid "input.name"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:87
+#: AuthModal/AuthModalRegister.tsx:137
+#: SiteWizard/SiteWizardForm.tsx:189
 msgid "input.password"
 msgstr ""
 
-#: UI/LoadMoreButton/LoadMoreButton.tsx:9
+#: UI/LoadMoreButton/LoadMoreButton.tsx:28
 msgid "load-more"
 msgstr ""
 
-#: UI/LoadMoreButton/LoadMoreButton.tsx:9
+#: UI/LoadMoreButton/LoadMoreButton.tsx:26
 msgid "loading-more"
 msgstr ""
 
-#: Navbar/NavbarNav.tsx:32
-#: UI/RouteError/RouteAuthRequiredError.tsx:18
+#: Navbar/NavbarNav.tsx:58
+#: UI/RouteError/RouteAuthRequiredError.tsx:47
 msgid "login"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:71
+#: AuthModal/AuthModalLogin.tsx:99
 msgid "login.input.password"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:70
+#: AuthModal/AuthModalLogin.tsx:93
 msgid "login.input.username"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:75
+#: AuthModal/AuthModalLogin.tsx:119
 msgid "login.register"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:74
+#: AuthModal/AuthModalLogin.tsx:111
 msgid "login.submit"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:74
+#: AuthModal/AuthModalLogin.tsx:109
 msgid "login.submitting"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:42
+#: AuthModal/AuthModalLogin.tsx:46
 msgid "login.title"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModeration.tsx:15
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModeration.tsx:35
 msgid "moderate_posts"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModeration.tsx:14
+#: Routes/Threads/ThreadsModeration/ThreadsModeration.tsx:38
 msgid "moderate_threads"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:28
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:28
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:35
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:40
 msgid "moderation.close"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationClose.tsx:9
+#: Routes/Thread/ThreadModeration/ThreadModerationClose.tsx:23
 msgid "moderation.close_thread"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationClose.tsx:9
+#: Routes/Threads/ThreadsModeration/ThreadsModerationClose.tsx:26
 msgid "moderation.close_threads"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:39
-#: Routes/Thread/ThreadPost/ThreadPostModeration/useThreadPostModeration.tsx:15
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationDelete/ThreadPostsModerationDeleteForm.tsx:56
-#: Routes/Thread/ThreadPostsModeration/useThreadPostsModeration.tsx:17
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:38
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:46
+#: Routes/Thread/ThreadPost/ThreadPostModeration/useThreadPostModeration.tsx:30
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationDelete/ThreadPostsModerationDeleteForm.tsx:94
+#: Routes/Thread/ThreadPostsModeration/useThreadPostsModeration.tsx:28
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:50
 msgid "moderation.delete"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:51
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:40
+#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:84
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:73
 msgid "moderation.delete_message"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDelete.tsx:9
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDelete.tsx:24
 msgid "moderation.delete_post"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:44
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:81
 msgid "moderation.delete_post.submit"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:38
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationDelete/ThreadPostModerationDeleteForm.tsx:68
 msgid "moderation.delete_post_prompt"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationDelete/ThreadPostsModerationDelete.tsx:9
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationDelete/ThreadPostsModerationDelete.tsx:24
 msgid "moderation.delete_posts"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDelete.tsx:9
-#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMove.tsx:9
+#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDelete.tsx:20
+#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMove.tsx:20
 msgid "moderation.delete_thread"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:55
+#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:92
 msgid "moderation.delete_thread.submit"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:49
+#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:79
 msgid "moderation.delete_thread_prompt"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDeleteForm.tsx:63
+#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDeleteForm.tsx:107
 msgid "moderation.delete_threads.submit"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:34
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:33
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:41
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:45
 msgid "moderation.move"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:60
+#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:91
 msgid "moderation.move_thread.submit"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDelete.tsx:9
-#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMove.tsx:9
+#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDelete.tsx:23
+#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMove.tsx:20
 msgid "moderation.move_threads"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:69
+#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:121
 msgid "moderation.move_threads.submit"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:55
-#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:64
+#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:78
+#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:108
 msgid "moderation.new_category"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:22
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:23
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:29
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:35
 msgid "moderation.open"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationOpen.tsx:9
+#: Routes/Thread/ThreadModeration/ThreadModerationOpen.tsx:23
 msgid "moderation.open_thread"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationOpen.tsx:9
+#: Routes/Threads/ThreadsModeration/ThreadsModerationOpen.tsx:26
 msgid "moderation.open_threads"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationError/ThreadPostModerationErrorHeader.tsx:3
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationError/ThreadPostModerationErrorHeader.tsx:12
 msgid "moderation.post_delete_error"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationError/ThreadPostModerationErrorHeader.tsx:3
+#: Routes/Thread/ThreadPost/ThreadPostModeration/ThreadPostModerationError/ThreadPostModerationErrorHeader.tsx:14
 msgid "moderation.post_update_error"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationSelectedPosts/ThreadPostsModerationSelectedPostsButton.tsx:4
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationSelectedPosts/ThreadPostsModerationSelectedPostsButton.tsx:16
 msgid "moderation.see_selected_posts"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationSelectedThreads/ThreadsModerationSelectedThreadsButton.tsx:4
+#: Routes/Threads/ThreadsModeration/ThreadsModerationSelectedThreads/ThreadsModerationSelectedThreadsButton.tsx:16
 msgid "moderation.see_selected_threads"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:31
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:72
 msgid "moderation.selected_post_delete"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:13
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:43
 msgid "moderation.selected_post_delete_error"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationSelectedPosts/ThreadPostsModerationSelectedPosts.tsx:9
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationSelectedPosts/ThreadPostsModerationSelectedPosts.tsx:27
 msgid "moderation.selected_posts"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:23
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:57
 msgid "moderation.selected_posts_delete_error"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:18
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:49
 msgid "moderation.selected_posts_delete_error_some"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:41
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:86
 msgid "moderation.selected_posts_error"
 msgstr ""
 
-#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:36
+#: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationError/ThreadPostsModerationErrorHeader.tsx:78
 msgid "moderation.selected_posts_error_some"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:31
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:72
 msgid "moderation.selected_thread_delete"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:13
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:43
 msgid "moderation.selected_thread_delete_error"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationSelectedThreads/ThreadsModerationSelectedThreads.tsx:9
+#: Routes/Threads/ThreadsModeration/ThreadsModerationSelectedThreads/ThreadsModerationSelectedThreads.tsx:27
 msgid "moderation.selected_threads"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:23
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:57
 msgid "moderation.selected_threads_delete_error"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:18
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:49
 msgid "moderation.selected_threads_delete_error_some"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:41
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:86
 msgid "moderation.selected_threads_error"
 msgstr ""
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:36
+#: Routes/Threads/ThreadsModeration/ThreadsModerationError/ThreadsModerationErrorHeader.tsx:78
 msgid "moderation.selected_threads_error_some"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModeration.tsx:5
+#: Routes/Thread/ThreadModeration/ThreadModeration.tsx:16
 msgid "moderation.thread"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationError/ThreadModerationError.tsx:7
+#: Routes/Thread/ThreadModeration/ThreadModerationError/ThreadModerationError.tsx:27
 msgid "moderation.thread_delete_error"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:33
+#: Routes/Thread/ThreadModeration/ThreadModerationDelete/ThreadModerationDeleteForm.tsx:59
 msgid "moderation.thread_deleted"
 msgstr ""
 
-#: Routes/Thread/ThreadModeration/ThreadModerationError/ThreadModerationError.tsx:9
+#: Routes/Thread/ThreadModeration/ThreadModerationError/ThreadModerationError.tsx:31
 msgid "moderation.thread_update_error"
 msgstr ""
 
-#: Navbar/NavbarNav.tsx:15
-#: Navbar/NavbarNav.tsx:20
+#: Navbar/NavbarNav.tsx:27
+#: Navbar/NavbarNav.tsx:34
 msgid "navbar.categories"
 msgstr ""
 
-#: Navbar/NavbarNav.tsx:28
-#: Navbar/NavbarUserDropdown.tsx:12
+#: Navbar/NavbarNav.tsx:48
+#: Navbar/NavbarUserDropdown.tsx:39
 msgid "navbar.logout"
 msgstr ""
 
-#: Navbar/NavbarUserDropdown.tsx:11
+#: Navbar/NavbarUserDropdown.tsx:34
 msgid "navbar.profile"
 msgstr ""
 
-#: Navbar/NavbarNav.tsx:15
-#: Navbar/NavbarNav.tsx:22
+#: Navbar/NavbarNav.tsx:25
+#: Navbar/NavbarNav.tsx:38
 msgid "navbar.threads"
 msgstr ""
 
-#: Navbar/NavbarCollapse.tsx:27
+#: Navbar/NavbarCollapse.tsx:41
 msgid "navbar.toggle"
 msgstr ""
 
-#: UI/Error/NotFoundError.tsx:6
+#: UI/Error/NotFoundError.tsx:27
 msgid "not_found_error.message"
 msgstr ""
 
-#: UI/Error/NotFoundError.tsx:4
+#: UI/Error/NotFoundError.tsx:20
 msgid "not_found_error.title"
 msgstr ""
 
-#: UI/Paginator/PaginatorDropdown.tsx:12
+#: Editor/EditorControl/EditorControlCodeForm.tsx:111
+#: Editor/EditorControl/EditorControlImageForm.tsx:64
+#: Editor/EditorControl/EditorControlLinkForm.tsx:62
+#: Editor/EditorControl/EditorControlListForm.tsx:96
+msgid "ok"
+msgstr ""
+
+#: UI/Paginator/PaginatorDropdown.tsx:35
 msgid "paginator"
 msgstr ""
 
-#: UI/Paginator/PaginatorDropdownMenu.tsx:25
+#: UI/Paginator/PaginatorDropdownMenu.tsx:39
 msgid "paginator.goto"
 msgstr ""
 
-#: UI/Paginator/PaginatorDropdown.tsx:10
+#: UI/Paginator/PaginatorDropdown.tsx:31
 msgid "paginator_compact"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostOptions.tsx:11
+#: Routes/Thread/ThreadPost/ThreadPostFooter.tsx:26
+#: Routes/Thread/ThreadPost/ThreadPostOptions.tsx:47
 msgid "post.edit"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostPermalink.tsx:8
+#: Routes/Thread/ThreadPost/ThreadPostPermalink.tsx:24
 msgid "post.permalink"
 msgstr ""
 
-#: Routes/Thread/ThreadPost/ThreadPostPermalink.tsx:12
+#: Routes/Thread/ThreadPost/ThreadPostPermalink.tsx:35
 msgid "post.permalink_copied"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:56
+#: Routes/Thread/ThreadPost/ThreadPostFooter.tsx:37
+msgid "post.quote"
+msgstr ""
+
+#: Routes/Thread/ThreadPost/ThreadPostFooter.tsx:54
+msgid "post.reply"
+msgstr ""
+
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:83
 msgid "post_reply.message"
 msgstr ""
 
-#: Routes/PostThread/PostThreadAuthRequiredError.tsx:4
+#: Routes/PostThread/PostThreadAuthRequiredError.tsx:8
 msgid "post_thread.auth_error"
 msgstr ""
 
-#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectNoResults.tsx:7
+#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectNoResults.tsx:22
 msgid "post_thread.category_search_clear"
 msgstr ""
 
-#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectNoResults.tsx:5
+#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectNoResults.tsx:15
 msgid "post_thread.category_search_empty"
 msgstr ""
 
-#: Routes/PostThread/PostThreadPermissionDeniedError.tsx:4
+#: Routes/PostThread/PostThreadPermissionDeniedError.tsx:8
 msgid "post_thread.no_valid_categories_error"
 msgstr ""
 
-#: Routes/PostThread/PostThreadPermissionDeniedError.tsx:6
+#: Routes/PostThread/PostThreadPermissionDeniedError.tsx:13
 msgid "post_thread.no_valid_categories_error_message"
 msgstr ""
 
-#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectSearch.tsx:9
+#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelectSearch.tsx:20
 msgid "post_thread.search_category"
 msgstr ""
 
-#: Routes/PostThread/PostThreadCategoryInput/PostThreadCategoryInputPlaceholder.tsx:4
-#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelect.tsx:14
+#: Routes/PostThread/PostThreadCategoryInput/PostThreadCategoryInputPlaceholder.tsx:6
+#: Routes/PostThread/PostThreadCategorySelect/PostThreadCategorySelect.tsx:30
 msgid "post_thread.select_category"
 msgstr ""
 
-#: Routes/PostThread/PostThread.tsx:32
+#: Routes/PostThread/PostThread.tsx:37
 msgid "post_thread.title"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:81
+#: Routes/PostThread/PostThreadForm.tsx:194
 msgid "posting.close_thread"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyContext.tsx:35
+#: Routes/Thread/ThreadReply/ThreadReplyContext.tsx:187
+msgid "posting.confirm_cancel"
+msgstr ""
+
+#: Routes/Thread/ThreadReply/ThreadReplyContext.tsx:150
+msgid "posting.confirm_cancel_edit_to_edit"
+msgstr ""
+
+#: Routes/Thread/ThreadReply/ThreadReplyContext.tsx:102
 msgid "posting.confirm_cancel_edit_to_reply"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyDialog.tsx:13
+#: Routes/Thread/ThreadReply/ThreadReplyContext.tsx:138
+msgid "posting.confirm_cancel_reply_to_edit"
+msgstr ""
+
+#: Routes/Thread/ThreadReply/ThreadReplyDialog.tsx:39
 msgid "posting.edit"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditError.tsx:8
-#: Routes/Thread/ThreadReply/ThreadReplyError.tsx:6
+#: Routes/Thread/ThreadReply/ThreadReplyEditError.tsx:19
+#: Routes/Thread/ThreadReply/ThreadReplyError.tsx:10
 msgid "posting.error"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyError.tsx:8
+#: Routes/Thread/ThreadReply/ThreadReplyError.tsx:15
 msgid "posting.error_detail"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:46
+#: Routes/PostThread/PostThreadForm.tsx:91
 msgid "posting.form"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:62
+#: Routes/PostThread/PostThreadForm.tsx:120
 msgid "posting.message"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:78
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:86
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:63
+#: Routes/PostThread/PostThreadForm.tsx:177
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:110
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:98
 msgid "posting.placeholder"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditError.tsx:10
+#: Routes/Thread/ThreadReply/ThreadReplyEditError.tsx:31
 msgid "posting.post_not_found"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyDialog.tsx:13
+#: Routes/Thread/ThreadReply/ThreadReplyDialog.tsx:41
 msgid "posting.reply"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:86
+#: Routes/PostThread/PostThreadForm.tsx:209
 msgid "posting.submit"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:86
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:119
 msgid "posting.submit_changes"
 msgstr ""
 
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:63
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:107
 msgid "posting.submit_reply"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:75
+#: Routes/PostThread/PostThreadForm.tsx:160
 msgid "posting.thread_category"
 msgstr ""
 
-#: Routes/PostThread/PostThreadForm.tsx:69
-#: Routes/PostThread/PostThreadForm.tsx:69
+#: Routes/PostThread/PostThreadForm.tsx:136
+#: Routes/PostThread/PostThreadForm.tsx:140
 msgid "posting.thread_title"
 msgstr ""
 
-#: Navbar/NavbarNav.tsx:35
-#: UI/RouteError/RouteAuthRequiredError.tsx:19
+#: Routes/Thread/ThreadQuoteSelection/ThreadQuoteSelection.tsx:68
+msgid "quote_selected"
+msgstr ""
+
+#: Navbar/NavbarNav.tsx:65
+#: UI/RouteError/RouteAuthRequiredError.tsx:52
 msgid "register"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:93
+#: AuthModal/AuthModalRegister.tsx:169
 msgid "register.login"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:92
+#: AuthModal/AuthModalRegister.tsx:161
 msgid "register.submit"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:92
+#: AuthModal/AuthModalRegister.tsx:159
 msgid "register.submitting"
 msgstr ""
 
-#: AuthModal/RegisterModal.tsx:57
+#: AuthModal/AuthModalRegister.tsx:74
 msgid "register.title"
 msgstr ""
 
-#: Routes/Thread/ThreadHeader/ThreadHeaderTitleEditForm.tsx:58
+#: UI/RichText/RichTextCode.tsx:33
+msgid "rich_text.code_copied"
+msgstr ""
+
+#: UI/RichText/RichTextCode.tsx:24
+msgid "rich_text.code_copy"
+msgstr ""
+
+#: UI/RichText/RichTextQuoteHeader.tsx:19
+msgid "rich_text.quote"
+msgstr ""
+
+#: UI/RichText/RichTextSpoiler.tsx:23
+msgid "rich_text.spoiler"
+msgstr ""
+
+#: UI/RichText/RichTextSpoiler.tsx:28
+msgid "rich_text.spoiler_hide"
+msgstr ""
+
+#: UI/RichText/RichTextSpoiler.tsx:30
+msgid "rich_text.spoiler_reveal"
+msgstr ""
+
+#: Routes/Thread/ThreadHeader/ThreadHeaderTitleEditForm.tsx:93
 msgid "save"
 msgstr ""
 
-#: UI/CategorySelect/CategorySelect.tsx:7
+#: UI/CategorySelect/CategorySelect.tsx:11
 msgid "select_category.placeholder"
 msgstr ""
 
-#: Routes/Thread/ThreadToolbar/ThreadToolbarReplyButton.tsx:10
+#: Routes/Thread/ThreadToolbar/ThreadToolbarReplyButton.tsx:27
 msgid "thread.closed"
 msgstr ""
 
-#: Routes/Thread/ThreadToolbar/ThreadToolbarReplyButton.tsx:10
+#: Routes/Thread/ThreadToolbar/ThreadToolbarReplyButton.tsx:20
 msgid "thread.new_reply"
 msgstr ""
 
-#: Routes/Threads/ThreadsList/ThreadsListBlankslate.tsx:5
+#: Routes/Threads/ThreadsList/ThreadsListBlankslate.tsx:21
 msgid "threads.blankslate.header"
 msgstr ""
 
-#: Routes/Threads/ThreadsList/ThreadsListBlankslate.tsx:7
+#: Routes/Threads/ThreadsList/ThreadsListBlankslate.tsx:27
 msgid "threads.blankslate.message"
 msgstr ""
 
-#: Routes/Threads/ThreadsList/ThreadsListGraphQLError.tsx:7
+#: Routes/Threads/ThreadsList/ThreadsListGraphQLError.tsx:27
 msgid "threads.graphql_error_header"
 msgstr ""
 
-#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModal.tsx:21
-#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModalButton.tsx:12
-#: Routes/Threads/ThreadsHeader/ThreadsHeaderAll.tsx:4
-#: UI/CategoriesNav/CategoriesNav.tsx:13
+#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModal.tsx:30
+#: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModalButton.tsx:33
+#: Routes/Threads/ThreadsHeader/ThreadsHeaderAll.tsx:28
+#: UI/CategoriesNav/CategoriesNav.tsx:25
 msgid "threads.header"
 msgstr ""
 
-#: Routes/Threads/ThreadsAll.tsx:25
+#: Routes/Threads/ThreadsAll.tsx:35
 msgid "threads.title"
 msgstr ""
 
-#: UI/Tidbits/TidbitActivity.tsx:28
-#: UI/Tidbits/TidbitActivity.tsx:37
+#: UI/Tidbits/TidbitActivity.tsx:80
+#: UI/Tidbits/TidbitActivity.tsx:98
 msgid "tidbit.activity"
 msgstr ""
 
-#: UI/Tidbits/TidbitClosed.tsx:7
+#: UI/Tidbits/TidbitClosed.tsx:9
 msgid "tidbit.closed"
 msgstr ""
 
-#: UI/Tidbits/TidbitMembers.tsx:6
+#: UI/Tidbits/TidbitMembers.tsx:12
 msgid "tidbit.members"
 msgstr ""
 
-#: UI/Tidbits/TidbitPosts.tsx:6
+#: UI/Tidbits/TidbitPosts.tsx:12
 msgid "tidbit.posts"
 msgstr ""
 
-#: UI/Tidbits/TidbitReplies.tsx:6
+#: UI/Tidbits/TidbitReplies.tsx:12
 msgid "tidbit.replies"
 msgstr ""
 
-#: UI/Tidbits/TidbitThreads.tsx:6
+#: UI/Tidbits/TidbitThreads.tsx:12
 msgid "tidbit.threads"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:51
+#: UI/Timestamp/Timestamp.tsx:88
 msgid "time.days_ago"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:38
+#: UI/Timestamp/Timestamp.tsx:61
 msgid "time.hours_ago"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:65
+#: UI/Timestamp/Timestamp.tsx:125
 msgid "time.in_days"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:62
+#: UI/Timestamp/Timestamp.tsx:114
 msgid "time.in_hours"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:59
+#: UI/Timestamp/Timestamp.tsx:103
 msgid "time.in_minutes"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:56
+#: UI/Timestamp/Timestamp.tsx:98
 msgid "time.in_moment"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:35
+#: UI/Timestamp/Timestamp.tsx:50
 msgid "time.minutes_ago"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:32
+#: UI/Timestamp/Timestamp.tsx:45
 msgid "time.moment_ago"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:70
-#: UI/Timestamp/Timestamp.tsx:72
+#: UI/Timestamp/Timestamp.tsx:137
+#: UI/Timestamp/Timestamp.tsx:141
 msgid "time.on"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:42
+#: UI/Timestamp/Timestamp.tsx:73
 msgid "time.today"
 msgstr ""
 
-#: UI/Timestamp/Timestamp.tsx:46
+#: UI/Timestamp/Timestamp.tsx:80
 msgid "time.yesterday"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:60
+#: AuthModal/AuthModalLogin.tsx:77
 msgid "value_error.all_fields_are_required"
 msgstr ""
 
-#: UI/ValidationError/ValidationError.tsx:45
+#: UI/ValidationError/ValidationError.tsx:60
 msgid "value_error.any_str.max_length"
 msgstr ""
 
-#: UI/ValidationError/ValidationError.tsx:34
+#: UI/ValidationError/ValidationError.tsx:48
 msgid "value_error.any_str.min_length"
 msgstr ""
 
-#: UI/ValidationError/CategoryValidationError.tsx:18
+#: UI/ValidationError/CategoryValidationError.tsx:29
 msgid "value_error.category.missing"
 msgstr ""
 
-#: UI/ValidationError/CategoryValidationError.tsx:42
+#: UI/ValidationError/CategoryValidationError.tsx:56
 msgid "value_error.category.not_exists"
 msgstr ""
 
-#: UI/ValidationError/EmailValidationError.tsx:27
+#: UI/ValidationError/EmailValidationError.tsx:39
 msgid "value_error.email"
 msgstr ""
 
-#: UI/ValidationError/EmailValidationError.tsx:19
+#: UI/ValidationError/EmailValidationError.tsx:30
 msgid "value_error.email.missing"
 msgstr ""
 
-#: UI/ValidationError/EmailValidationError.tsx:43
+#: UI/ValidationError/EmailValidationError.tsx:57
 msgid "value_error.email.not_allowed"
 msgstr ""
 
-#: UI/ValidationError/EmailValidationError.tsx:35
+#: UI/ValidationError/EmailValidationError.tsx:48
 msgid "value_error.email.not_available"
 msgstr ""
 
-#: UI/ValidationError/ValidationError.tsx:26
+#: UI/ValidationError/LinkValidationError.tsx:39
+msgid "value_error.link"
+msgstr ""
+
+#: UI/ValidationError/LinkValidationError.tsx:30
+msgid "value_error.link.missing"
+msgstr ""
+
+#: UI/ValidationError/ValidationError.tsx:39
 msgid "value_error.missing"
 msgstr ""
 
-#: UI/ValidationError/PasswordValidationError.tsx:39
+#: UI/ValidationError/PasswordValidationError.tsx:52
 msgid "value_error.password.max_length"
 msgstr ""
 
-#: UI/ValidationError/PasswordValidationError.tsx:28
+#: UI/ValidationError/PasswordValidationError.tsx:40
 msgid "value_error.password.min_length"
 msgstr ""
 
-#: UI/ValidationError/PasswordValidationError.tsx:20
+#: UI/ValidationError/PasswordValidationError.tsx:31
 msgid "value_error.password.missing"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:58
+#: UI/ValidationError/PostValidationError.tsx:74
 msgid "value_error.post.not_exists"
 msgstr ""
 
-#: UI/ValidationError/PostValidationError.tsx:50
+#: UI/ValidationError/PostValidationError.tsx:65
 msgid "value_error.post.thread_start"
 msgstr ""
 
-#: UI/ValidationError/PostsValidationError.tsx:31
+#: UI/ValidationError/PostsValidationError.tsx:43
 msgid "value_error.posts.max_items"
 msgstr ""
 
-#: UI/ValidationError/PostsValidationError.tsx:20
+#: UI/ValidationError/PostsValidationError.tsx:31
 msgid "value_error.posts.min_items"
 msgstr ""
 
-#: UI/ValidationError/ThreadValidationError.tsx:50
+#: UI/ValidationError/ThreadValidationError.tsx:66
 msgid "value_error.thread.not_exists"
 msgstr ""
 
-#: UI/ValidationError/ThreadTitleValidationError.tsx:29
+#: UI/ValidationError/ThreadTitleValidationError.tsx:41
 msgid "value_error.thread_title"
 msgstr ""
 
-#: UI/ValidationError/ThreadTitleValidationError.tsx:56
+#: UI/ValidationError/ThreadTitleValidationError.tsx:72
 msgid "value_error.thread_title.max_length"
 msgstr ""
 
-#: UI/ValidationError/ThreadTitleValidationError.tsx:45
+#: UI/ValidationError/ThreadTitleValidationError.tsx:60
 msgid "value_error.thread_title.min_length"
 msgstr ""
 
-#: UI/ValidationError/ThreadTitleValidationError.tsx:21
+#: UI/ValidationError/ThreadTitleValidationError.tsx:32
 msgid "value_error.thread_title.missing"
 msgstr ""
 
-#: UI/ValidationError/ThreadTitleValidationError.tsx:37
+#: UI/ValidationError/ThreadTitleValidationError.tsx:51
 msgid "value_error.thread_title.not_allowed"
 msgstr ""
 
-#: UI/ValidationError/ThreadsValidationError.tsx:31
+#: UI/ValidationError/ThreadsValidationError.tsx:43
 msgid "value_error.threads.max_items"
 msgstr ""
 
-#: UI/ValidationError/ThreadsValidationError.tsx:20
+#: UI/ValidationError/ThreadsValidationError.tsx:31
 msgid "value_error.threads.min_items"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:29
+#: UI/ValidationError/UsernameValidationError.tsx:41
 msgid "value_error.username"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:64
+#: UI/ValidationError/UsernameValidationError.tsx:81
 msgid "value_error.username.max_length"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:53
+#: UI/ValidationError/UsernameValidationError.tsx:69
 msgid "value_error.username.min_length"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:21
+#: UI/ValidationError/UsernameValidationError.tsx:32
 msgid "value_error.username.missing"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:45
+#: UI/ValidationError/UsernameValidationError.tsx:60
 msgid "value_error.username.not_allowed"
 msgstr ""
 
-#: UI/ValidationError/UsernameValidationError.tsx:37
+#: UI/ValidationError/UsernameValidationError.tsx:51
 msgid "value_error.username.not_available"
 msgstr ""
 
-#: AuthModal/LoginModal.tsx:63
+#: AuthModal/AuthModalLogin.tsx:82
 msgid "value_errosr.invalid_credentials"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:161
+msgid "wizard.admin"
+msgstr ""
+
+#: SiteWizard/SiteWizardCompleted.tsx:18
+msgid "wizard.completed.lead"
+msgstr ""
+
+#: SiteWizard/SiteWizardCompleted.tsx:21
+msgid "wizard.completed.message_1"
+msgstr ""
+
+#: SiteWizard/SiteWizardCompleted.tsx:34
+#: SiteWizard/SiteWizardForm.tsx:213
+#: SiteWizard/SiteWizardStart.tsx:34
+msgid "wizard.continue"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:130
+msgid "wizard.forum_index"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:144
+msgid "wizard.forum_index.categories"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:137
+msgid "wizard.forum_index.threads"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:115
+msgid "wizard.forum_name"
+msgstr ""
+
+#: SiteWizard/SiteWizardForm.tsx:112
+msgid "wizard.site"
+msgstr ""
+
+#: SiteWizard/SiteWizardStart.tsx:16
+msgid "wizard.start.lead"
+msgstr ""
+
+#: SiteWizard/SiteWizardStart.tsx:19
+msgid "wizard.start.message_1"
+msgstr ""
+
+#: SiteWizard/SiteWizardCompleted.tsx:26
+#: SiteWizard/SiteWizardStart.tsx:25
+msgid "wizard.start.message_2"
 msgstr ""
 
 #: UI/ValidationError/PasswordValidationError.tsx:35

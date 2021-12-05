@@ -12,6 +12,7 @@
     "@craco/craco": "^6.4.2",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@hookform/resolvers": "^2.8.1",
+    "@lingui/cli": "^3.13.0",
     "@lingui/macro": "^3.11.1",
     "@lingui/react": "^3.11.1",
     "@popperjs/core": "^2.10.1",
