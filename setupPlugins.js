@@ -58,7 +58,7 @@ const registerPluginsSass = () => {
   const variables = glob.sync("src/plugins/**/styles/variables.scss")
   const components = glob.sync("src/plugins/**/styles/components.scss")
 
-  const styles = new String(fs.readFileSync("src/styles/index.scss")).split("\n")
+  const styles = readFileLinesSync("src/styles/index.scss")
   const stylesNew = []
 
   let mode = MODE.COPY
@@ -93,6 +93,10 @@ const registerPluginsSass = () => {
   })
 
   fs.writeFileSync("src/styles/index.scss", stylesNew.join("\n"))
+}
+
+const readFileLinesSync = (file) => {
+  return new String(fs.readFileSync(file)).split("\n")
 }
 
 main()
