@@ -7,8 +7,9 @@ const path = require('path')
 const main = () => {
   const plugins = glob.sync("plugins/**/client/src")
   copyPluginsToSrc(plugins)
-  registerPluginsTs(plugins)
-  registerPluginsSass()
+  registerPluginsTypescript(plugins)
+  registerPluginsStyles()
+  registerPluginsTranslations()
 }
 
 const copyPluginsToSrc = (plugins) => {
@@ -19,7 +20,7 @@ const copyPluginsToSrc = (plugins) => {
   })
 }
 
-const registerPluginsTs = (plugins) => {
+const registerPluginsTypescript = (plugins) => {
   const imports = []
   const registers = []
 
@@ -54,7 +55,7 @@ const MODE = {
   SKIP: 1,
 }
 
-const registerPluginsSass = () => {
+const registerPluginsStyles = () => {
   const variables = glob.sync("src/plugins/**/styles/variables.scss")
   const components = glob.sync("src/plugins/**/styles/components.scss")
 
@@ -95,8 +96,91 @@ const registerPluginsSass = () => {
   fs.writeFileSync("src/styles/index.scss", stylesNew.join("\n"))
 }
 
+const PLUGIN_LOCALES_DELIMITER = "# Plugins locales"
+
+const registerPluginsTranslations = () => {
+  const locales = glob.sync("src/locale/**/messages.po")
+  locales.forEach((filepath) => {
+    // Reset locale file to original format
+    const corePo = new String(fs.readFileSync(filepath))
+    if (corePo.indexOf(PLUGIN_LOCALES_DELIMITER) !== -1) {
+      const coreMessagesEnd = corePo.indexOf(PLUGIN_LOCALES_DELIMITER)
+      const orgCorePo = corePo.substring(0, coreMessagesEnd).trim() + "\n"
+      fs.writeFileSync(filepath, orgCorePo)
+    }
+
+    // Append plugins to core locale after delimiter
+    fs.appendFileSync(filepath, `\n${PLUGIN_LOCALES_DELIMITER}\n`)
+
+    const coreMessages = getCoreMessages(filepath)
+    const pathSegments = filepath.split(path.sep)
+    const lang = pathSegments[pathSegments.length - 2]
+    const plugins = glob.sync(`src/plugins/**/locale/${lang}/messages.po`)
+
+    plugins.forEach((pluginLocale) => {
+      const pluginMessages = getPluginMessages(coreMessages, pluginLocale)
+      if (pluginMessages.length) {
+        fs.appendFileSync(filepath, pluginMessages)
+      }
+    })
+  })
+}
+
+const getCoreMessages = (filepath) => {
+  const lines = readFileLinesSync(filepath)
+  const msgids = []
+  lines.forEach((line) => {
+    if (!line.trim().startsWith("msgid")) return
+    let msgid = getMsgIdFromLine(line)
+    if (msgids.indexOf(msgid) === -1) msgids.push(msgid)
+  })
+  return msgids
+}
+
+const getPluginMessages = (coreMessages, filepath) => {
+  const newMessages = []
+  const lastMessage = {
+    comment: null,
+    msgid: null,
+  }
+  
+  const lines = readFileLinesSync(filepath)
+  lines.forEach((line) => {
+    if (line.trim().startsWith("#: ")) {
+      lastMessage.comment = line
+    }
+    if (line.trim().startsWith("msgid ")) {
+      lastMessage.msgid = line
+    }
+    if (line.trim().startsWith("msgstr ")) {
+      if (lastMessage.msgid !== null) {
+        const msgid = getMsgIdFromLine(lastMessage.msgid)
+        if (coreMessages.indexOf(msgid) === -1) {
+          newMessages.push("")
+          newMessages.push(lastMessage.comment)
+          newMessages.push(lastMessage.msgid)
+          newMessages.push(line)
+        }
+
+        lastMessage.comment = null
+        lastMessage.msgid = null
+      }
+    }
+  })
+
+  return newMessages.join("\n")
+}
+
 const readFileLinesSync = (file) => {
   return new String(fs.readFileSync(file)).split("\n")
+}
+
+const getMsgIdFromLine = (line) => {
+    if (!line.trim().startsWith("msgid")) return null
+    let msgid = line.trim().substr(5).trim()
+    msgid = msgid.substr(1)
+    msgid = msgid.substr(0, msgid.length - 1)
+    return msgid
 }
 
 main()
