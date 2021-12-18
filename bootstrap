@@ -10,6 +10,7 @@ NORMAL=$(tput sgr0)
 error() {
     echo -e "${RED}Error:${NORMAL} $1"
 }
+
 # Commands
 install_plugins() {
     # If plugins are present, install their node requirements
