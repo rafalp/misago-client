@@ -13,7 +13,7 @@ error() {
 
 # Commands
 install_plugins() {
-    if [[ -d /client/plugins ]]; then
+    if [[ -d plugins ]]; then
         # Run setup script for plugins JS
         node setupPlugins.js
     fi
@@ -22,6 +22,7 @@ install_plugins() {
 prepare_deploy() {
     npm run build
     mv build/asset-manifest.json build/static/misago/asset-manifest.json
+    mkdir build_tmp
     mv build/static/misago build_tmp/misago
     rm -rf build
     mv build_tmp build
