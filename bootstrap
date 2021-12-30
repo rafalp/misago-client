@@ -23,7 +23,6 @@ install_plugins() {
 }
 
 prepare_deploy() {
-    # Move files around for deployment
     npm run build
     mv build/asset-manifest.json build/static/misago/asset-manifest.json
     mv build/static/misago build_tmp/misago
@@ -40,6 +39,8 @@ if [[ $1 ]]; then
     elif [[ $1 = "plugins" ]]; then
         install_plugins
     elif [[ $1 = "deploy" ]]; then
+        install_plugins
+        npm run i18n-compile
         prepare_deploy
     else
         invalid_argument $1
