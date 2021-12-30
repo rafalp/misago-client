@@ -12,11 +12,18 @@ import { getAuthToken } from "./auth"
 const cache = new InMemoryCache()
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:8000/graphql/",
+  uri: "/graphql/",
 })
 
+const getWebSocketURI = () => {
+  if (!window || !window.location) return "/graphql/"
+
+  const prefix = window.location.protocol === "https" ? "wss://" : "ws://"
+  return prefix + window.location.host + "/graphql/"
+}
+
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:8000/graphql/`,
+  uri: getWebSocketURI(),
   options: {
     lazy: true,
     reconnect: true,
