@@ -15,12 +15,20 @@ error() {
 install_plugins() {
     # If plugins are present, install their node requirements
     if [[ ! -d /client/plugins ]]; then
-        echo "SKIP"
         exit 0
     fi
 
     # Run setup script for plugins JS
     node setupPlugins.js
+}
+
+prepare_deploy() {
+    # Move files around for deployment
+    npm run build
+    mv build/asset-manifest.json build/static/misago/asset-manifest.json
+    mv build/static/misago build_tmp/misago
+    rm -rf build
+    mv build_tmp build
 }
 
 # Command dispatcher
@@ -31,6 +39,8 @@ if [[ $1 ]]; then
         npm run start
     elif [[ $1 = "plugins" ]]; then
         install_plugins
+    elif [[ $1 = "deploy" ]]; then
+        prepare_deploy
     else
         invalid_argument $1
         echo -e "Invalid argument: ${RED}$1${NORMAL}"
