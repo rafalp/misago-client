@@ -13,13 +13,10 @@ error() {
 
 # Commands
 install_plugins() {
-    # If plugins are present, install their node requirements
-    if [[ ! -d /client/plugins ]]; then
-        exit 0
+    if [[ -d /client/plugins ]]; then
+        # Run setup script for plugins JS
+        node setupPlugins.js
     fi
-
-    # Run setup script for plugins JS
-    node setupPlugins.js
 }
 
 prepare_deploy() {
