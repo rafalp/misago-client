@@ -53,8 +53,8 @@
     "test": "craco test",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "i18n-extract": "lingui extract",
-    "i18n-compile": "lingui compile",
+    "makemessages": "lingui extract",
+    "compilemessages": "lingui compile",
     "prettier": "prettier 'src/**/*.{ts,tsx,scss}' --write"
   },
   "eslintConfig": {

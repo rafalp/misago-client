@@ -90,6 +90,22 @@ msgstr "This thread's category is closed."
 msgid "auth_error.title"
 msgstr "You must be logged in to access this page."
 
+#: AvatarModal/AvatarUploadForm.tsx:43
+msgid "avatar_modal.avatar_updated"
+msgstr "Avatar has been updated."
+
+#: AvatarModal/AvatarModalDialog.tsx:20
+msgid "avatar_modal.title"
+msgstr "Avatar Controls"
+
+#: AvatarModal/AvatarUploadForm.tsx:93
+msgid "avatar_modal.upload_image"
+msgstr "Upload image"
+
+#: AvatarModal/AvatarUploadForm.tsx:82
+msgid "avatar_modal.upload_instruction"
+msgstr "{avatarUploadImageMinSize}x{avatarUploadImageMinSize}px weighting less than {0}."
+
 #: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:22
 msgid "btn.new-thread"
 msgstr "New thread"
@@ -101,6 +117,10 @@ msgstr "{threads, plural, one {See # new or updated thread} other {See # new or 
 #: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:22
 msgid "btn.updating-threads-list"
 msgstr "Loading threads..."
+
+#: UI/formats.ts:82
+msgid "bytes"
+msgstr "{size, plural, one {{size} byte} other {{size} bytes}}"
 
 #: UI/Form/FormFooter.tsx:27
 msgid "cancel"
@@ -267,24 +287,32 @@ msgstr "An unexpected error has occurred."
 msgid "generic_error.title"
 msgstr "Requested page could not be displayed."
 
+#: UI/formats.ts:49
+msgid "gigabytes"
+msgstr "{rounded, plural, one {{rounded} gigabytes} other {{rounded} gigabytes}}"
+
 #: UI/Paginator/PaginatorDropdownMenu.tsx:52
 msgid "go"
 msgstr "Go"
 
-#: AuthModal/AuthModalRegister.tsx:127
+#: AuthModal/AuthModalRegister.tsx:132
 #: SiteWizard/SiteWizardForm.tsx:179
 msgid "input.email"
 msgstr "E-mail"
 
-#: AuthModal/AuthModalRegister.tsx:112
+#: AuthModal/AuthModalRegister.tsx:117
 #: SiteWizard/SiteWizardForm.tsx:164
 msgid "input.name"
 msgstr "User name"
 
-#: AuthModal/AuthModalRegister.tsx:137
+#: AuthModal/AuthModalRegister.tsx:142
 #: SiteWizard/SiteWizardForm.tsx:189
 msgid "input.password"
 msgstr "Password"
+
+#: UI/formats.ts:73
+msgid "kilobytes"
+msgstr "{rounded, plural, one {{rounded} kilobyte} other {{rounded} kilobytes}}"
 
 #: UI/LoadMoreButton/LoadMoreButton.tsx:28
 msgid "load-more"
@@ -299,29 +327,33 @@ msgstr "Loading..."
 msgid "login"
 msgstr "Log in"
 
-#: AuthModal/AuthModalLogin.tsx:99
+#: AuthModal/AuthModalLogin.tsx:104
 msgid "login.input.password"
 msgstr "Password"
 
-#: AuthModal/AuthModalLogin.tsx:93
+#: AuthModal/AuthModalLogin.tsx:98
 msgid "login.input.username"
 msgstr "User name or e-mail"
 
-#: AuthModal/AuthModalLogin.tsx:119
+#: AuthModal/AuthModalLogin.tsx:124
 msgid "login.register"
 msgstr "Not a member? <0>Sign up</0>"
 
-#: AuthModal/AuthModalLogin.tsx:111
+#: AuthModal/AuthModalLogin.tsx:116
 msgid "login.submit"
 msgstr "Log in"
 
-#: AuthModal/AuthModalLogin.tsx:109
+#: AuthModal/AuthModalLogin.tsx:114
 msgid "login.submitting"
 msgstr "Logging in..."
 
 #: AuthModal/AuthModalLogin.tsx:46
 msgid "login.title"
 msgstr "Log in"
+
+#: UI/formats.ts:61
+msgid "megabytes"
+msgstr "{rounded, plural, one {{rounded} megatybe} other {{rounded} megatybes}}"
 
 #: Routes/Thread/ThreadPostsModeration/ThreadPostsModeration.tsx:35
 msgid "moderate_posts"
@@ -519,12 +551,16 @@ msgstr "Thread could not be updated."
 msgid "navbar.categories"
 msgstr "Categories"
 
+#: Navbar/NavbarUserDropdown.tsx:42
+msgid "navbar.edit_avatar"
+msgstr "Edit avatar"
+
 #: Navbar/NavbarNav.tsx:48
-#: Navbar/NavbarUserDropdown.tsx:39
+#: Navbar/NavbarUserDropdown.tsx:47
 msgid "navbar.logout"
 msgstr "Log out"
 
-#: Navbar/NavbarUserDropdown.tsx:34
+#: Navbar/NavbarUserDropdown.tsx:38
 msgid "navbar.profile"
 msgstr "See your profile"
 
@@ -707,15 +743,15 @@ msgstr "Quote"
 msgid "register"
 msgstr "Sign up"
 
-#: AuthModal/AuthModalRegister.tsx:169
+#: AuthModal/AuthModalRegister.tsx:174
 msgid "register.login"
 msgstr "Already a member? <0>Log in</0>"
 
-#: AuthModal/AuthModalRegister.tsx:161
+#: AuthModal/AuthModalRegister.tsx:166
 msgid "register.submit"
 msgstr "Sign up"
 
-#: AuthModal/AuthModalRegister.tsx:159
+#: AuthModal/AuthModalRegister.tsx:164
 msgid "register.submitting"
 msgstr "Signing up..."
 
@@ -856,7 +892,7 @@ msgstr "today at {0}"
 msgid "time.yesterday"
 msgstr "yesterday at {0}"
 
-#: AuthModal/AuthModalLogin.tsx:77
+#: AuthModal/AuthModalLogin.tsx:82
 msgid "value_error.all_fields_are_required"
 msgstr "Fill out all fields."
 
@@ -891,6 +927,14 @@ msgstr "This e-mail address is not allowed."
 #: UI/ValidationError/EmailValidationError.tsx:48
 msgid "value_error.email.not_available"
 msgstr "This e-mail address is not available."
+
+#: AvatarModal/AvatarValidationError.tsx:46
+msgid "value_error.image"
+msgstr "Uploaded file is not a valid image."
+
+#: AvatarModal/AvatarValidationError.tsx:55
+msgid "value_error.image.min_size"
+msgstr "Uploaded image shouldn't be smaller than {imageMinSize}x{imageMinSize}px."
 
 #: UI/ValidationError/LinkValidationError.tsx:39
 msgid "value_error.link"
@@ -964,6 +1008,14 @@ msgstr "{max, plural, one {You can't select more than # thread (you've selected 
 msgid "value_error.threads.min_items"
 msgstr "{min, plural, one {Select at least # thread.} other {Select at least # threads.}}"
 
+#: UI/ValidationError/UploadValidationError.tsx:30
+msgid "value_error.upload.content_type"
+msgstr "Uploaded file type is not supported."
+
+#: UI/ValidationError/UploadValidationError.tsx:39
+msgid "value_error.upload.max_size"
+msgstr "Uploaded file can't be larger than {0} (it has {1})."
+
 #: UI/ValidationError/UsernameValidationError.tsx:41
 msgid "value_error.username"
 msgstr "User name can only contain latin alphabet letters and digits."
@@ -988,7 +1040,7 @@ msgstr "This user name is not allowed."
 msgid "value_error.username.not_available"
 msgstr "This user name is not available."
 
-#: AuthModal/AuthModalLogin.tsx:82
+#: AuthModal/AuthModalLogin.tsx:87
 msgid "value_errosr.invalid_credentials"
 msgstr "Login or password is incorrect."
 

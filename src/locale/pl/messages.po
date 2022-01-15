@@ -90,6 +90,22 @@ msgstr ""
 msgid "auth_error.title"
 msgstr ""
 
+#: AvatarModal/AvatarUploadForm.tsx:43
+msgid "avatar_modal.avatar_updated"
+msgstr ""
+
+#: AvatarModal/AvatarModalDialog.tsx:20
+msgid "avatar_modal.title"
+msgstr ""
+
+#: AvatarModal/AvatarUploadForm.tsx:93
+msgid "avatar_modal.upload_image"
+msgstr ""
+
+#: AvatarModal/AvatarUploadForm.tsx:82
+msgid "avatar_modal.upload_instruction"
+msgstr ""
+
 #: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:22
 msgid "btn.new-thread"
 msgstr ""
@@ -100,6 +116,10 @@ msgstr ""
 
 #: Routes/Threads/ThreadsList/ThreadsListUpdateButton.tsx:22
 msgid "btn.updating-threads-list"
+msgstr ""
+
+#: UI/formats.ts:82
+msgid "bytes"
 msgstr ""
 
 #: UI/Form/FormFooter.tsx:27
@@ -267,23 +287,31 @@ msgstr ""
 msgid "generic_error.title"
 msgstr ""
 
+#: UI/formats.ts:49
+msgid "gigabytes"
+msgstr ""
+
 #: UI/Paginator/PaginatorDropdownMenu.tsx:52
 msgid "go"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:127
+#: AuthModal/AuthModalRegister.tsx:132
 #: SiteWizard/SiteWizardForm.tsx:179
 msgid "input.email"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:112
+#: AuthModal/AuthModalRegister.tsx:117
 #: SiteWizard/SiteWizardForm.tsx:164
 msgid "input.name"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:137
+#: AuthModal/AuthModalRegister.tsx:142
 #: SiteWizard/SiteWizardForm.tsx:189
 msgid "input.password"
+msgstr ""
+
+#: UI/formats.ts:73
+msgid "kilobytes"
 msgstr ""
 
 #: UI/LoadMoreButton/LoadMoreButton.tsx:28
@@ -299,28 +327,32 @@ msgstr ""
 msgid "login"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:99
+#: AuthModal/AuthModalLogin.tsx:104
 msgid "login.input.password"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:93
+#: AuthModal/AuthModalLogin.tsx:98
 msgid "login.input.username"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:119
+#: AuthModal/AuthModalLogin.tsx:124
 msgid "login.register"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:111
+#: AuthModal/AuthModalLogin.tsx:116
 msgid "login.submit"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:109
+#: AuthModal/AuthModalLogin.tsx:114
 msgid "login.submitting"
 msgstr ""
 
 #: AuthModal/AuthModalLogin.tsx:46
 msgid "login.title"
+msgstr ""
+
+#: UI/formats.ts:61
+msgid "megabytes"
 msgstr ""
 
 #: Routes/Thread/ThreadPostsModeration/ThreadPostsModeration.tsx:35
@@ -519,12 +551,16 @@ msgstr ""
 msgid "navbar.categories"
 msgstr ""
 
+#: Navbar/NavbarUserDropdown.tsx:42
+msgid "navbar.edit_avatar"
+msgstr ""
+
 #: Navbar/NavbarNav.tsx:48
-#: Navbar/NavbarUserDropdown.tsx:39
+#: Navbar/NavbarUserDropdown.tsx:47
 msgid "navbar.logout"
 msgstr ""
 
-#: Navbar/NavbarUserDropdown.tsx:34
+#: Navbar/NavbarUserDropdown.tsx:38
 msgid "navbar.profile"
 msgstr ""
 
@@ -707,15 +743,15 @@ msgstr ""
 msgid "register"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:169
+#: AuthModal/AuthModalRegister.tsx:174
 msgid "register.login"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:161
+#: AuthModal/AuthModalRegister.tsx:166
 msgid "register.submit"
 msgstr ""
 
-#: AuthModal/AuthModalRegister.tsx:159
+#: AuthModal/AuthModalRegister.tsx:164
 msgid "register.submitting"
 msgstr ""
 
@@ -856,7 +892,7 @@ msgstr ""
 msgid "time.yesterday"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:77
+#: AuthModal/AuthModalLogin.tsx:82
 msgid "value_error.all_fields_are_required"
 msgstr ""
 
@@ -890,6 +926,14 @@ msgstr ""
 
 #: UI/ValidationError/EmailValidationError.tsx:48
 msgid "value_error.email.not_available"
+msgstr ""
+
+#: AvatarModal/AvatarValidationError.tsx:46
+msgid "value_error.image"
+msgstr ""
+
+#: AvatarModal/AvatarValidationError.tsx:55
+msgid "value_error.image.min_size"
 msgstr ""
 
 #: UI/ValidationError/LinkValidationError.tsx:39
@@ -964,6 +1008,14 @@ msgstr ""
 msgid "value_error.threads.min_items"
 msgstr ""
 
+#: UI/ValidationError/UploadValidationError.tsx:30
+msgid "value_error.upload.content_type"
+msgstr ""
+
+#: UI/ValidationError/UploadValidationError.tsx:39
+msgid "value_error.upload.max_size"
+msgstr ""
+
 #: UI/ValidationError/UsernameValidationError.tsx:41
 msgid "value_error.username"
 msgstr ""
@@ -988,7 +1040,7 @@ msgstr ""
 msgid "value_error.username.not_available"
 msgstr ""
 
-#: AuthModal/AuthModalLogin.tsx:82
+#: AuthModal/AuthModalLogin.tsx:87
 msgid "value_errosr.invalid_credentials"
 msgstr ""
 
