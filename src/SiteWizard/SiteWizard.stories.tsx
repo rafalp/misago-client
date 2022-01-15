@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { action } from "@storybook/addon-actions"
 import { SettingsContextFactory } from "../UI/Storybook"
 import SiteWizardCompleted from "./SiteWizardCompleted"

@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { actions } from "@storybook/addon-actions"
 import { Modal } from "../UI/Modal"
 import { RootContainer } from "../UI/Storybook"

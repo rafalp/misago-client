@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { actions } from "@storybook/addon-actions"
 import Navbar from "."
 import { RootContainer, userFactory } from "../UI/Storybook"

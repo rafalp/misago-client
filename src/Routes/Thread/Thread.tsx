@@ -23,7 +23,9 @@ const Thread: React.FC = () => (
       exact
     />
     <Route
-      path={urls.thread({ id: ":id", slug: ":slug" }) + "1/" as "/t/:id/:slug/1/"}
+      path={
+        (urls.thread({ id: ":id", slug: ":slug" }) + "1/") as "/t/:id/:slug/1/"
+      }
       render={({ match }) => (
         <Redirect
           to={urls.thread({

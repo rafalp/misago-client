@@ -36,7 +36,10 @@ const Select: React.FC<SelectProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const register = useRegisterFieldHook<HTMLSelectElement>(name || context.name, { onBlur, onChange })
+  const register = useRegisterFieldHook<HTMLSelectElement>(
+    name || context.name,
+    { onBlur, onChange }
+  )
 
   return (
     <select

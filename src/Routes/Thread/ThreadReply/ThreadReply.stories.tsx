@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { GraphQLError } from "graphql"
 import { ButtonPrimary, ButtonSecondary } from "../../../UI/Button"
 import { PostingForm } from "../../../UI/PostingForm"

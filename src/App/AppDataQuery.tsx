@@ -52,6 +52,9 @@ const INITIAL_DATA_QUERY = gql`
       }
     }
     settings {
+      avatarUploadContentTypes
+      avatarUploadImageMinSize
+      avatarUploadMaxSize
       bulkActionLimit
       enableSiteWizard
       forumIndexHeader

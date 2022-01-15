@@ -20,7 +20,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const register = useRegisterFieldHook<HTMLInputElement>(name || context.name, { onChange })
+  const register = useRegisterFieldHook<HTMLInputElement>(
+    name || context.name,
+    { onChange }
+  )
 
   return (
     <span className="form-check-input">

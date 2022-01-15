@@ -35,10 +35,13 @@ const Input: React.FC<InputProps> = ({
   onChange,
 }) => {
   const context = useFieldContext()
-  const register = useRegisterFieldHook<HTMLInputElement>(name || context.name, {
-    onBlur,
-    onChange,
-  })
+  const register = useRegisterFieldHook<HTMLInputElement>(
+    name || context.name,
+    {
+      onBlur,
+      onChange,
+    }
+  )
 
   return (
     <input

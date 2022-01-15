@@ -1,6 +1,9 @@
 import { AvatarData, Settings, AuthUser } from "../../types"
 
 const defaultSettings = {
+  avatarUploadContentTypes: ["image/jpeg", "image/gif", "image/png"],
+  avatarUploadImageMinSize: 400,
+  avatarUploadMaxSize: 1024 * 1024 * 2,
   bulkActionLimit: 30,
   enableSiteWizard: false,
   forumIndexHeader: "",

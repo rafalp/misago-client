@@ -6,10 +6,13 @@ interface FieldOptions<T extends HTMLElement> {
   onChange?: (event: React.ChangeEvent<T>) => void
 }
 
-const useRegisterFieldHook = <T extends HTMLElement>(name?: string | null, options?: FieldOptions<T>) => {
+const useRegisterFieldHook = <T extends HTMLElement>(
+  name?: string | null,
+  options?: FieldOptions<T>
+) => {
   const context = useFormContext()
   if (!context || !name) return options || {}
-  
+
   const props = context.register(name)
   if (!options || (!options.onBlur && !options.onChange)) return props
 
@@ -22,7 +25,7 @@ const useRegisterFieldHook = <T extends HTMLElement>(name?: string | null, optio
     onChange: async (event: React.ChangeEvent<T>) => {
       props.onChange(event)
       if (options.onChange) await options.onChange(event)
-    }
+    },
   }
 }
 

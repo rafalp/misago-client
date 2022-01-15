@@ -1,4 +1,4 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from "@hookform/resolvers/yup"
 import { t } from "@lingui/macro"
 import React from "react"
 import { UseFormReturn, useForm } from "react-hook-form"

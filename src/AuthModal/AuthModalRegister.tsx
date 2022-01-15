@@ -86,18 +86,23 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
         onSubmit={async ({ clearErrors, setError, data: input }) => {
           clearErrors()
 
-          const result = await register({ variables: { input } })
-          const { errors, token, user } = result.data?.register || {}
+          try {
+            const result = await register({ variables: { input } })
+            const { errors, token, user } = result.data?.register || {}
 
-          errors?.forEach(({ location, type, message }) => {
-            const field = location.join(".") as "name" | "email" | "password"
-            setError(field, { type, message })
-          })
+            errors?.forEach(({ location, type, message }) => {
+              const field = location.join(".") as "name" | "email" | "password"
+              setError(field, { type, message })
+            })
 
-          if (token && user) {
-            setDisabled(true)
-            login({ token, user })
-            close()
+            if (token && user) {
+              setDisabled(true)
+              login({ token, user })
+              close()
+            }
+          } catch (error) {
+            // do nothing when register throws
+            return
           }
         }}
       >

@@ -1,17 +1,20 @@
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloLink, Observable, Operation, split,
-  HttpLink,
+  ApolloLink,
+  Observable,
+  Operation,
+  split,
 } from "@apollo/client"
 import { onError } from "@apollo/client/link/error"
-import { getMainDefinition } from '@apollo/client/utilities';
-import { WebSocketLink } from "@apollo/client/link/ws";
+import { getMainDefinition } from "@apollo/client/utilities"
+import { WebSocketLink } from "@apollo/client/link/ws"
+import { createUploadLink } from "apollo-upload-client"
 import { getAuthToken } from "./auth"
 
 const cache = new InMemoryCache()
 
-const httpLink = new HttpLink({
+const httpLink = createUploadLink({
   uri: "/graphql/",
 })
 

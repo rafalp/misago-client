@@ -7,6 +7,7 @@ import PostValidationError from "./PostValidationError"
 import ThreadsValidationError from "./ThreadsValidationError"
 import ThreadTitleValidationError from "./ThreadTitleValidationError"
 import ThreadValidationError from "./ThreadValidationError"
+import UploadValidationError from "./UploadValidationError"
 import UsernameValidationError from "./UsernameValidationError"
 import ValidationError from "./ValidationError"
 
@@ -20,6 +21,7 @@ export {
   ThreadsValidationError,
   ThreadTitleValidationError,
   ThreadValidationError,
+  UploadValidationError,
   UsernameValidationError,
   ValidationError,
 }

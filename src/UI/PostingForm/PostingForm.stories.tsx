@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { action } from "@storybook/addon-actions"
 import { withKnobs, boolean, text } from "@storybook/addon-knobs"
 import React from "react"

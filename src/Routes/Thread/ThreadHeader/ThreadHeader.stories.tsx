@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { withKnobs, boolean, number, text } from "@storybook/addon-knobs"
 import { AuthContext } from "../../../Context"
 import { RootContainer, categories, userFactory } from "../../../UI/Storybook"

@@ -59,12 +59,17 @@ const AuthModalLogin: React.FC<AuthModalLoginProps> = ({
 
           setError(null)
 
-          const result = await authenticate({ variables })
-          const { user, token } = result.data?.login || {}
-          if (token && user) {
-            setDisabled(true)
-            login({ token, user })
-            close()
+          try {
+            const result = await authenticate({ variables })
+            const { user, token } = result.data?.login || {}
+            if (token && user) {
+              setDisabled(true)
+              login({ token, user })
+              close()
+            }
+          } catch (error) {
+            // do nothing when authenticate throws
+            return
           }
         }}
       >

@@ -45,6 +45,9 @@ export interface CategoryBanner {
 }
 
 export interface Settings {
+  avatarUploadContentTypes: Array<string>
+  avatarUploadImageMinSize: number
+  avatarUploadMaxSize: number
   bulkActionLimit: number
   enableSiteWizard: boolean
   forumIndexHeader: string

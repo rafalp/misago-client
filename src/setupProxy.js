@@ -22,4 +22,13 @@ module.exports = function(app) {
       }
     )
   );
+  app.use(
+    '/media',
+    createProxyMiddleware(
+      '/media',
+      {
+        target: 'http://localhost:8000',
+      }
+    )
+  );
 };

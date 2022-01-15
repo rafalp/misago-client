@@ -1,4 +1,4 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider } from "@apollo/client/testing"
 import { AuthContext, ModalConsumer, ModalProvider } from "../../Context"
 import {
   SettingsContextFactory,
