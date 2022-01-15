@@ -32,13 +32,13 @@ prepare_deploy() {
 if [[ $1 ]]; then
     if [[ $1 = "start" ]]; then
         install_plugins
-        npm run i18n-compile
+        npm run compilemessages
         npm run start
     elif [[ $1 = "plugins" ]]; then
         install_plugins
     elif [[ $1 = "deploy" ]]; then
         install_plugins
-        npm run i18n-compile
+        npm run compilemessages
         prepare_deploy
     else
         invalid_argument $1
