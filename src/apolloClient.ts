@@ -21,7 +21,7 @@ const httpLink = createUploadLink({
 const getWebSocketURI = () => {
   if (!window || !window.location) return "/graphql/"
 
-  const prefix = window.location.protocol === "https" ? "wss://" : "ws://"
+  const prefix = window.location.protocol === "https:" ? "wss://" : "ws://"
   return prefix + window.location.host + "/graphql/"
 }
 
