@@ -1,10 +1,9 @@
 import { Trans } from "@lingui/macro"
-import React from "react"
 import { useAuthContext, useModalContext } from "../../../Context"
 import { Thread, ThreadModerationOptions } from "../Thread.types"
 import ThreadModerationDelete from "./ThreadModerationDelete"
 import ThreadModerationMove from "./ThreadModerationMove"
-import { useCloseThread, useOpenThread } from "./useCloseThreadMutation"
+import { useCloseThread, useOpenThread } from "./useThreadIsClosedUpdate"
 
 const useThreadModeration = (
   thread: Thread | null

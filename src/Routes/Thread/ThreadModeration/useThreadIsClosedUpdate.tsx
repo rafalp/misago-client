@@ -5,24 +5,24 @@ import { Thread } from "../Thread.types"
 import ThreadModerationClose from "./ThreadModerationClose"
 import ThreadModerationOpen from "./ThreadModerationOpen"
 
-const CLOSE_THREAD = gql`
-  mutation CloseThread($input: CloseThreadInput!) {
-    closeThread(input: $input) {
+const THREAD_IS_CLOSED_UPDATE = gql`
+  mutation ThreadIsClosedUpdate($input: ThreadIsClosedUpdateInput!) {
+    threadIsClosedUpdate(input: $input) {
+      thread {
+        id
+        isClosed
+      }
       errors {
         message
         location
         type
       }
-      thread {
-        id
-        isClosed
-      }
     }
   }
 `
 
-interface CloseThreadMutationData {
-  closeThread: {
+interface ThreadIsClosedUpdateMutationData {
+  threadIsClosedUpdate: {
     errors: Array<MutationError> | null
     thread: {
       id: string
@@ -31,21 +31,21 @@ interface CloseThreadMutationData {
   }
 }
 
-interface CloseThreadMutationVariables {
+interface ThreadIsClosedUpdateMutationVariables {
   input: {
     thread: string
     isClosed: boolean
   }
 }
 
-const useCloseThreadMutation = (
+const useThreadIsClosedUpdate = (
   thread: Thread | null,
   isClosed: boolean
-): [() => Promise<void>, MutationResult<CloseThreadMutationData>] => {
+): [() => Promise<void>, MutationResult<ThreadIsClosedUpdateMutationData>] => {
   const [mutation, state] = useMutation<
-    CloseThreadMutationData,
-    CloseThreadMutationVariables
-  >(CLOSE_THREAD)
+    ThreadIsClosedUpdateMutationData,
+    ThreadIsClosedUpdateMutationVariables
+  >(THREAD_IS_CLOSED_UPDATE)
 
   const { openModal } = useModalContext()
 
@@ -63,7 +63,7 @@ const useCloseThreadMutation = (
           },
         },
       })
-      const errors = data?.closeThread.errors
+      const errors = data?.threadIsClosedUpdate.errors
       if (errors) {
         openModal(<ErrorModal errors={errors} />)
       }
@@ -78,11 +78,11 @@ const useCloseThreadMutation = (
 }
 
 const useCloseThread = (thread: Thread | null) => {
-  return useCloseThreadMutation(thread, true)
+  return useThreadIsClosedUpdate(thread, true)
 }
 
 const useOpenThread = (thread: Thread | null) => {
-  return useCloseThreadMutation(thread, false)
+  return useThreadIsClosedUpdate(thread, false)
 }
 
-export { useCloseThread, useOpenThread }
+export { useCloseThread, useThreadIsClosedUpdate, useOpenThread }
