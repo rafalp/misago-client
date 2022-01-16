@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../types"
 
-const SETUP_SITE = gql`
-  mutation SetupSite($input: SetupSiteInput!) {
-    setupSite(input: $input) {
+const SITE_SETUP = gql`
+  mutation SiteSetup($input: SiteSetupInput!) {
+    siteSetup(input: $input) {
       errors {
         message
         location
@@ -18,15 +18,15 @@ const SETUP_SITE = gql`
   }
 `
 
-interface SetupSiteMutationData {
-  setupSite: {
+interface SiteSetupMutationData {
+  siteSetup: {
     errors: Array<MutationError> | null
     user: { id: string; name: string } | null
     token: string | null
   }
 }
 
-interface SetupSiteMutationVariables {
+interface SiteSetupMutationVariables {
   input: {
     forumName: string
     forumIndexThreads: boolean
@@ -36,10 +36,10 @@ interface SetupSiteMutationVariables {
   }
 }
 
-const useSetupSiteMutation = () => {
-  return useMutation<SetupSiteMutationData, SetupSiteMutationVariables>(
-    SETUP_SITE
+const useSiteSetupMutation = () => {
+  return useMutation<SiteSetupMutationData, SiteSetupMutationVariables>(
+    SITE_SETUP
   )
 }
 
-export default useSetupSiteMutation
+export default useSiteSetupMutation

@@ -32,7 +32,7 @@ import {
 import * as urls from "../../urls"
 import { CategoryChoice } from "./PostThread.types"
 import PostThreadCategoryInput from "./PostThreadCategoryInput"
-import usePostThreadMutation from "./usePostThreadMutation"
+import useThreadCreateMutation from "./useThreadCreateMutation"
 import useThreadDraft from "./useThreadDraft"
 
 const Editor = React.lazy(() => import("../../Editor"))
@@ -65,9 +65,9 @@ const PostThreadForm: React.FC<PostThreadFormProps> = ({
     threadTitleMinLength,
   } = useSettingsContext()
   const [
-    postThread,
+    threadCreate,
     { data, loading, error: graphqlError },
-  ] = usePostThreadMutation()
+  ] = useThreadCreateMutation()
   const draft = useThreadDraft()
 
   const validators = Yup.object().shape({
@@ -82,8 +82,8 @@ const PostThreadForm: React.FC<PostThreadFormProps> = ({
       .min(postMinLength, "value_error.any_str.min_length"),
   })
 
-  if (data?.postThread.thread) {
-    return <Redirect to={urls.thread(data.postThread.thread)} />
+  if (data?.threadCreate.thread) {
+    return <Redirect to={urls.thread(data.threadCreate.thread)} />
   }
 
   return (
@@ -101,19 +101,24 @@ const PostThreadForm: React.FC<PostThreadFormProps> = ({
         onSubmit={async ({ clearErrors, setError, data: input }) => {
           clearErrors()
 
-          const result = await postThread({ variables: { input } })
-          const { errors, thread } = result.data?.postThread || {}
+          try {
+            const result = await threadCreate({ variables: { input } })
+            const { errors, thread } = result.data?.threadCreate || {}
 
-          errors?.forEach(({ location, type, message }) => {
-            setError(location, { type, message })
-          })
+            errors?.forEach(({ location, type, message }) => {
+              setError(location, { type, message })
+            })
 
-          if (thread) {
-            draft.remove()
+            if (thread) {
+              draft.remove()
 
-            showToast(
-              <Trans id="posting.message">New thread has been posted.</Trans>
-            )
+              showToast(
+                <Trans id="posting.message">New thread has been posted.</Trans>
+              )
+            }
+          } catch (error) {
+            // do nothing when threadCreate throws
+            return
           }
         }}
       >
@@ -122,7 +127,7 @@ const PostThreadForm: React.FC<PostThreadFormProps> = ({
         <FieldWatcher name="markup" onChange={draft.setMarkup} />
         <RootError
           graphqlError={graphqlError}
-          dataErrors={data?.postThread.errors}
+          dataErrors={data?.threadCreate.errors}
         >
           {({ message }) => <CardAlert>{message}</CardAlert>}
         </RootError>

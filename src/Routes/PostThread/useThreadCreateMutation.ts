@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../types"
 
-const POST_THREAD = gql`
-  mutation PostThread($input: PostThreadInput!) {
-    postThread(input: $input) {
+const THREAD_CREATE = gql`
+  mutation ThreadCreate($input: ThreadCreateInput!) {
+    threadCreate(input: $input) {
       errors {
         location
         message
@@ -18,8 +18,8 @@ const POST_THREAD = gql`
   }
 `
 
-interface PostThreadMutationData {
-  postThread: {
+interface ThreadCreateMutationData {
+  threadCreate: {
     errors: Array<MutationError> | null
     thread: {
       id: string
@@ -29,7 +29,7 @@ interface PostThreadMutationData {
   }
 }
 
-interface PostThreadMutationValues {
+interface ThreadCreateMutationValues {
   input: {
     category: string
     title: string
@@ -38,10 +38,10 @@ interface PostThreadMutationValues {
   }
 }
 
-const usePostThreadMutation = () => {
-  return useMutation<PostThreadMutationData, PostThreadMutationValues>(
-    POST_THREAD
+const useThreadCreateMutation = () => {
+  return useMutation<ThreadCreateMutationData, ThreadCreateMutationValues>(
+    THREAD_CREATE
   )
 }
 
-export default usePostThreadMutation
+export default useThreadCreateMutation

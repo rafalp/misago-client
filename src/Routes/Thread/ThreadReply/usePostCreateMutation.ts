@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../types"
 
-const POST_REPLY = gql`
-  mutation PostReply($input: PostReplyInput!) {
-    postReply(input: $input) {
+const POST_CREATE = gql`
+  mutation PostCreate($input: PostCreateInput!) {
+    postCreate(input: $input) {
       errors {
         location
         message
@@ -21,8 +21,8 @@ const POST_REPLY = gql`
   }
 `
 
-interface PostReplyMutationData {
-  postReply: {
+interface PostCreateMutationData {
+  postCreate: {
     errors: Array<MutationError> | null
     thread: {
       id: string
@@ -34,17 +34,17 @@ interface PostReplyMutationData {
   }
 }
 
-interface PostReplyMutationValues {
+interface PostCreateMutationValues {
   input: {
     thread: string
     markup: string
   }
 }
 
-const usePostReplyMutation = () => {
-  return useMutation<PostReplyMutationData, PostReplyMutationValues>(
-    POST_REPLY
+const usePostCreateMutation = () => {
+  return useMutation<PostCreateMutationData, PostCreateMutationValues>(
+    POST_CREATE
   )
 }
 
-export default usePostReplyMutation
+export default usePostCreateMutation

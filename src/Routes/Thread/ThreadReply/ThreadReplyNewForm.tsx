@@ -16,7 +16,7 @@ import * as urls from "../../../urls"
 import ThreadPostRootError from "../ThreadPostRootError"
 import { ThreadReplyContextData } from "./ThreadReplyContext"
 import ThreadReplyDialog from "./ThreadReplyDialog"
-import usePostReplyMutation from "./usePostReplyMutation"
+import usePostCreateMutation from "./usePostCreateMutation"
 
 const Editor = React.lazy(() => import("../../../Editor"))
 
@@ -34,14 +34,14 @@ const ThreadReplyNewForm: React.FC<ThreadReplyNewFormProps> = ({
   const { form, setDraft, removeDraft } = context
 
   const [
-    postReply,
+    postCreate,
     { data, loading, error: graphqlError },
-  ] = usePostReplyMutation()
+  ] = usePostCreateMutation()
 
-  if (data?.postReply.thread && data?.postReply.post) {
+  if (data?.postCreate.thread && data?.postCreate.post) {
     return (
       <Redirect
-        to={urls.threadPost(data.postReply.thread, data.postReply.post)}
+        to={urls.threadPost(data.postCreate.thread, data.postCreate.post)}
       />
     )
   }
@@ -61,7 +61,7 @@ const ThreadReplyNewForm: React.FC<ThreadReplyNewFormProps> = ({
 
               form.clearErrors()
 
-              const result = await postReply({
+              const result = await postCreate({
                 variables: {
                   input: {
                     thread: threadId,
@@ -69,7 +69,7 @@ const ThreadReplyNewForm: React.FC<ThreadReplyNewFormProps> = ({
                   },
                 },
               })
-              const { errors, post } = result.data?.postReply || {}
+              const { errors, post } = result.data?.postCreate || {}
 
               errors?.forEach(({ location, type, message }) => {
                 form.setError(location as "markup", { type, message })
@@ -87,7 +87,7 @@ const ThreadReplyNewForm: React.FC<ThreadReplyNewFormProps> = ({
             <FieldWatcher name="markup" onChange={setDraft} />
             <ThreadPostRootError
               graphqlError={graphqlError}
-              dataErrors={data?.postReply.errors}
+              dataErrors={data?.postCreate.errors}
             >
               {({ message }) => <PostingFormAlert>{message}</PostingFormAlert>}
             </ThreadPostRootError>

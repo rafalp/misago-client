@@ -15,7 +15,7 @@ import {
 } from "../UI/ValidationError"
 import SiteWizardContainer from "./SiteWizardContainer"
 import { useAuth } from "../auth"
-import useSetupSiteMutation from "./useSetupSiteMutation"
+import useSiteSetupMutation from "./useSiteSetupMutation"
 
 interface FormValues {
   forumName: string
@@ -32,7 +32,7 @@ interface SiteWizardFormProps {
 const SiteWizardForm: React.FC<SiteWizardFormProps> = ({ complete }) => {
   const { login } = useAuth()
   const settings = useSettingsContext()
-  const [setupSite, { loading, error: graphqlError }] = useSetupSiteMutation()
+  const [siteSetup, { loading, error: graphqlError }] = useSiteSetupMutation()
 
   if (!settings) return null
 
@@ -72,14 +72,14 @@ const SiteWizardForm: React.FC<SiteWizardFormProps> = ({ complete }) => {
           clearErrors()
 
           try {
-            const result = await setupSite({
+            const result = await siteSetup({
               variables: {
                 input: Object.assign({}, input, {
                   forumIndexThreads: input.forumIndexThreads === "threads",
                 }),
               },
             })
-            const { errors, user, token } = result.data?.setupSite || {}
+            const { errors, user, token } = result.data?.siteSetup || {}
 
             if (errors) {
               errors?.forEach(({ location, type, message }) => {
@@ -92,7 +92,7 @@ const SiteWizardForm: React.FC<SiteWizardFormProps> = ({ complete }) => {
               complete()
             }
           } catch (error) {
-            // do nothing when setupSite throws
+            // do nothing when siteSetup throws
             return
           }
         }}
