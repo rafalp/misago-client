@@ -1,11 +1,13 @@
 import { Trans } from "@lingui/macro"
-import React from "react"
 import { useAuthContext, useModalContext } from "../../../Context"
 import { Category } from "../../../types"
 import { Thread, ThreadsModerationOptions } from "../Threads.types"
 import ThreadsModerationDelete from "./ThreadsModerationDelete"
 import ThreadsModerationMove from "./ThreadsModerationMove"
-import { useCloseThreads, useOpenThreads } from "./useCloseThreadsMutation"
+import {
+  useThreadsBulkClose,
+  useThreadsBulkOpen,
+} from "./useThreadsIsClosedBulkUpdateMutation"
 
 const useThreadsModeration = (
   threads: Array<Thread>,
@@ -14,8 +16,12 @@ const useThreadsModeration = (
   const user = useAuthContext()
   const { openModal } = useModalContext()
 
-  const [closeThreads, { loading: closingThreads }] = useCloseThreads(threads)
-  const [openThreads, { loading: openingThreads }] = useOpenThreads(threads)
+  const [closeThreads, { loading: closingThreads }] = useThreadsBulkClose(
+    threads
+  )
+  const [openThreads, { loading: openingThreads }] = useThreadsBulkOpen(
+    threads
+  )
 
   const moveThreads = () => {
     openModal(<ThreadsModerationMove threads={threads} />)

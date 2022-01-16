@@ -5,49 +5,49 @@ import { Thread } from "../Threads.types"
 import ThreadsModerationClose from "./ThreadsModerationClose"
 import ThreadsModerationOpen from "./ThreadsModerationOpen"
 
-const CLOSE_THREADS = gql`
-  mutation CloseThreads($input: BulkCloseThreadsInput!) {
-    closeThreads(input: $input) {
+const THREADS_IS_CLOSED_BULK_UPDATE = gql`
+  mutation ThreadsIsClosedBulkUpdate($input: ThreadsIsClosedBulkUpdateInput!) {
+    threadsIsClosedBulkUpdate(input: $input) {
+      updated
+      threads {
+        id
+        isClosed
+      }
       errors {
         message
         location
         type
       }
-      threads {
-        id
-        isClosed
-      }
-      updated
     }
   }
 `
 
-interface CloseThreadsMutationData {
-  closeThreads: {
-    errors: Array<MutationError> | null
+interface ThreadsIsClosedBulkUpdateMutationData {
+  threadsIsClosedBulkUpdate: {
+    updated: boolean
     threads: Array<{
       id: string
       isClosed: boolean
     }> | null
-    updated: boolean
+    errors: Array<MutationError> | null
   }
 }
 
-interface CloseThreadsMutationVariables {
+interface ThreadsIsClosedBulkUpdateMutationVariables {
   input: {
     threads: Array<string>
     isClosed: boolean
   }
 }
 
-const useCloseThreadsMutation = (
+const useThreadsIsClosedBulkUpdateMutation = (
   threads: Array<Thread>,
   isClosed: boolean
-): [() => Promise<void>, MutationResult<CloseThreadsMutationData>] => {
+): [() => Promise<void>, MutationResult<ThreadsIsClosedBulkUpdateMutationData>] => {
   const [mutation, state] = useMutation<
-    CloseThreadsMutationData,
-    CloseThreadsMutationVariables
-  >(CLOSE_THREADS, {
+    ThreadsIsClosedBulkUpdateMutationData,
+    ThreadsIsClosedBulkUpdateMutationVariables
+  >(THREADS_IS_CLOSED_BULK_UPDATE, {
     variables: {
       input: {
         isClosed,
@@ -65,7 +65,7 @@ const useCloseThreadsMutation = (
 
     try {
       const { data } = await mutation()
-      const errors = data?.closeThreads.errors
+      const errors = data?.threadsIsClosedBulkUpdate.errors
       if (errors) {
         openModal(<ErrorModal threads={threads} errors={errors} />)
       }
@@ -79,12 +79,12 @@ const useCloseThreadsMutation = (
   return [runMutation, state]
 }
 
-const useCloseThreads = (threads: Array<Thread>) => {
-  return useCloseThreadsMutation(threads, true)
+const useThreadsBulkClose = (threads: Array<Thread>) => {
+  return useThreadsIsClosedBulkUpdateMutation(threads, true)
 }
 
-const useOpenThreads = (threads: Array<Thread>) => {
-  return useCloseThreadsMutation(threads, false)
+const useThreadsBulkOpen = (threads: Array<Thread>) => {
+  return useThreadsIsClosedBulkUpdateMutation(threads, false)
 }
 
-export { useCloseThreads, useOpenThreads }
+export { useThreadsBulkClose, useThreadsBulkOpen }
