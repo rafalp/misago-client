@@ -4,7 +4,7 @@ import { AuthUser, Category, ForumStats, Settings } from "../types"
 import AppError from "./AppError"
 import AppLoader from "./AppLoader"
 
-const POLL_INTERVAL = 5 * 1000 // 50s
+const POLL_INTERVAL = 50 * 1000 // 50s
 
 const INITIAL_DATA_QUERY = gql`
   fragment CategoryBanner on CategoryBanner {
