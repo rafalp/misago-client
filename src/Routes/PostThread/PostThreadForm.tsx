@@ -105,12 +105,7 @@ const PostThreadForm: React.FC<PostThreadFormProps> = ({
           const { errors, thread } = result.data?.postThread || {}
 
           errors?.forEach(({ location, type, message }) => {
-            const field = location.join(".") as
-              | "markup"
-              | "title"
-              | "category"
-              | "isClosed"
-            setError(field, { type, message })
+            setError(location, { type, message })
           })
 
           if (thread) {

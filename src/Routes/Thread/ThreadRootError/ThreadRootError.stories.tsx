@@ -13,7 +13,7 @@ export const ThreadError = () => (
     <ThreadRootError
       dataErrors={[
         {
-          location: ["thread"],
+          location: "thread",
           message: "moderator permission is required",
           type: select(
             "Error",

@@ -72,8 +72,7 @@ const ThreadReplyNewForm: React.FC<ThreadReplyNewFormProps> = ({
               const { errors, post } = result.data?.postReply || {}
 
               errors?.forEach(({ location, type, message }) => {
-                const field = location.join(".") as "markup"
-                form.setError(field, { type, message })
+                form.setError(location as "markup", { type, message })
               })
 
               if (post) {

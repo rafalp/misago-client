@@ -195,12 +195,12 @@ export const WithErrors = () => {
 
   const errors = {
     "1": {
-      location: ["posts", "0"],
+      location: "posts.0",
       type: "value_error.post.thread_start",
       message: "message not displayed",
     },
     "2": {
-      location: ["posts", "1"],
+      location: "posts.1",
       type: "value_error.post.not_exists",
       message: "message not displayed",
     },

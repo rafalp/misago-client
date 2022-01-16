@@ -55,8 +55,7 @@ const ThreadHeaderTitleEditForm: React.FC<ThreadHeaderTitleEditFormProps> = ({
 
           if (errors) {
             errors?.forEach(({ location, type, message }) => {
-              const field = location.join(".") as "title"
-              setError(field, { type, message })
+              setError(location, { type, message })
             })
           } else {
             close()

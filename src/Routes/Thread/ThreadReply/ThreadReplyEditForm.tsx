@@ -79,8 +79,7 @@ const ThreadReplyEditForm: React.FC<ThreadReplyEditFormProps> = ({
 
                   if (errors) {
                     errors?.forEach(({ location, type, message }) => {
-                      const field = location.join(".") as "markup"
-                      form.setError(field, { type, message })
+                      form.setError(location as "markup", { type, message })
                     })
                   } else {
                     showToast(

@@ -7,7 +7,7 @@ const useLocationError = (
 ) => {
   return React.useMemo(() => {
     for (const error of errors || []) {
-      const errorLocation = error.location.join(".")
+      const errorLocation = error.location
       if (errorLocation === location) {
         return error
       }

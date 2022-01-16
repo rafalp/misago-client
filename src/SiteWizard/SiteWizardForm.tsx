@@ -83,13 +83,7 @@ const SiteWizardForm: React.FC<SiteWizardFormProps> = ({ complete }) => {
 
             if (errors) {
               errors?.forEach(({ location, type, message }) => {
-                const field = location.join(".") as
-                  | "forumName"
-                  | "forumIndexThreads"
-                  | "name"
-                  | "email"
-                  | "password"
-                setError(field, { type, message })
+                setError(location, { type, message })
               })
             } else {
               if (user && token) {

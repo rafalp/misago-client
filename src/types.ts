@@ -1,6 +1,6 @@
 // Frequently used interfaces and interfaces for data loaded on app's start
 export interface MutationError {
-  location: Array<string>
+  location: string
   message: string
   type: string
 }

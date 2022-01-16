@@ -79,8 +79,7 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
           if (errors) {
             setThreadsErrors(threads, errors)
             errors?.forEach(({ location, type, message }) => {
-              const field = location.join(".") as "category"
-              setError(field, { type, message })
+              setError(location, { type, message })
             })
           } else {
             close()

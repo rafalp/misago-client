@@ -91,8 +91,7 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
             const { errors, token, user } = result.data?.register || {}
 
             errors?.forEach(({ location, type, message }) => {
-              const field = location.join(".") as "name" | "email" | "password"
-              setError(field, { type, message })
+              setError(location, { type, message })
             })
 
             if (token && user) {

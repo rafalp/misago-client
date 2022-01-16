@@ -16,12 +16,12 @@ export const AuthError = () => (
     <ThreadModerationError
       errors={[
         {
-          location: ["thread"],
+          location: "thread",
           message: "moderator permission is required",
           type: "auth_error.not_moderator",
         },
         {
-          location: ["__root__"],
+          location: "__root__",
           type: "auth_error.not_authorized",
           message: "authorization is required",
         },
@@ -37,7 +37,7 @@ export const ThreadError = () => (
     <ThreadModerationError
       errors={[
         {
-          location: ["thread"],
+          location: "thread",
           message: "moderator permission is required",
           type: "auth_error.not_moderator",
         },

@@ -118,7 +118,7 @@ export const WithThreadError = () => {
 
   const errors = {
     "1": {
-      location: ["threads", "0"],
+      location: "threads.0",
       type: "auth_error.not_moderator",
       message: "message not displayed",
     },

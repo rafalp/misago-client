@@ -75,8 +75,7 @@ const ThreadsModerationDeleteForm: React.FC<ThreadsModerationDeleteFormProps> = 
           if (errors) {
             setThreadsErrors(threads, errors)
             errors?.forEach(({ location, type, message }) => {
-              const field = location.join(".")
-              setError(field, { type, message })
+              setError(location, { type, message })
             })
           } else {
             close()

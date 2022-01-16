@@ -39,7 +39,7 @@ const RootError: React.FC<RootErrorProps> = ({
     const code = getNetworkErrorCode(graphqlError)
     if (code === 400 || !graphqlError.networkError) {
       errors.push({
-        location: ["__root__"],
+        location: "__root__",
         type: "client_error.graphql",
         message: t({
           id: "client_error.graphql",
@@ -48,7 +48,7 @@ const RootError: React.FC<RootErrorProps> = ({
       })
     } else if (graphqlError.networkError) {
       errors.push({
-        location: ["__root__"],
+        location: "__root__",
         type: "client_error.network",
         message: t({
           id: "client_error.network",
@@ -73,8 +73,7 @@ const RootError: React.FC<RootErrorProps> = ({
 
   for (const location of finLocations) {
     for (const error of errors) {
-      const errorLocation = error.location.join(".")
-      if (errorLocation === location) {
+      if (error.location === location) {
         const { type, message } = error
         return children({ type, message: finMessages[type] || message })
       }
