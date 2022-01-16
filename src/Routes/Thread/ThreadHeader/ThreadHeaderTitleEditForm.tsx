@@ -8,7 +8,7 @@ import Input from "../../../UI/Input"
 import { ThreadTitleValidationError } from "../../../UI/ValidationError"
 import { Thread } from "../Thread.types"
 import ThreadRootError from "../ThreadRootError"
-import useEditThreadTitleMutation from "./useEditThreadTitleMutation"
+import useThreadTitleUpdateMutation from "./useThreadTitleUpdateMutation"
 
 interface ThreadHeaderTitleEditFormProps {
   thread: Thread
@@ -28,9 +28,9 @@ const ThreadHeaderTitleEditForm: React.FC<ThreadHeaderTitleEditFormProps> = ({
   const {
     data,
     loading,
-    editThreadTitle,
+    threadTitleUpdate,
     error: graphqlError,
-  } = useEditThreadTitleMutation(thread)
+  } = useThreadTitleUpdateMutation(thread)
 
   const validators = Yup.object().shape({
     title: Yup.string()
@@ -50,8 +50,8 @@ const ThreadHeaderTitleEditForm: React.FC<ThreadHeaderTitleEditFormProps> = ({
         clearErrors()
 
         try {
-          const result = await editThreadTitle(title)
-          const { errors } = result.data?.editThreadTitle || {}
+          const result = await threadTitleUpdate(title)
+          const { errors } = result.data?.threadTitleUpdate || {}
 
           if (errors) {
             errors?.forEach(({ location, type, message }) => {
@@ -61,14 +61,14 @@ const ThreadHeaderTitleEditForm: React.FC<ThreadHeaderTitleEditFormProps> = ({
             close()
           }
         } catch (error) {
-          // do nothing when editThreadTitle throws
+          // do nothing when threadTitleUpdate throws
           return
         }
       }}
     >
       <ThreadRootError
         graphqlError={graphqlError}
-        dataErrors={data?.editThreadTitle.errors}
+        dataErrors={data?.threadTitleUpdate.errors}
       >
         {({ message }) => <CardAlert>{message}</CardAlert>}
       </ThreadRootError>

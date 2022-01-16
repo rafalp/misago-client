@@ -31,7 +31,7 @@ const ThreadReplyEditForm: React.FC<ThreadReplyEditFormProps> = ({
   const { cancelReply, form, resetValue } = context
 
   const query = usePostMarkupQuery({ id: post.id })
-  
+
   const mutation = usePostUpdateMutation(post)
   const defaultValue = query.data?.post?.markup || ""
   React.useEffect(() => {

@@ -2,9 +2,9 @@ import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../types"
 import { Thread } from "../Thread.types"
 
-const EDIT_THREAD_TITLE = gql`
-  mutation EditThreadTitle($input: EditThreadTitleInput!) {
-    editThreadTitle(input: $input) {
+const THREAD_TITLE_UPDATE = gql`
+  mutation ThreadTitleUpdate($input: ThreadTitleUpdateInput!) {
+    threadTitleUpdate(input: $input) {
       errors {
         message
         location
@@ -18,8 +18,8 @@ const EDIT_THREAD_TITLE = gql`
   }
 `
 
-interface EditThreadTitleMutationData {
-  editThreadTitle: {
+interface ThreadTitleUpdateMutationData {
+  threadTitleUpdate: {
     errors: Array<MutationError> | null
     thread: {
       id: string
@@ -28,24 +28,24 @@ interface EditThreadTitleMutationData {
   }
 }
 
-interface EditThreadTitleMutationVariables {
+interface ThreadTitleUpdateMutationVariables {
   input: {
     thread: string
     title: string
   }
 }
 
-const useEditThreadTitleMutation = (thread: Thread) => {
+const useThreadTitleUpdateMutation = (thread: Thread) => {
   const [mutation, { data, error, loading }] = useMutation<
-    EditThreadTitleMutationData,
-    EditThreadTitleMutationVariables
-  >(EDIT_THREAD_TITLE)
+    ThreadTitleUpdateMutationData,
+    ThreadTitleUpdateMutationVariables
+  >(THREAD_TITLE_UPDATE)
 
   return {
     data,
     error,
     loading,
-    editThreadTitle: (title: string) => {
+    threadTitleUpdate: (title: string) => {
       return mutation({
         variables: {
           input: { title, thread: thread.id },
@@ -55,4 +55,4 @@ const useEditThreadTitleMutation = (thread: Thread) => {
   }
 }
 
-export default useEditThreadTitleMutation
+export default useThreadTitleUpdateMutation
