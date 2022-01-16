@@ -11,7 +11,7 @@ import { useSelectionErrors } from "../../../../UI/useSelectionErrors"
 import { Thread } from "../../Threads.types"
 import ThreadsModerationError from "../ThreadsModerationError"
 import ThreadsModerationSelectedThreads from "../ThreadsModerationSelectedThreads"
-import useMoveThreadsMutation from "./useMoveThreadsMutation"
+import useThreadsBulkMoveMutation from "./useThreadsBulkMoveMutation"
 
 interface ThreadsModerationMoveFormProps {
   threads: Array<Thread>
@@ -36,9 +36,9 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
   const {
     data,
     loading,
-    moveThreads,
+    threadsBulkMove,
     error: graphqlError,
-  } = useMoveThreadsMutation()
+  } = useThreadsBulkMoveMutation()
 
   const bulkActionLimit = useBulkActionLimit()
   const validators = Yup.object().shape({
@@ -48,10 +48,10 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
       .max(bulkActionLimit, "value_error.list.max_items"),
   })
 
-  if (data && data.moveThreads.errors && data.moveThreads.updated) {
+  if (data && data.threadsBulkMove.errors && data.threadsBulkMove.updated) {
     return (
       <ThreadsModerationError
-        errors={data.moveThreads.errors}
+        errors={data.threadsBulkMove.errors}
         threads={threads}
         close={close}
       />
@@ -73,8 +73,8 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
         clearThreadsErrors()
 
         try {
-          const result = await moveThreads(threads, category)
-          const { errors } = result.data?.moveThreads || {}
+          const result = await threadsBulkMove(threads, category)
+          const { errors } = result.data?.threadsBulkMove || {}
 
           if (errors) {
             setThreadsErrors(threads, errors)
@@ -85,14 +85,14 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
             close()
           }
         } catch (error) {
-          // do nothing when moveThreads throws
+          // do nothing when threadsBulkMove throws
           return
         }
       }}
     >
       <RootError
         graphqlError={graphqlError}
-        dataErrors={data?.moveThreads.errors}
+        dataErrors={data?.threadsBulkMove.errors}
       >
         {({ message }) => <ModalAlert>{message}</ModalAlert>}
       </RootError>

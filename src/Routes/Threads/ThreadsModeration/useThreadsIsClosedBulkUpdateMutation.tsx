@@ -43,7 +43,10 @@ interface ThreadsIsClosedBulkUpdateMutationVariables {
 const useThreadsIsClosedBulkUpdateMutation = (
   threads: Array<Thread>,
   isClosed: boolean
-): [() => Promise<void>, MutationResult<ThreadsIsClosedBulkUpdateMutationData>] => {
+): [
+  () => Promise<void>,
+  MutationResult<ThreadsIsClosedBulkUpdateMutationData>
+] => {
   const [mutation, state] = useMutation<
     ThreadsIsClosedBulkUpdateMutationData,
     ThreadsIsClosedBulkUpdateMutationVariables

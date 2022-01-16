@@ -1,5 +1,4 @@
 import { withKnobs, boolean } from "@storybook/addon-knobs"
-import React from "react"
 import ThreadsModeration from "./ThreadsModeration"
 
 export default {
