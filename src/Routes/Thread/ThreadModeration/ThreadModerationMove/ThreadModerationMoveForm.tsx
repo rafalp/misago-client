@@ -9,7 +9,7 @@ import { CategoryValidationError } from "../../../../UI/ValidationError"
 import useLocationError from "../../../../UI/useLocationError"
 import { Thread } from "../../Thread.types"
 import ThreadModerationError from "../ThreadModerationError"
-import useMoveThreadMutation from "./useMoveThreadMutation"
+import useThreadCategoryUpdateMutation from "./useThreadCategoryUpdateMutation"
 
 interface ThreadModerationMoveFormProps {
   thread: Thread
@@ -27,15 +27,21 @@ const ThreadModerationMoveForm: React.FC<ThreadModerationMoveFormProps> = ({
   const {
     data,
     loading,
-    moveThread,
+    threadCategoryUpdate,
     error: graphqlError,
-  } = useMoveThreadMutation()
+  } = useThreadCategoryUpdateMutation()
 
-  const threadError = useLocationError("thread", data?.moveThread.errors)
+  const threadError = useLocationError(
+    "thread",
+    data?.threadCategoryUpdate.errors
+  )
 
-  if (data?.moveThread.errors && threadError) {
+  if (data?.threadCategoryUpdate.errors && threadError) {
     return (
-      <ThreadModerationError errors={data.moveThread.errors} close={close} />
+      <ThreadModerationError
+        errors={data.threadCategoryUpdate.errors}
+        close={close}
+      />
     )
   }
 
@@ -53,8 +59,8 @@ const ThreadModerationMoveForm: React.FC<ThreadModerationMoveFormProps> = ({
         clearErrors()
 
         try {
-          const result = await moveThread(thread, category)
-          const { errors } = result.data?.moveThread || {}
+          const result = await threadCategoryUpdate(thread, category)
+          const { errors } = result.data?.threadCategoryUpdate || {}
 
           if (errors) {
             errors?.forEach(({ location, type, message }) => {
@@ -64,7 +70,7 @@ const ThreadModerationMoveForm: React.FC<ThreadModerationMoveFormProps> = ({
             close()
           }
         } catch (error) {
-          // do nothing when moveThread throws
+          // do nothing when threadCategoryUpdate throws
           return
         }
       }}

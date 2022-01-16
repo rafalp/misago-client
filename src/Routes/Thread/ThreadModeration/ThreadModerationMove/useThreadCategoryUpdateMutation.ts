@@ -2,9 +2,9 @@ import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../../types"
 import { Thread, ThreadCategory } from "../../Thread.types"
 
-const MOVE_THREADS = gql`
-  mutation MoveThread($input: MoveThreadInput!) {
-    moveThread(input: $input) {
+const THREAD_CATEGORY_UPDATE = gql`
+  mutation ThreadCategoryUpdate($input: ThreadCategoryUpdateInput!) {
+    threadCategoryUpdate(input: $input) {
       errors {
         message
         location
@@ -46,8 +46,8 @@ const MOVE_THREADS = gql`
   }
 `
 
-interface MoveThreadMutationData {
-  moveThread: {
+interface ThreadCategoryUpdateMutationData {
+  threadCategoryUpdate: {
     errors: Array<MutationError> | null
     thread: {
       id: string
@@ -56,24 +56,24 @@ interface MoveThreadMutationData {
   }
 }
 
-interface MoveThreadMutationVariables {
+interface ThreadCategoryUpdateMutationVariables {
   input: {
     thread: string
     category: string
   }
 }
 
-const useMoveThreadMutation = () => {
+const useThreadCategoryUpdateMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    MoveThreadMutationData,
-    MoveThreadMutationVariables
-  >(MOVE_THREADS)
+    ThreadCategoryUpdateMutationData,
+    ThreadCategoryUpdateMutationVariables
+  >(THREAD_CATEGORY_UPDATE)
 
   return {
     data,
     error,
     loading,
-    moveThread: (thread: Thread, category: string) => {
+    threadCategoryUpdate: (thread: Thread, category: string) => {
       return mutation({
         variables: {
           input: { category, thread: thread.id },
@@ -83,4 +83,4 @@ const useMoveThreadMutation = () => {
   }
 }
 
-export default useMoveThreadMutation
+export default useThreadCategoryUpdateMutation
