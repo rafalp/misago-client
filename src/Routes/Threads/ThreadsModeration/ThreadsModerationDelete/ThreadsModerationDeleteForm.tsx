@@ -10,7 +10,7 @@ import { Category } from "../../../../types"
 import { Thread } from "../../Threads.types"
 import ThreadsModerationError from "../ThreadsModerationError"
 import ThreadsModerationSelectedThreads from "../ThreadsModerationSelectedThreads"
-import useDeleteThreadsMutation from "./useDeleteThreadsMutation"
+import useThreadsBulkDeleteMutation from "./useThreadsBulkDeleteMutation"
 
 interface ThreadsModerationDeleteFormProps {
   category?: Category | null
@@ -36,9 +36,9 @@ const ThreadsModerationDeleteForm: React.FC<ThreadsModerationDeleteFormProps> = 
   const {
     data,
     loading,
-    deleteThreads,
+    threadsBulkDelete,
     error: graphqlError,
-  } = useDeleteThreadsMutation()
+  } = useThreadsBulkDeleteMutation()
 
   const bulkActionLimit = useBulkActionLimit()
   const validators = Yup.object().shape({
@@ -47,10 +47,10 @@ const ThreadsModerationDeleteForm: React.FC<ThreadsModerationDeleteFormProps> = 
       .max(bulkActionLimit, "value_error.list.max_items"),
   })
 
-  if (data?.deleteThreads.errors) {
+  if (data?.threadsBulkDelete.errors) {
     return (
       <ThreadsModerationError
-        errors={data.deleteThreads.errors}
+        errors={data.threadsBulkDelete.errors}
         threads={threads}
         close={close}
         forDelete
@@ -69,8 +69,8 @@ const ThreadsModerationDeleteForm: React.FC<ThreadsModerationDeleteFormProps> = 
         clearThreadsErrors()
 
         try {
-          const result = await deleteThreads(threads, category)
-          const { errors } = result.data?.deleteThreads || {}
+          const result = await threadsBulkDelete(threads, category)
+          const { errors } = result.data?.threadsBulkDelete || {}
 
           if (errors) {
             setThreadsErrors(threads, errors)
@@ -81,14 +81,14 @@ const ThreadsModerationDeleteForm: React.FC<ThreadsModerationDeleteFormProps> = 
             close()
           }
         } catch (error) {
-          // do nothing when deleteThreads throws
+          // do nothing when threadsBulkDelete throws
           return
         }
       }}
     >
       <RootError
         graphqlError={graphqlError}
-        dataErrors={data?.deleteThreads.errors}
+        dataErrors={data?.threadsBulkDelete.errors}
       >
         {({ message }) => <ModalAlert>{message}</ModalAlert>}
       </RootError>

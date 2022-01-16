@@ -10,55 +10,55 @@ import {
 
 const THREAD_NOT_EXISTS = "value_error.thread.not_exists"
 
-const DELETE_THREADS = gql`
-  mutation DeleteThreads($input: BulkDeleteThreadsInput!) {
-    deleteThreads(input: $input) {
+const THREADS_BULK_DELETE = gql`
+  mutation ThreadsBulkDelete($threads: [ID!]!) {
+    threadsBulkDelete(threads: $threads) {
+      deleted
       errors {
         message
         location
         type
       }
-      deleted
     }
   }
 `
 
-interface DeleteThreadsMutationData {
-  deleteThreads: {
+interface ThreadsBulkDeleteMutationData {
+  threadsBulkDelete: {
     errors: Array<MutationError> | null
     deleted: Array<string>
   }
 }
 
-interface DeleteThreadsMutationVariables {
-  input: {
-    threads: Array<string>
-  }
+interface ThreadsBulkDeleteMutationVariables {
+  threads: Array<string>
 }
 
-const useDeleteThreadsMutation = () => {
+const useThreadsBulkDeleteMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    DeleteThreadsMutationData,
-    DeleteThreadsMutationVariables
-  >(DELETE_THREADS)
+    ThreadsBulkDeleteMutationData,
+    ThreadsBulkDeleteMutationVariables
+  >(THREADS_BULK_DELETE)
 
   return {
     data,
     error,
     loading,
-    deleteThreads: (threads: Array<Thread>, category?: Category | null) => {
-      const deletedThreadsIds = threads.map((thread) => thread.id)
+    threadsBulkDelete: (
+      threads: Array<Thread>,
+      category?: Category | null
+    ) => {
       return mutation({
         variables: {
-          input: { threads: deletedThreadsIds },
+          threads: threads.map((thread) => thread.id),
         },
         update: (cache, { data }) => {
-          if (!data || !data.deleteThreads) return
+          if (!data || !data.threadsBulkDelete) return
 
           const errors = getSelectionErrors<Thread>(
             "threads",
             threads,
-            data.deleteThreads.errors || []
+            data.threadsBulkDelete.errors || []
           )
 
           let queryID = category
@@ -87,7 +87,7 @@ const useDeleteThreadsMutation = () => {
                     return true
                   }
 
-                  return data.deleteThreads.deleted.indexOf(thread.id) < 0
+                  return data.threadsBulkDelete.deleted.indexOf(thread.id) < 0
                 }),
               },
             },
@@ -98,4 +98,4 @@ const useDeleteThreadsMutation = () => {
   }
 }
 
-export default useDeleteThreadsMutation
+export default useThreadsBulkDeleteMutation
