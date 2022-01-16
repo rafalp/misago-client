@@ -2,9 +2,9 @@ import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../../types"
 import { Thread } from "../../Thread.types"
 
-const DELETE_THREAD = gql`
-  mutation DeleteThread($input: DeleteThreadInput!) {
-    deleteThread(input: $input) {
+const THREAD_DELETE = gql`
+  mutation ThreadDelete($input: ThreadDeleteInput!) {
+    threadDelete(input: $input) {
       errors {
         message
         location
@@ -14,29 +14,29 @@ const DELETE_THREAD = gql`
   }
 `
 
-interface DeleteThreadMutationData {
-  deleteThread: {
+interface ThreadDeleteMutationData {
+  threadDelete: {
     errors: Array<MutationError> | null
   }
 }
 
-interface DeleteThreadMutationVariables {
+interface ThreadDeleteMutationVariables {
   input: {
     thread: string
   }
 }
 
-const useDeleteThreadMutation = () => {
+const useThreadDeleteMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    DeleteThreadMutationData,
-    DeleteThreadMutationVariables
-  >(DELETE_THREAD)
+    ThreadDeleteMutationData,
+    ThreadDeleteMutationVariables
+  >(THREAD_DELETE)
 
   return {
     data,
     error,
     loading,
-    deleteThread: (thread: Thread) => {
+    threadDelete: (thread: Thread) => {
       return mutation({
         variables: {
           input: { thread: thread.id },
@@ -46,4 +46,4 @@ const useDeleteThreadMutation = () => {
   }
 }
 
-export default useDeleteThreadMutation
+export default useThreadDeleteMutation

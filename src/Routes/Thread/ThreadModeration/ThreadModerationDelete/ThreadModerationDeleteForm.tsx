@@ -12,7 +12,7 @@ import RootError from "../../../../UI/RootError"
 import * as urls from "../../../../urls"
 import { Thread } from "../../Thread.types"
 import ThreadModerationError from "../ThreadModerationError"
-import useDeleteThreadMutation from "./useDeleteThreadMutation"
+import useThreadDeleteMutation from "./useThreadDeleteMutation"
 
 interface ThreadModerationDeleteFormProps {
   thread: Thread
@@ -31,14 +31,14 @@ const ThreadModerationDeleteForm: React.FC<ThreadModerationDeleteFormProps> = ({
   const {
     data,
     loading,
-    deleteThread,
+    threadDelete,
     error: graphqlError,
-  } = useDeleteThreadMutation()
+  } = useThreadDeleteMutation()
 
-  if (data?.deleteThread.errors) {
+  if (data?.threadDelete.errors) {
     return (
       <ThreadModerationError
-        errors={data.deleteThread.errors}
+        errors={data.threadDelete.errors}
         close={close}
         forDelete
       />
@@ -51,9 +51,9 @@ const ThreadModerationDeleteForm: React.FC<ThreadModerationDeleteFormProps> = ({
       disabled={loading}
       onSubmit={async () => {
         try {
-          const result = await deleteThread(thread)
+          const result = await threadDelete(thread)
 
-          if (!result.data?.deleteThread.errors) {
+          if (!result.data?.threadDelete.errors) {
             window.setTimeout(() => {
               showToast(
                 <Trans id="moderation.thread_deleted">
@@ -66,7 +66,7 @@ const ThreadModerationDeleteForm: React.FC<ThreadModerationDeleteFormProps> = ({
             close()
           }
         } catch (error) {
-          // do nothing when deleteThread throws
+          // do nothing when threadDelete throws
           return
         }
       }}
