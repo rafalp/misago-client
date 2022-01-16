@@ -10,8 +10,8 @@ import ThreadPostRootError from "../ThreadPostRootError"
 import { ThreadReplyContextData } from "./ThreadReplyContext"
 import ThreadReplyDialog from "./ThreadReplyDialog"
 import ThreadReplyEditError from "./ThreadReplyEditError"
-import useEditPostMutation from "./useEditPostMutation"
 import usePostMarkupQuery from "./usePostMarkupQuery"
+import usePostUpdateMutation from "./usePostUpdateMutation"
 
 const Editor = React.lazy(() => import("../../../Editor"))
 
@@ -31,8 +31,8 @@ const ThreadReplyEditForm: React.FC<ThreadReplyEditFormProps> = ({
   const { cancelReply, form, resetValue } = context
 
   const query = usePostMarkupQuery({ id: post.id })
-  const mutation = useEditPostMutation(post)
-
+  
+  const mutation = usePostUpdateMutation(post)
   const defaultValue = query.data?.post?.markup || ""
   React.useEffect(() => {
     resetValue(defaultValue)
@@ -74,8 +74,8 @@ const ThreadReplyEditForm: React.FC<ThreadReplyEditFormProps> = ({
                 form.clearErrors()
 
                 try {
-                  const result = await mutation.editPost(data.markup)
-                  const { errors } = result.data?.editPost || {}
+                  const result = await mutation.postUpdate(data.markup)
+                  const { errors } = result.data?.postUpdate || {}
 
                   if (errors) {
                     errors?.forEach(({ location, type, message }) => {
@@ -91,14 +91,14 @@ const ThreadReplyEditForm: React.FC<ThreadReplyEditFormProps> = ({
                     cancelReply(true)
                   }
                 } catch (error) {
-                  // do nothing when editPost throws
+                  // do nothing when postUpdate throws
                   return
                 }
               })}
             >
               <ThreadPostRootError
                 graphqlError={mutation.error}
-                dataErrors={mutation.data?.editPost.errors}
+                dataErrors={mutation.data?.postUpdate.errors}
               >
                 {({ message }) => (
                   <PostingFormAlert>{message}</PostingFormAlert>

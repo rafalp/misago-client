@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client"
 import { MutationError, RichText } from "../../../types"
 
-const EDIT_POST = gql`
-  mutation EditPost($input: EditPostInput!) {
-    editPost(input: $input) {
+const POST_UPDATE = gql`
+  mutation PostUpdate($input: PostUpdateInput!) {
+    postUpdate(input: $input) {
       errors {
         message
         location
@@ -18,8 +18,8 @@ const EDIT_POST = gql`
   }
 `
 
-interface EditPostMutationData {
-  editPost: {
+interface PostUpdateMutationData {
+  postUpdate: {
     errors: Array<MutationError> | null
     post: {
       id: string
@@ -29,24 +29,24 @@ interface EditPostMutationData {
   }
 }
 
-interface EditPostMutationVariables {
+interface PostUpdateMutationVariables {
   input: {
     post: string
     markup: string
   }
 }
 
-const useEditPostMutation = (post: { id: string }) => {
+const usePostUpdateMutation = (post: { id: string }) => {
   const [mutation, { data, error, loading }] = useMutation<
-    EditPostMutationData,
-    EditPostMutationVariables
-  >(EDIT_POST)
+    PostUpdateMutationData,
+    PostUpdateMutationVariables
+  >(POST_UPDATE)
 
   return {
     data,
     error,
     loading,
-    editPost: (markup: string) => {
+    postUpdate: (markup: string) => {
       return mutation({
         variables: {
           input: { markup, post: post.id },
@@ -56,4 +56,4 @@ const useEditPostMutation = (post: { id: string }) => {
   }
 }
 
-export default useEditPostMutation
+export default usePostUpdateMutation
