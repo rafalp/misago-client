@@ -9,7 +9,7 @@ import { useSelectionErrors } from "../../../../UI/useSelectionErrors"
 import { Post, Thread } from "../../Thread.types"
 import ThreadPostsModerationError from "../ThreadPostsModerationError"
 import ThreadPostsModerationSelectedPosts from "../ThreadPostsModerationSelectedPosts"
-import useDeleteThreadPostsMutation from "./useDeleteThreadPostsMutation"
+import usePostsBulkDeleteMutation from "./usePostsBulkDeleteMutation"
 
 interface ThreadPostsModerationDeleteProps {
   thread: Thread
@@ -36,9 +36,9 @@ const ThreadPostsModerationDelete: React.FC<ThreadPostsModerationDeleteProps> = 
   const {
     data,
     loading,
-    deletePosts,
+    postsBulkDelete,
     error: graphqlError,
-  } = useDeleteThreadPostsMutation()
+  } = usePostsBulkDeleteMutation()
 
   const bulkActionLimit = useBulkActionLimit()
   const validators = Yup.object().shape({
@@ -47,12 +47,12 @@ const ThreadPostsModerationDelete: React.FC<ThreadPostsModerationDeleteProps> = 
       .max(bulkActionLimit, "value_error.list.max_items"),
   })
 
-  if (data?.deleteThreadPosts.errors) {
+  if (data?.postsBulkDelete.errors) {
     return (
       <ThreadPostsModerationError
         posts={posts}
         selectionErrors={selectionErrors}
-        errors={data.deleteThreadPosts.errors}
+        errors={data.postsBulkDelete.errors}
         close={close}
         forDelete
       />
@@ -67,14 +67,14 @@ const ThreadPostsModerationDelete: React.FC<ThreadPostsModerationDeleteProps> = 
       validators={validators}
       onSubmit={async ({ data: { posts } }) => {
         try {
-          const result = await deletePosts(thread, posts, page)
-          if (result.data?.deleteThreadPosts.errors) {
-            setSelectionErrors(posts, result.data.deleteThreadPosts.errors)
+          const result = await postsBulkDelete(thread, posts, page)
+          if (result.data?.postsBulkDelete.errors) {
+            setSelectionErrors(posts, result.data.postsBulkDelete.errors)
           } else {
             close()
           }
         } catch (error) {
-          // do nothing when deletePosts throws
+          // do nothing when postsBulkDelete throws
           return
         }
       }}

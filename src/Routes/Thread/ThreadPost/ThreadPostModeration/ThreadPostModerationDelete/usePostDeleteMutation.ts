@@ -3,14 +3,10 @@ import { MutationError } from "../../../../../types"
 import { Post } from "../../../Thread.types"
 import { THREAD_QUERY, ThreadData } from "../../../useThreadQuery"
 
-const DELETE_THREAD_POST = gql`
-  mutation DeleteThreadPost($input: DeleteThreadPostInput!) {
-    deleteThreadPost(input: $input) {
-      errors {
-        message
-        location
-        type
-      }
+const POST_DELETE = gql`
+  mutation PostDelete($thread: ID!, $post: ID!) {
+    postDelete(thread: $thread, post: $post) {
+      deleted
       thread {
         id
         lastPostedAt
@@ -32,42 +28,45 @@ const DELETE_THREAD_POST = gql`
           }
         }
       }
-      deleted
+      errors {
+        message
+        location
+        type
+      }
     }
   }
 `
 
-interface DeleteThreadPostMutationData {
-  deleteThreadPost: {
+interface PostDeleteMutationData {
+  postDelete: {
     errors: Array<MutationError> | null
     deleted: Array<string>
   }
 }
 
-interface DeleteThreadPostMutationVariables {
-  input: {
-    thread: string
-    post: string
-  }
+interface PostDeleteMutationVariables {
+  thread: string
+  post: string
 }
 
-const useDeleteThreadPostMutation = () => {
+const usePostDeleteMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    DeleteThreadPostMutationData,
-    DeleteThreadPostMutationVariables
-  >(DELETE_THREAD_POST)
+    PostDeleteMutationData,
+    PostDeleteMutationVariables
+  >(POST_DELETE)
 
   return {
     data,
     error,
     loading,
-    deletePost: (threadId: string, post: Post, page: number | undefined) => {
+    postDelete: (threadId: string, post: Post, page: number | undefined) => {
       return mutation({
         variables: {
-          input: { thread: threadId, post: post.id },
+          thread: threadId,
+          post: post.id,
         },
         update: (cache, { data }) => {
-          if (!data || !data.deleteThreadPost) return
+          if (!data || !data.postDelete) return
 
           const queryID = page
             ? {
@@ -93,7 +92,7 @@ const useDeleteThreadPostMutation = () => {
                   page: {
                     ...query.thread.posts.page,
                     items: query.thread.posts.page.items.filter((post) => {
-                      return data.deleteThreadPost.deleted.indexOf(post.id) < 0
+                      return data.postDelete.deleted.indexOf(post.id) < 0
                     }),
                   },
                 },
@@ -106,4 +105,4 @@ const useDeleteThreadPostMutation = () => {
   }
 }
 
-export default useDeleteThreadPostMutation
+export default usePostDeleteMutation

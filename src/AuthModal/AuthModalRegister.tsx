@@ -19,7 +19,7 @@ import {
   UsernameValidationError,
 } from "../UI/ValidationError"
 import { useAuth } from "../auth"
-import useRegisterMutation from "./useRegisterMutation"
+import useUserCreateMutation from "./useUserCreateMutation"
 
 interface FormValues {
   name: string
@@ -46,9 +46,9 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
   const { login } = useAuth()
   const [disabled, setDisabled] = React.useState<boolean>(false)
   const [
-    register,
+    userCreate,
     { data, loading, error: graphqlError },
-  ] = useRegisterMutation()
+  ] = useUserCreateMutation()
 
   const validators = Yup.object().shape({
     name: Yup.string()
@@ -67,15 +67,15 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
 
   return (
     <ModalDialog
-      className="modal-dialog-auth modal-dialog-register"
+      className="modal-dialog-auth modal-dialog-userCreate"
       size={ModalSize.SMALL}
     >
       <ModalHeader
-        title={<Trans id="register.title">Sign up</Trans>}
+        title={<Trans id="userCreate.title">Sign up</Trans>}
         close={close}
       />
       <Form<FormValues>
-        id="register_form"
+        id="userCreate_form"
         defaultValues={{
           name: "",
           email: "",
@@ -87,8 +87,8 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
           clearErrors()
 
           try {
-            const result = await register({ variables: { input } })
-            const { errors, token, user } = result.data?.register || {}
+            const result = await userCreate({ variables: { input } })
+            const { errors, token, user } = result.data?.userCreate || {}
 
             errors?.forEach(({ location, type, message }) => {
               setError(location, { type, message })
@@ -100,14 +100,14 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
               close()
             }
           } catch (error) {
-            // do nothing when register throws
+            // do nothing when userCreate throws
             return
           }
         }}
       >
         <RootError
           graphqlError={graphqlError}
-          dataErrors={data?.register.errors}
+          dataErrors={data?.userCreate.errors}
         >
           {({ message }) => <ModalAlert>{message}</ModalAlert>}
         </RootError>
@@ -160,9 +160,9 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
             loading={loading || disabled}
             text={
               loading || disabled ? (
-                <Trans id="register.submitting">Signing up...</Trans>
+                <Trans id="userCreate.submitting">Signing up...</Trans>
               ) : (
-                <Trans id="register.submit">Sign up</Trans>
+                <Trans id="userCreate.submit">Sign up</Trans>
               )
             }
             block
@@ -170,7 +170,7 @@ const AuthModalRegister: React.FC<AuthModalRegisterProps> = ({
           <ButtonLink
             disabled={loading || disabled}
             text={
-              <Trans id="register.login">
+              <Trans id="userCreate.login">
                 Already a member? <strong>Log in</strong>
               </Trans>
             }

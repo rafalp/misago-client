@@ -7,13 +7,9 @@ import { THREAD_QUERY, ThreadData } from "../../useThreadQuery"
 const POST_NOT_EXISTS = "value_error.post.not_exists"
 
 const DELETE_THREAD_POSTS = gql`
-  mutation DeleteThreadPosts($input: BulkDeleteThreadPostsInput!) {
-    deleteThreadPosts(input: $input) {
-      errors {
-        message
-        location
-        type
-      }
+  mutation PostsBulkDelete($thread: ID!, $posts: [ID!]!) {
+    postsBulkDelete(thread: $thread, posts: $posts) {
+      deleted
       thread {
         id
         lastPostedAt
@@ -35,36 +31,38 @@ const DELETE_THREAD_POSTS = gql`
           }
         }
       }
-      deleted
+      errors {
+        message
+        location
+        type
+      }
     }
   }
 `
 
-interface DeleteThreadPostsMutationData {
-  deleteThreadPosts: {
+interface PostsBulkDeleteMutationData {
+  postsBulkDelete: {
     errors: Array<MutationError> | null
     deleted: Array<string>
   }
 }
 
-interface DeleteThreadPostsMutationVariables {
-  input: {
-    thread: string
-    posts: Array<string>
-  }
+interface PostsBulkDeleteMutationVariables {
+  thread: string
+  posts: Array<string>
 }
 
-const useDeleteThreadPostsMutation = () => {
+const usePostsBulkDeleteMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    DeleteThreadPostsMutationData,
-    DeleteThreadPostsMutationVariables
+    PostsBulkDeleteMutationData,
+    PostsBulkDeleteMutationVariables
   >(DELETE_THREAD_POSTS)
 
   return {
     data,
     error,
     loading,
-    deletePosts: (
+    postsBulkDelete: (
       thread: Thread,
       posts: Array<Post>,
       page: number | undefined
@@ -73,15 +71,16 @@ const useDeleteThreadPostsMutation = () => {
 
       return mutation({
         variables: {
-          input: { thread: thread.id, posts: deletedPosts },
+          thread: thread.id,
+          posts: deletedPosts,
         },
         update: (cache, { data }) => {
-          if (!data || !data.deleteThreadPosts) return
+          if (!data || !data.postsBulkDelete) return
 
           const errors = getSelectionErrors<Post>(
             "posts",
             posts,
-            data.deleteThreadPosts.errors || []
+            data.postsBulkDelete.errors || []
           )
 
           const queryID = page
@@ -115,9 +114,7 @@ const useDeleteThreadPostsMutation = () => {
                         return true
                       }
 
-                      return (
-                        data.deleteThreadPosts.deleted.indexOf(post.id) < 0
-                      )
+                      return data.postsBulkDelete.deleted.indexOf(post.id) < 0
                     }),
                   },
                 },
@@ -130,4 +127,4 @@ const useDeleteThreadPostsMutation = () => {
   }
 }
 
-export default useDeleteThreadPostsMutation
+export default usePostsBulkDeleteMutation

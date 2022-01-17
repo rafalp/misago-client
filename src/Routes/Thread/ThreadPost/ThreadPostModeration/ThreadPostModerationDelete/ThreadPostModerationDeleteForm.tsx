@@ -9,7 +9,7 @@ import {
 import RootError from "../../../../../UI/RootError"
 import { Post } from "../../../Thread.types"
 import ThreadPostModerationError from "../ThreadPostModerationError"
-import useDeleteThreadPostMutation from "./useDeleteThreadPostMutation"
+import usePostDeleteMutation from "./usePostDeleteMutation"
 
 interface ThreadPostModerationDeleteFormProps {
   threadId: string
@@ -29,14 +29,14 @@ const ThreadPostModerationDeleteForm: React.FC<ThreadPostModerationDeleteFormPro
   const {
     data,
     loading,
-    deletePost,
+    postDelete,
     error: graphqlError,
-  } = useDeleteThreadPostMutation()
+  } = usePostDeleteMutation()
 
-  if (data?.deleteThreadPost.errors) {
+  if (data?.postDelete.errors) {
     return (
       <ThreadPostModerationError
-        errors={data.deleteThreadPost.errors}
+        errors={data.postDelete.errors}
         close={close}
         forDelete
       />
@@ -49,13 +49,13 @@ const ThreadPostModerationDeleteForm: React.FC<ThreadPostModerationDeleteFormPro
       disabled={loading}
       onSubmit={async () => {
         try {
-          const result = await deletePost(threadId, post, page)
+          const result = await postDelete(threadId, post, page)
 
-          if (!result.data?.deleteThreadPost.errors) {
+          if (!result.data?.postDelete.errors) {
             close()
           }
         } catch (error) {
-          // do nothing when deleteThread throws
+          // do nothing when postDelete throws
           return
         }
       }}

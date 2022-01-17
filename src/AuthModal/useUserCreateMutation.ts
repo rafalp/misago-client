@@ -1,25 +1,25 @@
 import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../types"
 
-const REGISTER = gql`
-  mutation Register($input: RegisterInput!) {
-    register(input: $input) {
-      errors {
-        location
-        message
-        type
-      }
+const USER_CREATE = gql`
+  mutation UserCreate($input: UserCreateInput!) {
+    userCreate(input: $input) {
       user {
         id
         name
       }
       token
+      errors {
+        location
+        message
+        type
+      }
     }
   }
 `
 
-interface RegisterData {
-  register: {
+interface UserCreateData {
+  userCreate: {
     errors: Array<MutationError> | null
     user: {
       id: string
@@ -29,7 +29,7 @@ interface RegisterData {
   }
 }
 
-interface RegisterValues {
+interface UserCreateValues {
   input: {
     name: string
     email: string
@@ -37,10 +37,10 @@ interface RegisterValues {
   }
 }
 
-const useRegisterMutation = () => {
-  return useMutation<RegisterData, RegisterValues>(REGISTER, {
+const useUserCreateMutation = () => {
+  return useMutation<UserCreateData, UserCreateValues>(USER_CREATE, {
     errorPolicy: "all",
   })
 }
 
-export default useRegisterMutation
+export default useUserCreateMutation
