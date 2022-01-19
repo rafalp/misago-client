@@ -2,14 +2,9 @@ import { gql, useMutation } from "@apollo/client"
 import { MutationError } from "../../../../types"
 import { Thread, ThreadCategory } from "../../Thread.types"
 
-const THREAD_CATEGORY_UPDATE = gql`
-  mutation ThreadCategoryUpdate($input: ThreadCategoryUpdateInput!) {
-    threadCategoryUpdate(input: $input) {
-      errors {
-        message
-        location
-        type
-      }
+const THREAD_MOVE = gql`
+  mutation ThreadMove($thread: ID!, $category: ID!) {
+    threadMove(thread: $thread, category: $category) {
       thread {
         id
         category {
@@ -42,45 +37,49 @@ const THREAD_CATEGORY_UPDATE = gql`
           }
         }
       }
+      errors {
+        message
+        location
+        type
+      }
     }
   }
 `
 
-interface ThreadCategoryUpdateMutationData {
-  threadCategoryUpdate: {
-    errors: Array<MutationError> | null
+interface ThreadMoveMutationData {
+  threadMove: {
     thread: {
       id: string
       category: ThreadCategory
     } | null
+    errors: Array<MutationError> | null
   }
 }
 
-interface ThreadCategoryUpdateMutationVariables {
-  input: {
-    thread: string
-    category: string
-  }
+interface ThreadMoveMutationVariables {
+  thread: string
+  category: string
 }
 
-const useThreadCategoryUpdateMutation = () => {
+const useThreadMoveMutation = () => {
   const [mutation, { data, error, loading }] = useMutation<
-    ThreadCategoryUpdateMutationData,
-    ThreadCategoryUpdateMutationVariables
-  >(THREAD_CATEGORY_UPDATE)
+    ThreadMoveMutationData,
+    ThreadMoveMutationVariables
+  >(THREAD_MOVE)
 
   return {
     data,
     error,
     loading,
-    threadCategoryUpdate: (thread: Thread, category: string) => {
+    threadMove: (thread: Thread, category: string) => {
       return mutation({
         variables: {
-          input: { category, thread: thread.id },
+          category,
+          thread: thread.id,
         },
       })
     },
   }
 }
 
-export default useThreadCategoryUpdateMutation
+export default useThreadMoveMutation
