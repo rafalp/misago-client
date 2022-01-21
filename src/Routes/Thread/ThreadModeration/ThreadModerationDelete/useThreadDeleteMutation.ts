@@ -3,8 +3,8 @@ import { MutationError } from "../../../../types"
 import { Thread } from "../../Thread.types"
 
 const THREAD_DELETE = gql`
-  mutation ThreadDelete($input: ThreadDeleteInput!) {
-    threadDelete(input: $input) {
+  mutation ThreadDelete($thread: ID!) {
+    threadDelete(thread: $thread) {
       errors {
         message
         location
@@ -21,9 +21,7 @@ interface ThreadDeleteMutationData {
 }
 
 interface ThreadDeleteMutationVariables {
-  input: {
-    thread: string
-  }
+  thread: string
 }
 
 const useThreadDeleteMutation = () => {
@@ -39,7 +37,7 @@ const useThreadDeleteMutation = () => {
     threadDelete: (thread: Thread) => {
       return mutation({
         variables: {
-          input: { thread: thread.id },
+          thread: thread.id,
         },
       })
     },
