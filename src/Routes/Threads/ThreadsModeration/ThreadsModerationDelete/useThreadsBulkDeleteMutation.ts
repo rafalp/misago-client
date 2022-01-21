@@ -25,8 +25,8 @@ const THREADS_BULK_DELETE = gql`
 
 interface ThreadsBulkDeleteMutationData {
   threadsBulkDelete: {
-    errors: Array<MutationError> | null
     deleted: Array<string>
+    errors: Array<MutationError> | null
   }
 }
 

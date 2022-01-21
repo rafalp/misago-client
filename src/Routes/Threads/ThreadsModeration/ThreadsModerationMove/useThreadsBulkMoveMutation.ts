@@ -34,7 +34,7 @@ const THREADS_BULK_MOVE = gql`
 
 interface ThreadsBulkMoveMutationData {
   threadsBulkMove: {
-    updated: boolean
+    updated: Array<string>
     threads: Array<{
       id: string
       category: ThreadCategory

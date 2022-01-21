@@ -48,7 +48,11 @@ const ThreadsModerationMoveForm: React.FC<ThreadsModerationMoveFormProps> = ({
       .max(bulkActionLimit, "value_error.list.max_items"),
   })
 
-  if (data && data.threadsBulkMove.errors && data.threadsBulkMove.updated) {
+  if (
+    data &&
+    data.threadsBulkMove.errors &&
+    data.threadsBulkMove.updated.length
+  ) {
     return (
       <ThreadsModerationError
         errors={data.threadsBulkMove.errors}

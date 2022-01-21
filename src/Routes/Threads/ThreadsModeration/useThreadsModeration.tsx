@@ -4,10 +4,8 @@ import { Category } from "../../../types"
 import { Thread, ThreadsModerationOptions } from "../Threads.types"
 import ThreadsModerationDelete from "./ThreadsModerationDelete"
 import ThreadsModerationMove from "./ThreadsModerationMove"
-import {
-  useThreadsBulkClose,
-  useThreadsBulkOpen,
-} from "./useThreadsIsClosedBulkUpdateMutation"
+import useThreadsBulkClose from "./useThreadsBulkClose"
+import useThreadsBulkOpen from "./useThreadsBulkOpen"
 
 const useThreadsModeration = (
   threads: Array<Thread>,
@@ -16,18 +14,18 @@ const useThreadsModeration = (
   const user = useAuthContext()
   const { openModal } = useModalContext()
 
-  const [closeThreads, { loading: closingThreads }] = useThreadsBulkClose(
+  const [threadsOpen, { loading: closingThreads }] = useThreadsBulkClose(
     threads
   )
-  const [openThreads, { loading: openingThreads }] = useThreadsBulkOpen(
+  const [threadsClose, { loading: openingThreads }] = useThreadsBulkClose(
     threads
   )
 
-  const moveThreads = () => {
+  const threadsMove = () => {
     openModal(<ThreadsModerationMove threads={threads} />)
   }
 
-  const deleteThreads = () => {
+  const threadsDelete = () => {
     openModal(
       <ThreadsModerationDelete threads={threads} category={category} />
     )
@@ -40,22 +38,22 @@ const useThreadsModeration = (
       {
         name: <Trans id="moderation.open">Open</Trans>,
         icon: "fas fa-unlock",
-        action: openThreads,
+        action: threadsOpen,
       },
       {
         name: <Trans id="moderation.close">Close</Trans>,
         icon: "fas fa-lock",
-        action: closeThreads,
+        action: threadsClose,
       },
       {
         name: <Trans id="moderation.move">Move</Trans>,
         icon: "fas fa-arrow-right",
-        action: moveThreads,
+        action: threadsMove,
       },
       {
         name: <Trans id="moderation.delete">Delete</Trans>,
         icon: "fas fa-times",
-        action: deleteThreads,
+        action: threadsDelete,
       },
     ],
   }
