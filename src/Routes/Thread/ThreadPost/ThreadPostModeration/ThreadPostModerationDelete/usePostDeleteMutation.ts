@@ -39,8 +39,8 @@ const POST_DELETE = gql`
 
 interface PostDeleteMutationData {
   postDelete: {
+    deleted: boolean
     errors: Array<MutationError> | null
-    deleted: Array<string>
   }
 }
 
@@ -81,24 +81,28 @@ const usePostDeleteMutation = () => {
           const query = cache.readQuery<ThreadData>(queryID)
           if (!query?.thread?.posts.page?.items.length) return null
 
-          cache.writeQuery<ThreadData>({
-            ...queryID,
-            data: {
-              ...query,
-              thread: {
-                ...query.thread,
-                posts: {
-                  ...query.thread.posts,
-                  page: {
-                    ...query.thread.posts.page,
-                    items: query.thread.posts.page.items.filter((post) => {
-                      return data.postDelete.deleted.indexOf(post.id) < 0
-                    }),
+          if (data.postDelete.deleted) {
+            const deletedId = post.id
+
+            cache.writeQuery<ThreadData>({
+              ...queryID,
+              data: {
+                ...query,
+                thread: {
+                  ...query.thread,
+                  posts: {
+                    ...query.thread.posts,
+                    page: {
+                      ...query.thread.posts.page,
+                      items: query.thread.posts.page.items.filter((post) => {
+                        return post.id != deletedId
+                      }),
+                    },
                   },
                 },
               },
-            },
-          })
+            })
+          }
         },
       })
     },
