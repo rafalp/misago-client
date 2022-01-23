@@ -4,7 +4,7 @@ import { MutationError } from "../../../../types"
 import { Post, Thread } from "../../Thread.types"
 import { THREAD_QUERY, ThreadData } from "../../useThreadQuery"
 
-const POST_NOT_EXISTS = "value_error.post.not_exists"
+const POST_NOT_FOUND = "value_error.post.not_found"
 
 const DELETE_THREAD_POSTS = gql`
   mutation PostsBulkDelete($thread: ID!, $posts: [ID!]!) {
@@ -109,7 +109,7 @@ const usePostsBulkDeleteMutation = () => {
                     items: query.thread.posts.page.items.filter((post) => {
                       if (
                         errors[post.id] &&
-                        errors[post.id].type !== POST_NOT_EXISTS
+                        errors[post.id].type !== POST_NOT_FOUND
                       ) {
                         return true
                       }

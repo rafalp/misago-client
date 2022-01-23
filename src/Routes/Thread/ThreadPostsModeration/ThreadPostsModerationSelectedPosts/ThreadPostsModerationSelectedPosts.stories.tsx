@@ -201,7 +201,7 @@ export const WithErrors = () => {
     },
     "2": {
       location: "posts.1",
-      type: "value_error.post.not_exists",
+      type: "value_error.post.not_found",
       message: "message not displayed",
     },
   }

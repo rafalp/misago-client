@@ -22,7 +22,7 @@ export const PostError = () => (
               "Category is closed": "auth_error.category.closed",
               "Thread is closed": "auth_error.thread.closed",
               "Post not author": "auth_error.post.not_author",
-              "Post not found": "value_error.post.not_exists",
+              "Post not found": "value_error.post.not_found",
             },
             "auth_error.not_moderator"
           ),
@@ -48,7 +48,7 @@ export const ThreadError = () => (
               "Category is closed": "auth_error.category.closed",
               "Thread is closed": "auth_error.thread.closed",
               "Thread not author": "auth_error.thread.not_author",
-              "Thread not found": "value_error.thread.not_exists",
+              "Thread not found": "value_error.thread.not_found",
             },
             "auth_error.not_moderator"
           ),

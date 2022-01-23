@@ -68,11 +68,11 @@ const PostValidationError: React.FC<ValidationErrorProps> = ({
         }),
       })
 
-    case "value_error.post.not_exists":
+    case "value_error.post.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.post.not_exists",
+          id: "value_error.post.not_found",
           message: "Post could not be found.",
         }),
       })

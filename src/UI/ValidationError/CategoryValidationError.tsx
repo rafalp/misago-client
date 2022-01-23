@@ -50,11 +50,11 @@ const CategoryValidationError: React.FC<ValidationErrorProps> = ({
         }),
       })
 
-    case "value_error.category.not_exists":
+    case "value_error.category.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.category.not_exists",
+          id: "value_error.category.not_found",
           message: "Category could not be found.",
         }),
       })

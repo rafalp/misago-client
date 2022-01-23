@@ -60,11 +60,11 @@ const ThreadValidationError: React.FC<ValidationErrorProps> = ({
         }),
       })
 
-    case "value_error.thread.not_exists":
+    case "value_error.thread.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.thread.not_exists",
+          id: "value_error.thread.not_found",
           message: "Thread could not be found.",
         }),
       })

@@ -909,7 +909,7 @@ msgid "value_error.category.missing"
 msgstr ""
 
 #: UI/ValidationError/CategoryValidationError.tsx:56
-msgid "value_error.category.not_exists"
+msgid "value_error.category.not_found"
 msgstr ""
 
 #: UI/ValidationError/EmailValidationError.tsx:39
@@ -961,7 +961,7 @@ msgid "value_error.password.missing"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:74
-msgid "value_error.post.not_exists"
+msgid "value_error.post.not_found"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:65
@@ -977,7 +977,7 @@ msgid "value_error.posts.min_items"
 msgstr ""
 
 #: UI/ValidationError/ThreadValidationError.tsx:66
-msgid "value_error.thread.not_exists"
+msgid "value_error.thread.not_found"
 msgstr ""
 
 #: UI/ValidationError/ThreadTitleValidationError.tsx:41

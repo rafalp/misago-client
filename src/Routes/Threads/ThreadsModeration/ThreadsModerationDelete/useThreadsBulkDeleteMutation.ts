@@ -8,7 +8,7 @@ import {
   ThreadsData,
 } from "../../useThreadsQuery"
 
-const THREAD_NOT_EXISTS = "value_error.thread.not_exists"
+const THREAD_NOT_FOUND = "value_error.thread.not_found"
 
 const THREADS_BULK_DELETE = gql`
   mutation ThreadsBulkDelete($threads: [ID!]!) {
@@ -82,7 +82,7 @@ const useThreadsBulkDeleteMutation = () => {
                 items: query.threads.items.filter((thread) => {
                   if (
                     errors[thread.id] &&
-                    errors[thread.id].type !== THREAD_NOT_EXISTS
+                    errors[thread.id].type !== THREAD_NOT_FOUND
                   ) {
                     return true
                   }

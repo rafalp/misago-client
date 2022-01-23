@@ -909,7 +909,7 @@ msgid "value_error.category.missing"
 msgstr "Thread category can't be empty."
 
 #: UI/ValidationError/CategoryValidationError.tsx:56
-msgid "value_error.category.not_exists"
+msgid "value_error.category.not_found"
 msgstr "Category could not be found."
 
 #: UI/ValidationError/EmailValidationError.tsx:39
@@ -961,7 +961,7 @@ msgid "value_error.password.missing"
 msgstr "Password can't be empty."
 
 #: UI/ValidationError/PostValidationError.tsx:74
-msgid "value_error.post.not_exists"
+msgid "value_error.post.not_found"
 msgstr "Post could not be found."
 
 #: UI/ValidationError/PostValidationError.tsx:65
@@ -977,7 +977,7 @@ msgid "value_error.posts.min_items"
 msgstr "{min, plural, one {Select at least # post.} other {Select at least # posts.}}"
 
 #: UI/ValidationError/ThreadValidationError.tsx:66
-msgid "value_error.thread.not_exists"
+msgid "value_error.thread.not_found"
 msgstr "Thread could not be found."
 
 #: UI/ValidationError/ThreadTitleValidationError.tsx:41

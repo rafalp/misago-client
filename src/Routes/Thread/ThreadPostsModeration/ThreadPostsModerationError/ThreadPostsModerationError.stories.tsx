@@ -45,7 +45,7 @@ export const ThreadError = () => (
       errors={[
         {
           location: "thread",
-          type: "value_error.thread.not_exists",
+          type: "value_error.thread.not_found",
           message: "thread not found",
         },
       ]}
