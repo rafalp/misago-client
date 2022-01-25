@@ -1041,7 +1041,7 @@ msgid "value_error.username.not_available"
 msgstr "This user name is not available."
 
 #: AuthModal/AuthModalLogin.tsx:87
-msgid "value_errosr.invalid_credentials"
+msgid "auth_error.invalid_credentials"
 msgstr "Login or password is incorrect."
 
 #: SiteWizard/SiteWizardForm.tsx:161

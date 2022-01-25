@@ -83,8 +83,8 @@ const AuthModalLogin: React.FC<AuthModalLoginProps> = ({
                 Fill out all fields.
               </Trans>
             ),
-            "value_error.invalid_credentials": (
-              <Trans id="value_errosr.invalid_credentials">
+            "auth_error.invalid_credentials": (
+              <Trans id="auth_error.invalid_credentials">
                 Login or password is incorrect.
               </Trans>
             ),
