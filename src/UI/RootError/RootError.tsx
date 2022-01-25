@@ -20,7 +20,7 @@ interface RootErrorProps {
   }
 }
 
-const NOT_AUTHORIZED_ERROR = "auth_error.not_authorized"
+const NOT_AUTHENTICATED_ERROR = "auth_error.not_authenticated"
 
 const RootError: React.FC<RootErrorProps> = ({
   children,
@@ -64,9 +64,9 @@ const RootError: React.FC<RootErrorProps> = ({
   const finLocations: Array<string> = locations || ["__root__"]
   const finMessages: { [type: string]: React.ReactNode } = messages || {}
 
-  if (!finMessages[NOT_AUTHORIZED_ERROR]) {
-    finMessages[NOT_AUTHORIZED_ERROR] = t({
-      id: "auth_error.not_authorized",
+  if (!finMessages[NOT_AUTHENTICATED_ERROR]) {
+    finMessages[NOT_AUTHENTICATED_ERROR] = t({
+      id: "auth_error.not_authenticated",
       message: "You need to be signed in to perform this action.",
     })
   }

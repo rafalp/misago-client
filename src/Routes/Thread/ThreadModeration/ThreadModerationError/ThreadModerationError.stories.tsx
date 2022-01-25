@@ -22,7 +22,7 @@ export const AuthError = () => (
         },
         {
           location: "__root__",
-          type: "auth_error.not_authorized",
+          type: "auth_error.not_authenticated",
           message: "authorization is required",
         },
       ]}

@@ -46,7 +46,7 @@ msgid "auth_error.message"
 msgstr "Please log in or sign up to continue."
 
 #: UI/RootError/RootError.tsx:68
-msgid "auth_error.not_authorized"
+msgid "auth_error.not_authenticated"
 msgstr "You need to be signed in to perform this action."
 
 #: UI/ValidationError/ValidationError.tsx:30

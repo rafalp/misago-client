@@ -46,7 +46,7 @@ msgid "auth_error.message"
 msgstr ""
 
 #: UI/RootError/RootError.tsx:68
-msgid "auth_error.not_authorized"
+msgid "auth_error.not_authenticated"
 msgstr ""
 
 #: UI/ValidationError/ValidationError.tsx:30
