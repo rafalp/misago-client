@@ -51,6 +51,7 @@ const THREADS_FIELDS = `
   }
   pageInfo {
     hasNextPage
+    endCursor
     nextCursor
   }
 `
@@ -77,6 +78,7 @@ export interface ThreadsData {
     pageInfo: {
       hasNextPage: boolean
       endCursor: string | null
+      nextCursor: string | null
     }
     __typename: string
   }
