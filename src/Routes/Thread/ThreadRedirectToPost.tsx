@@ -19,8 +19,8 @@ const ThreadRedirectToPost: React.FC = () => {
     if (loading) return <RouteLoader />
   }
 
-  if (data?.thread?.postUrl) {
-    return <Redirect to={data.thread.postUrl} />
+  if (data?.thread?.post?.url) {
+    return <Redirect to={data.thread.post.url} />
   }
 
   return <RouteNotFound />

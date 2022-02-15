@@ -40,7 +40,7 @@ export const AllThreads = () => {
             selection={useThreadsSelection()}
           />
           <LoadMoreButton
-            data={{ nextCursor: "true" }}
+            data={{ pageInfo: { hasNextPage: true } }}
             loading={false}
             onEvent={loadMore}
           />
@@ -67,7 +67,7 @@ export const Category = () => {
             selection={useThreadsSelection()}
           />
           <LoadMoreButton
-            data={{ nextCursor: "true" }}
+            data={{ pageInfo: { hasNextPage: true } }}
             loading={false}
             onEvent={loadMore}
           />

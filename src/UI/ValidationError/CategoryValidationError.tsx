@@ -27,8 +27,8 @@ const CategoryValidationError: React.FC<ValidationErrorProps> = ({
       return children({
         type: errorType,
         message: t({
-          id: "value_error.category.missing",
-          message: "Thread category can't be empty.",
+          id: "category_error.missing",
+          message: "Select category.",
         }),
       })
 
@@ -36,25 +36,25 @@ const CategoryValidationError: React.FC<ValidationErrorProps> = ({
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.not_moderator.category",
+          id: "category_error.not_moderator",
           message: "You can't moderate this category.",
         }),
       })
 
-    case "auth_error.category.closed":
+    case "category_error.closed":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.category.closed",
+          id: "category_error.closed",
           message: "This category is closed.",
         }),
       })
 
-    case "value_error.category.not_found":
+    case "category_error.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.category.not_found",
+          id: "category_error.not_found",
           message: "Category could not be found.",
         }),
       })

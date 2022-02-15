@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client"
-import { Thread } from "./Thread.types"
+import { Posts, Thread } from "./Thread.types"
 
 const THREAD_FRAGMENTS = `
   fragment ThreadPoster on User {
@@ -64,25 +64,23 @@ export const THREAD_QUERY = gql`
           ...ThreadCategory
         }
       }
-      posts {
-        page(page: $page) {
-          number
-          items {
-            id
-            richText
-            edits
-            postedAt
-            extra
-            posterName
-            poster {
-              ...ThreadPoster
-              extra
-            }
-          }
+    }
+    posts(thread: $id, page: $page) {
+      results {
+        id
+        richText
+        edits
+        postedAt
+        extra
+        posterName
+        poster {
+          ...ThreadPoster
+          extra
         }
-        pagination {
-          pages
-        }
+      }
+      totalPages
+      pageInfo {
+        number
       }
     }
   }
@@ -95,6 +93,7 @@ interface ThreadVariables {
 
 export interface ThreadData {
   thread: Thread | null
+  posts: Posts | null
 }
 
 export const useThreadQuery = (variables: ThreadVariables) => {

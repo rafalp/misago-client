@@ -9,7 +9,7 @@ const THREAD_Open = gql`
     threadOpen(thread: $thread) {
       thread {
         id
-        isOpend
+        isClosed
       }
       errors {
         message

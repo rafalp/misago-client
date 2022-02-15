@@ -8,7 +8,7 @@ export default {
 }
 
 const event = action("load more")
-const data = { nextCursor: "next" }
+const data = { pageInfo: { hasNextPage: true } }
 
 export const Default = () => (
   <RootContainer>
@@ -25,7 +25,7 @@ export const Loading = () => (
 export const NoCursor = () => (
   <RootContainer>
     <LoadMoreButton
-      data={{ nextCursor: null }}
+      data={{ pageInfo: { hasNextPage: false } }}
       loading={false}
       onEvent={event}
     />

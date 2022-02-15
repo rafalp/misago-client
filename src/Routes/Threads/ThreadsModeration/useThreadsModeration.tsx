@@ -14,7 +14,7 @@ const useThreadsModeration = (
   const user = useAuthContext()
   const { openModal } = useModalContext()
 
-  const [threadsOpen, { loading: closingThreads }] = useThreadsBulkClose(
+  const [threadsOpen, { loading: closingThreads }] = useThreadsBulkOpen(
     threads
   )
   const [threadsClose, { loading: openingThreads }] = useThreadsBulkClose(

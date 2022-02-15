@@ -32,39 +32,39 @@ const ThreadValidationError: React.FC<ValidationErrorProps> = ({
         }),
       })
 
-    case "auth_error.category.closed":
+    case "category_error.closed":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.thread_category.closed",
+          id: "thread_error.category.closed",
           message: "This thread's category is closed.",
         }),
       })
 
-    case "auth_error.thread.closed":
+    case "thread_error.closed":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.thread.closed",
+          id: "thread_error.closed",
           message: "This thread is closed.",
         }),
       })
 
-    case "auth_error.thread.not_author":
+    case "thread_error.not_author":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.thread.not_author",
+          id: "thread_error.not_author",
           message:
             "You need to be this thread's author to perform this action.",
         }),
       })
 
-    case "value_error.thread.not_found":
+    case "thread_error.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.thread.not_found",
+          id: "thread_error.not_found",
           message: "Thread could not be found.",
         }),
       })

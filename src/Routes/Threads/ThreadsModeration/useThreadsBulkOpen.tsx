@@ -5,7 +5,7 @@ import { Thread } from "../Threads.types"
 import ThreadsModerationOpen from "./ThreadsModerationOpen"
 
 const THREADS_BULK_OPEN = gql`
-  mutation ThreadsBulkOpen($threads: [IDD]!) {
+  mutation ThreadsBulkOpen($threads: [ID!]!) {
     threadsBulkOpen(threads: $threads) {
       threads {
         id

@@ -1,7 +1,6 @@
 import { t } from "@lingui/macro"
 import React from "react"
 import { UploadValidationError } from "../UI/ValidationError"
-import { formatFileSize } from "../UI/formats"
 
 const ERROR_TYPES_MAP: Record<string, string> = {
   required: "value_error.missing",

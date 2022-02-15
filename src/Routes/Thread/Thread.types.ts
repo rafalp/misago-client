@@ -13,7 +13,6 @@ export interface Thread {
   starter: ThreadPoster | null
   lastPoster: ThreadPoster | null
   category: ThreadCategory
-  posts: ThreadPosts
   extra: Record<string, any>
 }
 
@@ -65,16 +64,10 @@ export interface Poster {
   extra: Record<string, any>
 }
 
-export interface ThreadPosts {
-  page: ThreadPostsPage | null
-  pagination: {
-    pages: number
+export interface Posts {
+  results: Array<Post>
+  totalPages: number
+  pageInfo: {
+    number: number
   }
-}
-
-export interface ThreadPostsPage {
-  items: Array<Post>
-  number: number
-  start: number
-  stop: number
 }

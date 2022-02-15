@@ -32,47 +32,47 @@ const PostValidationError: React.FC<ValidationErrorProps> = ({
         }),
       })
 
-    case "auth_error.category.closed":
+    case "category_error.closed":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.post_category.closed",
+          id: "post_error.category.closed",
           message: "This post's category is closed.",
         }),
       })
 
-    case "auth_error.thread.closed":
+    case "thread_error.closed":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.thread.closed",
+          id: "post_error.thread.closed",
           message: "This post's thread is closed.",
         }),
       })
 
-    case "auth_error.post.not_author":
+    case "post_error.not_author":
       return children({
         type: errorType,
         message: t({
-          id: "auth_error.post.not_author",
+          id: "post_error.not_author",
           message: "You need to be this post's author to perform this action.",
         }),
       })
 
-    case "value_error.post.thread_start":
+    case "post_error.thread_start":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.post.thread_start",
+          id: "post_error.thread_start",
           message: "This post is thread's original post.",
         }),
       })
 
-    case "value_error.post.not_found":
+    case "post.not_found":
       return children({
         type: errorType,
         message: t({
-          id: "value_error.post.not_found",
+          id: "post.not_found",
           message: "Post could not be found.",
         }),
       })

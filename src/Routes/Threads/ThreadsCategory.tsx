@@ -37,7 +37,7 @@ const ThreadsCategory: React.FC = () => {
     data && data.category.id === id ? data : { threads: null }
 
   const acl = useCategoryAcl(category)
-  const selection = useThreadsSelection(threads?.items || [])
+  const selection = useThreadsSelection(threads?.edges || [])
   const moderation = useThreadsModeration(selection.selected, category)
 
   if (data && !data.category) return <RouteNotFound />

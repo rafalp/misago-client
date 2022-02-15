@@ -17,9 +17,9 @@ const fetch = action("fetch")
 
 const acl = { start: true }
 
-const threads = (items?: Array<Thread> | null) => {
-  if (items) return { items, nextCursor: null }
-  return { items: [], nextCursor: null }
+const threads = (edges?: Array<{ node: Thread }> | null) => {
+  if (edges) return { edges }
+  return { edges: [] }
 }
 
 const thread = (data?: {
@@ -35,24 +35,26 @@ const thread = (data?: {
   lastPostedAt?: string
   replies?: number
   isClosed?: boolean
-}): Thread => {
-  return Object.assign(
-    {
-      id: "1",
-      title: "Test thread",
-      slug: "test-thread",
-      startedAt: "2020-05-01T10:49:02.159Z",
-      lastPostedAt: "2020-05-02T12:38:41.159Z",
-      starterName: "LoremIpsum",
-      starter: null,
-      lastPosterName: "DolorMet",
-      lastPoster: null,
-      category: { ...categories[0], parent: categories[1] },
-      replies: 0,
-      isClosed: false,
-    },
-    data || {}
-  )
+}): { node: Thread } => {
+  return {
+    node: Object.assign(
+      {
+        id: "1",
+        title: "Test thread",
+        slug: "test-thread",
+        startedAt: "2020-05-01T10:49:02.159Z",
+        lastPostedAt: "2020-05-02T12:38:41.159Z",
+        starterName: "LoremIpsum",
+        starter: null,
+        lastPosterName: "DolorMet",
+        lastPoster: null,
+        category: { ...categories[0], parent: categories[1] },
+        replies: 0,
+        isClosed: false,
+      },
+      data || {}
+    ),
+  }
 }
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -65,7 +67,7 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 )
 
 export const Threads = () => {
-  const items = threads([
+  const result = threads([
     thread({
       id: "1",
       title: "The atmosphere has many layers with different temperatures.",
@@ -86,13 +88,13 @@ export const Threads = () => {
     }),
   ])
 
-  const selection = useThreadsSelection(items.items)
+  const selection = useThreadsSelection(result.edges)
 
   return (
     <Container>
       <ThreadsList
         acl={{ start: boolean("acl.start", true) }}
-        threads={items}
+        threads={result}
         selectable={boolean("Moderation", false)}
         selection={selection}
         loading={false}

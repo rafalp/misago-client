@@ -4,13 +4,13 @@ import { ButtonSecondary } from "../Button"
 import ViewportEvent from "../ViewportEvent"
 
 interface LoadMoreProps {
-  data: { nextCursor: string | null } | null
+  data: { pageInfo: { hasNextPage: boolean } } | null
   loading: boolean
   onEvent: () => void
 }
 
 const LoadMore: React.FC<LoadMoreProps> = ({ loading, data, onEvent }) => {
-  if (!data || !data.nextCursor) return null
+  if (!data || !data.pageInfo.hasNextPage) return null
 
   return (
     <ViewportEvent

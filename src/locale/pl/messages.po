@@ -38,7 +38,7 @@ msgid "auth_alert.logged_out.title"
 msgstr ""
 
 #: UI/ValidationError/CategoryValidationError.tsx:47
-msgid "auth_error.category.closed"
+msgid "category_error.closed"
 msgstr ""
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:39
@@ -54,7 +54,7 @@ msgid "auth_error.not_moderator"
 msgstr ""
 
 #: UI/ValidationError/CategoryValidationError.tsx:38
-msgid "auth_error.not_moderator.category"
+msgid "category_error.not_moderator"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:29
@@ -66,24 +66,24 @@ msgid "auth_error.not_moderator.thread"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:56
-msgid "auth_error.post.not_author"
+msgid "post_error.not_author"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:38
-msgid "auth_error.post_category.closed"
+msgid "post_error.category.closed"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:47
 #: UI/ValidationError/ThreadValidationError.tsx:47
-msgid "auth_error.thread.closed"
+msgid "thread_error.closed"
 msgstr ""
 
 #: UI/ValidationError/ThreadValidationError.tsx:56
-msgid "auth_error.thread.not_author"
+msgid "thread_error.not_author"
 msgstr ""
 
 #: UI/ValidationError/ThreadValidationError.tsx:38
-msgid "auth_error.thread_category.closed"
+msgid "thread_error.category.closed"
 msgstr ""
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:32
@@ -905,11 +905,11 @@ msgid "value_error.any_str.min_length"
 msgstr ""
 
 #: UI/ValidationError/CategoryValidationError.tsx:29
-msgid "value_error.category.missing"
+msgid "category_error.missing"
 msgstr ""
 
 #: UI/ValidationError/CategoryValidationError.tsx:56
-msgid "value_error.category.not_found"
+msgid "category_error.not_found"
 msgstr ""
 
 #: UI/ValidationError/EmailValidationError.tsx:39
@@ -961,11 +961,11 @@ msgid "value_error.password.missing"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:74
-msgid "value_error.post.not_found"
+msgid "post.not_found"
 msgstr ""
 
 #: UI/ValidationError/PostValidationError.tsx:65
-msgid "value_error.post.thread_start"
+msgid "post_error.thread_start"
 msgstr ""
 
 #: UI/ValidationError/PostsValidationError.tsx:43
@@ -977,7 +977,7 @@ msgid "value_error.posts.min_items"
 msgstr ""
 
 #: UI/ValidationError/ThreadValidationError.tsx:66
-msgid "value_error.thread.not_found"
+msgid "thread_error.not_found"
 msgstr ""
 
 #: UI/ValidationError/ThreadTitleValidationError.tsx:41

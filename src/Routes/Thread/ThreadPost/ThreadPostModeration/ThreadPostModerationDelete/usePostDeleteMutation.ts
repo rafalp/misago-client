@@ -4,9 +4,8 @@ import { Post } from "../../../Thread.types"
 import { THREAD_QUERY, ThreadData } from "../../../useThreadQuery"
 
 const POST_DELETE = gql`
-  mutation PostDelete($thread: ID!, $post: ID!) {
+  mutation PostDelete($thread: ID!, $post: ID!, $page: Int) {
     postDelete(thread: $thread, post: $post) {
-      deleted
       thread {
         id
         lastPostedAt
@@ -22,10 +21,30 @@ const POST_DELETE = gql`
             url
           }
         }
-        posts {
-          pagination {
-            pages
+      }
+      posts(page: $page) {
+        results {
+          id
+          richText
+          edits
+          postedAt
+          extra
+          posterName
+          poster {
+            id
+            name
+            slug
+            extra
+            avatars {
+              size
+              url
+            }
+            extra
           }
+        }
+        totalPages
+        pageInfo {
+          number
         }
       }
       errors {
@@ -39,7 +58,13 @@ const POST_DELETE = gql`
 
 interface PostDeleteMutationData {
   postDelete: {
-    deleted: boolean
+    posts: {
+      results: Array<Post>
+      totalPages: number
+      pageInfo: {
+        number: number
+      }
+    } | null
     errors: Array<MutationError> | null
   }
 }
@@ -79,27 +104,14 @@ const usePostDeleteMutation = () => {
               }
 
           const query = cache.readQuery<ThreadData>(queryID)
-          if (!query?.thread?.posts.page?.items.length) return null
+          if (!query?.posts?.results.length) return null
 
-          if (data.postDelete.deleted) {
-            const deletedId = post.id
-
+          if (data.postDelete.posts) {
             cache.writeQuery<ThreadData>({
               ...queryID,
               data: {
                 ...query,
-                thread: {
-                  ...query.thread,
-                  posts: {
-                    ...query.thread.posts,
-                    page: {
-                      ...query.thread.posts.page,
-                      items: query.thread.posts.page.items.filter((post) => {
-                        return post.id != deletedId
-                      }),
-                    },
-                  },
-                },
+                posts: data.postDelete.posts,
               },
             })
           }

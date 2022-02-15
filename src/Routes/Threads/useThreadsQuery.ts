@@ -24,37 +24,42 @@ const THREADS_FRAGMENTS = `
 `
 
 const THREADS_FIELDS = `
-  items {
-    id
-    title
-    slug
-    startedAt
-    lastPostedAt
-    replies
-    starterName
-    lastPosterName
-    isClosed
-    category {
-      ...ThreadsListThreadCategory
-      parent {
+  edges {
+    node {
+      id
+      title
+      slug
+      startedAt
+      lastPostedAt
+      replies
+      starterName
+      lastPosterName
+      isClosed
+      category {
         ...ThreadsListThreadCategory
+        parent {
+          ...ThreadsListThreadCategory
+        }
+      }
+      starter {
+        ...ThreadsListThreadPoster
+      }
+      lastPoster {
+        ...ThreadsListThreadPoster
       }
     }
-    starter {
-      ...ThreadsListThreadPoster
-    }
-    lastPoster {
-      ...ThreadsListThreadPoster
-    }
   }
-  nextCursor
+  pageInfo {
+    hasNextPage
+    nextCursor
+  }
 `
 
 export const THREADS_QUERY = gql`
   ${THREADS_FRAGMENTS}
 
-  query Threads($cursor: ID) {
-    threads(cursor: $cursor) {
+  query Threads($after: ID) {
+    threads(after: $after) {
       ${THREADS_FIELDS}
     }
   }
@@ -68,15 +73,18 @@ const THREADS_UPDATES_SUBSCRIPTION = gql`
 
 export interface ThreadsData {
   threads: {
-    items: Array<Thread>
-    nextCursor: string | null
+    edges: Array<{ node: Thread }>
+    pageInfo: {
+      hasNextPage: boolean
+      endCursor: string | null
+    }
     __typename: string
   }
 }
 
 interface ThreadsVariables {
   category?: string | null
-  cursor?: string | null
+  after?: string | null
 }
 
 interface ThreadsUpdatesData {
@@ -98,12 +106,14 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
   })
 
   const fetchMoreThreads = () => {
-    const cursor = result.data?.threads.nextCursor
-    if (!cursor) return
+    const pageInfo = result.data?.threads.pageInfo
+    if (!pageInfo || !pageInfo.hasNextPage) return
+
+    const after = pageInfo.endCursor
 
     result.fetchMore({
       query: THREADS_QUERY,
-      variables: { ...variables, cursor },
+      variables: { ...variables, after },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         return mergeMergeThreadsResults(previousResult, fetchMoreResult)
       },
@@ -177,11 +187,11 @@ const mergeMergeThreadsResults = <TData extends ThreadsData>(
   return {
     ...previousResult,
     threads: {
-      items: [
-        ...previousResult.threads.items,
-        ...fetchMoreResult.threads.items,
+      edges: [
+        ...previousResult.threads.edges,
+        ...fetchMoreResult.threads.edges,
       ],
-      nextCursor: fetchMoreResult.threads.nextCursor,
+      pageInfo: fetchMoreResult.threads.pageInfo,
       __typename: previousResult.threads.__typename,
     },
   }
@@ -191,19 +201,19 @@ const mergeUpdatedThreadsResults = <TData extends ThreadsData>(
   previousResult: TData,
   updatedResult: TData
 ) => {
-  const updatedIds = updatedResult.threads.items.map(({ id }) => id)
-  const items = [
-    ...updatedResult.threads.items,
-    ...previousResult.threads.items.filter(
-      ({ id }) => updatedIds.indexOf(id) === -1
+  const updatedIds = updatedResult.threads.edges.map(({ node: { id } }) => id)
+  const edges = [
+    ...updatedResult.threads.edges,
+    ...previousResult.threads.edges.filter(
+      ({ node: { id } }) => updatedIds.indexOf(id) === -1
     ),
   ]
 
   return {
     ...updatedResult,
     threads: {
-      items,
-      nextCursor: previousResult.threads.nextCursor,
+      edges,
+      pageInfo: previousResult.threads.pageInfo,
       __typename: previousResult.threads.__typename,
     },
   }
@@ -226,7 +236,7 @@ export const CATEGORY_THREADS_QUERY = gql`
     slug
   }
 
-  query CategoryThreads($category: ID!, $cursor: ID) {
+  query CategoryThreads($category: ID!, $after: ID) {
     category(id: $category) {
       ...ThreadsListCategory
       threads
@@ -235,7 +245,7 @@ export const CATEGORY_THREADS_QUERY = gql`
         ...ThreadsListCategory
       }
     }
-    threads(category: $category, cursor: $cursor) {
+    threads(category: $category, after: $after) {
       ${THREADS_FIELDS}
     }
   }

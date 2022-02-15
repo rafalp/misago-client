@@ -3,7 +3,7 @@ import { MutationError } from "../../../../types"
 import { Thread, ThreadCategory } from "../../Threads.types"
 
 const THREADS_BULK_MOVE = gql`
-  mutation ThreadsBulkMove($threads: [ID]!, $category: ID!) {
+  mutation ThreadsBulkMove($threads: [ID!]!, $category: ID!) {
     threadsBulkMove(threads: $threads, category: $category) {
       updated
       threads {

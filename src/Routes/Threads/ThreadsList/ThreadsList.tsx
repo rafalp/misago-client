@@ -22,8 +22,7 @@ interface ThreadsListProps {
     change: (id: string, selected: boolean) => void
   }
   threads: {
-    items: Array<Thread>
-    nextCursor: string | null
+    edges: Array<{ node: Thread }>
   } | null
   update?: {
     threads: number
@@ -68,15 +67,15 @@ const ThreadsList: React.FC<ThreadsListProps> = ({
           onClick={update.fetch}
         />
       )}
-      {threads && threads.items.length > 0 ? (
+      {threads && threads.edges.length > 0 ? (
         <ul className="list-group list-group-flush">
-          {threads.items.map((thread) => (
+          {threads.edges.map(({ node }) => (
             <ThreadsListItem
               changeSelection={selection.change}
-              key={thread.id}
-              thread={thread}
+              key={node.id}
+              thread={node}
               selectable={selectable}
-              selected={selection.selection[thread.id]}
+              selected={selection.selection[node.id]}
             />
           ))}
         </ul>

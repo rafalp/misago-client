@@ -9,19 +9,11 @@ export default {
   decorators: [withKnobs],
 }
 
-const posts = {
-  page: null,
-  pagination: {
-    pages: 1,
-  },
-}
-
 export const ThreadByUser = () => (
   <MockedProvider>
     <RootContainer>
       <ThreadHeader
         thread={{
-          posts,
           id: "1",
           title: text(
             "Title",
@@ -51,7 +43,6 @@ export const ThreadByAnonymous = () => (
     <RootContainer>
       <ThreadHeader
         thread={{
-          posts,
           id: "1",
           title: text(
             "Title",
@@ -82,7 +73,6 @@ export const ThreadEditable = () => (
       <RootContainer>
         <ThreadHeader
           thread={{
-            posts,
             id: "1",
             title: text(
               "Title",

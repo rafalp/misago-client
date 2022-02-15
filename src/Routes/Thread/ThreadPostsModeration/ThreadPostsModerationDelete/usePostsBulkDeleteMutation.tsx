@@ -1,13 +1,10 @@
 import { gql, useMutation } from "@apollo/client"
-import { getSelectionErrors } from "../../../../UI/useSelectionErrors"
 import { MutationError } from "../../../../types"
 import { Post, Thread } from "../../Thread.types"
 import { THREAD_QUERY, ThreadData } from "../../useThreadQuery"
 
-const POST_NOT_FOUND = "value_error.post.not_found"
-
 const DELETE_THREAD_POSTS = gql`
-  mutation PostsBulkDelete($thread: ID!, $posts: [ID!]!) {
+  mutation PostsBulkDelete($thread: ID!, $posts: [ID!]!, $page: Int) {
     postsBulkDelete(thread: $thread, posts: $posts) {
       deleted
       thread {
@@ -25,10 +22,30 @@ const DELETE_THREAD_POSTS = gql`
             url
           }
         }
-        posts {
-          pagination {
-            pages
+      }
+      posts(page: $page) {
+        results {
+          id
+          richText
+          edits
+          postedAt
+          extra
+          posterName
+          poster {
+            id
+            name
+            slug
+            extra
+            avatars {
+              size
+              url
+            }
+            extra
           }
+        }
+        totalPages
+        pageInfo {
+          number
         }
       }
       errors {
@@ -42,8 +59,15 @@ const DELETE_THREAD_POSTS = gql`
 
 interface PostsBulkDeleteMutationData {
   postsBulkDelete: {
-    errors: Array<MutationError> | null
     deleted: Array<string>
+    posts: {
+      results: Array<Post>
+      totalPages: number
+      pageInfo: {
+        number: number
+      }
+    } | null
+    errors: Array<MutationError> | null
   }
 }
 
@@ -77,12 +101,6 @@ const usePostsBulkDeleteMutation = () => {
         update: (cache, { data }) => {
           if (!data || !data.postsBulkDelete) return
 
-          const errors = getSelectionErrors<Post>(
-            "posts",
-            posts,
-            data.postsBulkDelete.errors || []
-          )
-
           const queryID = page
             ? {
                 query: THREAD_QUERY,
@@ -94,33 +112,17 @@ const usePostsBulkDeleteMutation = () => {
               }
 
           const query = cache.readQuery<ThreadData>(queryID)
-          if (!query?.thread?.posts.page?.items.length) return null
+          if (!query?.posts?.results.length) return null
 
-          cache.writeQuery<ThreadData>({
-            ...queryID,
-            data: {
-              ...query,
-              thread: {
-                ...query.thread,
-                posts: {
-                  ...query.thread.posts,
-                  page: {
-                    ...query.thread.posts.page,
-                    items: query.thread.posts.page.items.filter((post) => {
-                      if (
-                        errors[post.id] &&
-                        errors[post.id].type !== POST_NOT_FOUND
-                      ) {
-                        return true
-                      }
-
-                      return data.postsBulkDelete.deleted.indexOf(post.id) < 0
-                    }),
-                  },
-                },
+          if (data.postsBulkDelete.posts) {
+            cache.writeQuery<ThreadData>({
+              ...queryID,
+              data: {
+                ...query,
+                posts: data.postsBulkDelete.posts,
               },
-            },
-          })
+            })
+          }
         },
       })
     },

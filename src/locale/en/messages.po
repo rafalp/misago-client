@@ -38,7 +38,7 @@ msgid "auth_alert.logged_out.title"
 msgstr "You have been logged out, <0>{username}</0>."
 
 #: UI/ValidationError/CategoryValidationError.tsx:47
-msgid "auth_error.category.closed"
+msgid "category_error.closed"
 msgstr "This category is closed."
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:39
@@ -54,7 +54,7 @@ msgid "auth_error.not_moderator"
 msgstr "You need to be a moderator to perform this action."
 
 #: UI/ValidationError/CategoryValidationError.tsx:38
-msgid "auth_error.not_moderator.category"
+msgid "category_error.not_moderator"
 msgstr "You can't moderate this category."
 
 #: UI/ValidationError/PostValidationError.tsx:29
@@ -66,24 +66,24 @@ msgid "auth_error.not_moderator.thread"
 msgstr "You can't moderate this thread."
 
 #: UI/ValidationError/PostValidationError.tsx:56
-msgid "auth_error.post.not_author"
+msgid "post_error.not_author"
 msgstr "You need to be this post's author to perform this action."
 
 #: UI/ValidationError/PostValidationError.tsx:38
-msgid "auth_error.post_category.closed"
+msgid "post_error.category.closed"
 msgstr "This post's category is closed."
 
 #: UI/ValidationError/PostValidationError.tsx:47
 #: UI/ValidationError/ThreadValidationError.tsx:47
-msgid "auth_error.thread.closed"
+msgid "thread_error.closed"
 msgstr "This thread is closed."
 
 #: UI/ValidationError/ThreadValidationError.tsx:56
-msgid "auth_error.thread.not_author"
+msgid "thread_error.not_author"
 msgstr "You need to be this thread's author to perform this action."
 
 #: UI/ValidationError/ThreadValidationError.tsx:38
-msgid "auth_error.thread_category.closed"
+msgid "thread_error.category.closed"
 msgstr "This thread's category is closed."
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:32
@@ -905,11 +905,11 @@ msgid "value_error.any_str.min_length"
 msgstr "{min, plural, one {This value should be at least # character long (it has {value}).} other {This value should be at least # characters long (it has {value}).}}"
 
 #: UI/ValidationError/CategoryValidationError.tsx:29
-msgid "value_error.category.missing"
+msgid "category_error.missing"
 msgstr "Thread category can't be empty."
 
 #: UI/ValidationError/CategoryValidationError.tsx:56
-msgid "value_error.category.not_found"
+msgid "category_error.not_found"
 msgstr "Category could not be found."
 
 #: UI/ValidationError/EmailValidationError.tsx:39
@@ -961,11 +961,11 @@ msgid "value_error.password.missing"
 msgstr "Password can't be empty."
 
 #: UI/ValidationError/PostValidationError.tsx:74
-msgid "value_error.post.not_found"
+msgid "post.not_found"
 msgstr "Post could not be found."
 
 #: UI/ValidationError/PostValidationError.tsx:65
-msgid "value_error.post.thread_start"
+msgid "post_error.thread_start"
 msgstr "This post is thread's original post."
 
 #: UI/ValidationError/PostsValidationError.tsx:43
@@ -977,7 +977,7 @@ msgid "value_error.posts.min_items"
 msgstr "{min, plural, one {Select at least # post.} other {Select at least # posts.}}"
 
 #: UI/ValidationError/ThreadValidationError.tsx:66
-msgid "value_error.thread.not_found"
+msgid "thread_error.not_found"
 msgstr "Thread could not be found."
 
 #: UI/ValidationError/ThreadTitleValidationError.tsx:41

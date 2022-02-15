@@ -8,7 +8,7 @@ import {
   ThreadsData,
 } from "../../useThreadsQuery"
 
-const THREAD_NOT_FOUND = "value_error.thread.not_found"
+const THREAD_NOT_FOUND = "thread_error.not_found"
 
 const THREADS_BULK_DELETE = gql`
   mutation ThreadsBulkDelete($threads: [ID!]!) {
@@ -79,15 +79,17 @@ const useThreadsBulkDeleteMutation = () => {
               ...query,
               threads: {
                 ...query.threads,
-                items: query.threads.items.filter((thread) => {
+                edges: query.threads.edges.filter((edge) => {
                   if (
-                    errors[thread.id] &&
-                    errors[thread.id].type !== THREAD_NOT_FOUND
+                    errors[edge.node.id] &&
+                    errors[edge.node.id].type !== THREAD_NOT_FOUND
                   ) {
                     return true
                   }
 
-                  return data.threadsBulkDelete.deleted.indexOf(thread.id) < 0
+                  return (
+                    data.threadsBulkDelete.deleted.indexOf(edge.node.id) < 0
+                  )
                 }),
               },
             },

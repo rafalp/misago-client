@@ -21,7 +21,7 @@ const ThreadsAll: React.FC = () => {
   const { threads } = data || { threads: null }
 
   const acl = useCategoryAcl()
-  const selection = useThreadsSelection(threads?.items || [])
+  const selection = useThreadsSelection(threads?.edges || [])
   const moderation = useThreadsModeration(selection.selected)
 
   if (!forumStats || !settings) return <RouteLoader />

@@ -19,10 +19,10 @@ export const ThreadError = () => (
             "Error",
             {
               "Not moderator": "auth_error.not_moderator",
-              "Category is closed": "auth_error.category.closed",
-              "Thread is closed": "auth_error.thread.closed",
-              "Thread not author": "auth_error.thread.not_author",
-              "Thread not found": "value_error.thread.not_found",
+              "Category is closed": "category_error.closed",
+              "Thread is closed": "thread_error.closed",
+              "Thread not author": "thread_error.not_author",
+              "Thread not found": "thread_error.not_found",
             },
             "auth_error.not_moderator"
           ),

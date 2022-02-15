@@ -4,7 +4,9 @@ const THREAD_LAST_POST_URL_QUERY = gql`
   query ThreadLastPostUrl($id: ID!) {
     thread(id: $id) {
       id
-      lastPostUrl
+      lastPost {
+        url
+      }
     }
   }
 `
@@ -15,7 +17,9 @@ interface ThreadLastPostUrlVariables {
 
 interface ThreadLastPostUrlData {
   thread: {
-    lastPostUrl: string | null
+    lastPost: {
+      url: string
+    } | null
   } | null
 }
 

@@ -18,8 +18,8 @@ const ThreadRedirectToLastPost: React.FC = () => {
     if (loading) return <RouteLoader />
   }
 
-  if (data?.thread?.lastPostUrl) {
-    return <Redirect to={data.thread.lastPostUrl} />
+  if (data?.thread?.lastPost?.url) {
+    return <Redirect to={data.thread.lastPost.url} />
   }
 
   return <RouteNotFound />

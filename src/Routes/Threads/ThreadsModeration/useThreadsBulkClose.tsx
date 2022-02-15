@@ -5,7 +5,7 @@ import { Thread } from "../Threads.types"
 import ThreadsModerationClose from "./ThreadsModerationClose"
 
 const THREADS_BULK_CLOSE = gql`
-  mutation ThreadsBulkClose($threads: [IDD]!) {
+  mutation ThreadsBulkClose($threads: [ID!]!) {
     threadsBulkClose(threads: $threads) {
       threads {
         id

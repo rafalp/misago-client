@@ -25,11 +25,9 @@ import { useThreadQuery } from "./useThreadQuery"
 const ThreadPosts: React.FC = () => {
   const { id, slug, page } = useThreadParams()
   const { data, loading, error } = useThreadQuery({ id, page })
-  const { thread } = data || { thread: null }
+  const { thread, posts } = data || { thread: null, posts: null }
 
-  const selection = usePostsSelection(
-    thread && thread.posts.page ? thread.posts.page.items : []
-  )
+  const selection = usePostsSelection(posts ? posts.results : [])
   const moderation = {
     thread: useThreadModeration(thread),
     posts: useThreadPostsModeration(thread, selection.selected, page),
@@ -40,7 +38,7 @@ const ThreadPosts: React.FC = () => {
     if (loading) return <RouteLoader />
   }
 
-  if (!thread) return <RouteNotFound />
+  if (!thread || !posts) return <RouteNotFound />
   if (thread.id !== id) return <RouteLoader />
   if (page === 1 || thread.slug !== slug) {
     const newParams: { id: string; slug: string; page?: number } = { id, slug }
@@ -48,14 +46,14 @@ const ThreadPosts: React.FC = () => {
     return <Redirect to={urls.thread({ id, page, slug: thread.slug })} />
   }
 
-  const posts = thread.posts
-  if (!posts.page) {
+  if (!posts.results.length) {
+    // Requested page is empty
     return (
       <Redirect
         to={urls.thread({
           id,
           slug: thread.slug,
-          page: posts.pagination.pages,
+          page: posts.totalPages,
         })}
       />
     )
@@ -65,7 +63,7 @@ const ThreadPosts: React.FC = () => {
 
   const pagination = {
     page: page || 1,
-    pages: posts.pagination.pages,
+    pages: posts.totalPages,
     url: (page: number) => {
       return urls.thread({ ...thread, page })
     },
@@ -87,16 +85,16 @@ const ThreadPosts: React.FC = () => {
         <ThreadToolbarTop {...toolbarProps} />
         <ThreadQuoteSelection>
           <SectionLoader
-            loading={loading || posts.page.number !== pagination.page}
+            loading={loading || posts.pageInfo.number !== pagination.page}
           >
             <ThreadPostsList>
-              {posts.page.items.map((post) => (
+              {posts.results.map((post) => (
                 <ThreadPost
                   key={post.id}
+                  page={page}
                   post={post}
                   threadId={thread.id}
                   threadSlug={thread.slug}
-                  page={page}
                   isClosed={isClosed}
                   isSelected={selection.selection[post.id]}
                   toggleSelection={moderation.posts ? selection.toggle : null}
