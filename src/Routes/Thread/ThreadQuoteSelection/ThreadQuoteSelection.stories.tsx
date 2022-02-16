@@ -105,7 +105,7 @@ export const QuotablePosts = () => {
                       ],
                     },
                     {
-                      id: "9F04lSBABf",
+                      id: "9F04lSBIBf",
                       type: "quote",
                       author: { id: null, name: "Alice", slug: null },
                       post: null,
@@ -116,7 +116,7 @@ export const QuotablePosts = () => {
                           text: "Unordered list:",
                         },
                         {
-                          id: "cY3MvL7JqJ",
+                          id: "cY3MvLKJqJ",
                           type: "list",
                           ordered: false,
                           children: [
@@ -199,7 +199,7 @@ export const QuotablePosts = () => {
                               ],
                             },
                             {
-                              id: "0dLDJiJKL3",
+                              id: "0dLDJ0JKL3",
                               type: "li",
                               children: [
                                 {

@@ -90,8 +90,13 @@ const isNodeInlineCodeBlock = (range: Range): boolean => {
   let p = node.parentNode
   while (p) {
     if (isNodeElementWithQuoteMetadata(p)) {
+      return false
+    }
+
+    if (p.nodeName === "CODE") {
       return true
     }
+
     p = p.parentNode
   }
 
