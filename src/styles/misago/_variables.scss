@@ -51,22 +51,23 @@ $nav-side-border-color:             $gray-200 !default;
 $nav-side-border-width:             $border-width !default;
 $nav-side-border-radius:            $border-radius-sm !default;
 
-$nav-side-hover-color:              $gray-900 !default;
-$nav-side-hover-bg:                 $gray-200 !default;
+$nav-side-hover-color:              $blue !default;
+$nav-side-hover-bg:                 $gray-100 !default;
 $nav-side-hover-border-color:       $blue !default;
 
 $nav-side-active-color:             $white !default;
-$nav-side-active-bg:                #0a58ca !default;
-$nav-side-active-border-color:      #0a58ca !default;
+$nav-side-active-bg:                $blue !default;
+$nav-side-active-border-color:      $blue !default;
 
+$nav-side-child-indent:                   $spacer !default;
 $nav-side-child-color:                    $gray-700 !default;
-$nav-side-child-bg:                       $gray-100 !default;
-$nav-side-child-border-color:             $gray-100 !default;
+$nav-side-child-bg:                       $gray-200 !default;
+$nav-side-child-border-color:             $gray-200 !default;
 
-$nav-side-child-hover-color:              $gray-900 !default;
+$nav-side-child-hover-color:              $blue !default;
 $nav-side-child-hover-bg:                 $gray-100 !default;
-$nav-side-child-hover-border-color:       $gray-200 !default;
+$nav-side-child-hover-border-color:       $blue !default;
 
 $nav-side-child-active-color:             $white !default;
-$nav-side-child-active-bg:                #0d6efd !default;
-$nav-side-child-active-border-color:      #0d6efd !default;
+$nav-side-child-active-bg:                $blue !default;
+$nav-side-child-active-border-color:      $blue !default;

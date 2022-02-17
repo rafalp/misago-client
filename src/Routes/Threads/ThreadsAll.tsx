@@ -2,6 +2,7 @@ import { t } from "@lingui/macro"
 import React from "react"
 import LoadMoreButton from "../../UI/LoadMoreButton"
 import RouteLoader from "../../UI/RouteLoader"
+import SectionLoader from "../../UI/SectionLoader"
 import WindowTitle from "../../UI/WindowTitle"
 import { useForumStatsContext, useSettingsContext } from "../../Context"
 import hooks from "../../hooks"
@@ -40,15 +41,19 @@ const ThreadsAll: React.FC = () => {
       ))}
       <ThreadsHeaderAll settings={settings} stats={forumStats} />
       <ThreadsToolbar acl={acl} />
-      <ThreadsList
-        acl={acl}
-        error={error}
+      <SectionLoader
         loading={loading}
-        selectable={!!moderation}
-        selection={selection}
-        threads={threads}
-        update={update}
-      />
+      >
+        <ThreadsList
+          acl={acl}
+          error={error}
+          loading={loading}
+          selectable={!!moderation}
+          selection={selection}
+          threads={threads}
+          update={update}
+        />
+      </SectionLoader>
       <LoadMoreButton
         data={threads}
         loading={loading}

@@ -20,7 +20,6 @@
 .nav-side .nav-link.active {
   &, &:hover, &:active {
     color: $nav-side-active-color;
-    font-weight: bold;
 
     background-color: $nav-side-active-bg;
     border-color: $nav-side-active-border-color;
@@ -33,6 +32,8 @@
 }
 
 .nav-side .nav-link-child {
+  margin-left: $nav-side-child-indent;
+
   color: $nav-side-child-color;
 
   background-color: $nav-side-child-bg;
