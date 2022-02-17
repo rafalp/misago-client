@@ -25,6 +25,8 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
+$blue:    #007bff !default;
+
 // Spacing
 //
 // Control the default styling of most Bootstrap elements by modifying these
@@ -43,7 +45,7 @@ $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
 
 // Side nav
-$nav-side-color:                    $gray-800 !default;
+$nav-side-color:                    $gray-900 !default;
 $nav-side-bg:                       $gray-200 !default;
 $nav-side-border-color:             $gray-200 !default;
 $nav-side-border-width:             $border-width !default;
@@ -51,11 +53,11 @@ $nav-side-border-radius:            $border-radius-sm !default;
 
 $nav-side-hover-color:              $gray-900 !default;
 $nav-side-hover-bg:                 $gray-200 !default;
-$nav-side-hover-border-color:       $gray-400 !default;
+$nav-side-hover-border-color:       $blue !default;
 
-$nav-side-active-color:             $gray-900 !default;
-$nav-side-active-bg:                $gray-200 !default;
-$nav-side-active-border-color:      $gray-200 !default;
+$nav-side-active-color:             $white !default;
+$nav-side-active-bg:                #0a58ca !default;
+$nav-side-active-border-color:      #0a58ca !default;
 
 $nav-side-child-color:                    $gray-700 !default;
 $nav-side-child-bg:                       $gray-100 !default;
@@ -65,6 +67,6 @@ $nav-side-child-hover-color:              $gray-900 !default;
 $nav-side-child-hover-bg:                 $gray-100 !default;
 $nav-side-child-hover-border-color:       $gray-200 !default;
 
-$nav-side-child-active-color:             $gray-900 !default;
-$nav-side-child-active-bg:                $gray-100 !default;
-$nav-side-child-active-border-color:      $gray-100 !default;
+$nav-side-child-active-color:             $white !default;
+$nav-side-child-active-bg:                #0d6efd !default;
+$nav-side-child-active-border-color:      #0d6efd !default;
