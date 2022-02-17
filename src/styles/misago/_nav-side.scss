@@ -18,7 +18,9 @@
 }
 
 .nav-side .nav-link.active {
-  &, &:hover, &:active {
+  &,
+  &:hover,
+  &:active {
     color: $nav-side-active-color;
 
     background-color: $nav-side-active-bg;
@@ -48,7 +50,9 @@
 }
 
 .nav-side .nav-link-child.active {
-  &, &:hover, &:active {
+  &,
+  &:hover,
+  &:active {
     color: $nav-side-child-active-color;
 
     background-color: $nav-side-child-active-bg;

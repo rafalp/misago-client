@@ -1,6 +1,7 @@
 import React from "react"
 import CategoriesNav from "../../UI/CategoriesNav"
 import { Layout, LayoutMain, LayoutSide } from "../../UI/Layout"
+import ResetScrollOnNav from "../../UI/ResetScrollOnNav"
 import RouteContainer from "../../UI/RouteContainer"
 import { ActiveCategory } from "./Threads.types"
 import { ThreadsCategoriesModalButton } from "./ThreadsCategoriesModal"
@@ -19,7 +20,9 @@ const ThreadsLayout: React.FC<ThreadsLayoutProps> = ({
   <RouteContainer className={className}>
     <Layout>
       <LayoutSide>
-        <CategoriesNav active={activeCategory} />
+        <ResetScrollOnNav selector="a">
+          <CategoriesNav active={activeCategory} />
+        </ResetScrollOnNav>
       </LayoutSide>
       <LayoutMain>
         <ThreadsCategoriesModalButton active={activeCategory} />

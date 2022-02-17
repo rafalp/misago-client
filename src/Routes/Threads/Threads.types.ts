@@ -58,3 +58,17 @@ export interface SelectedThread {
   replies: number
   category: ThreadCategory
 }
+
+export interface PageInfo {
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+  startCursor: string | null
+  endCursor: string | null
+}
+
+interface PageUrlArgs {
+  after?: string | null
+  before?: string | null
+}
+
+export type PageUrl = (args: PageUrlArgs) => string

@@ -1,6 +1,6 @@
 import { withKnobs, boolean } from "@storybook/addon-knobs"
-import React from "react"
 import { RootContainer, categories } from "../../../UI/Storybook"
+import { PageUrl } from "../Threads.types"
 import ThreadsToolbar from "./ThreadsToolbar"
 
 export default {
@@ -8,9 +8,14 @@ export default {
   decorators: [withKnobs],
 }
 
+const pageUrl: PageUrl = ({ after, before }) => "#"
+
 export const Default = () => (
   <RootContainer>
-    <ThreadsToolbar acl={{ start: boolean("acl.start", true) }} />
+    <ThreadsToolbar
+      acl={{ start: boolean("acl.start", true) }}
+      pageUrl={pageUrl}
+    />
   </RootContainer>
 )
 
@@ -19,6 +24,7 @@ export const Category = () => (
     <ThreadsToolbar
       acl={{ start: boolean("acl.start", true) }}
       category={categories[0]}
+      pageUrl={pageUrl}
     />
   </RootContainer>
 )

@@ -1,7 +1,7 @@
 import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client"
 import { DocumentNode } from "graphql"
 import React from "react"
-import { Thread } from "./Threads.types"
+import { PageInfo, Thread } from "./Threads.types"
 
 const THREADS_FRAGMENTS = `
   fragment ThreadsListThreadPoster on User {
@@ -51,16 +51,17 @@ const THREADS_FIELDS = `
   }
   pageInfo {
     hasNextPage
+    hasPreviousPage
+    startCursor
     endCursor
-    nextCursor
   }
 `
 
 export const THREADS_QUERY = gql`
   ${THREADS_FRAGMENTS}
 
-  query Threads($after: ID) {
-    threads(after: $after) {
+  query Threads($after: ID, $before: ID) {
+    threads(after: $after, before: $before) {
       ${THREADS_FIELDS}
     }
   }
@@ -75,11 +76,7 @@ const THREADS_UPDATES_SUBSCRIPTION = gql`
 export interface ThreadsData {
   threads: {
     edges: Array<{ node: Thread }>
-    pageInfo: {
-      hasNextPage: boolean
-      endCursor: string | null
-      nextCursor: string | null
-    }
+    pageInfo: PageInfo
     __typename: string
   }
 }
@@ -87,6 +84,7 @@ export interface ThreadsData {
 interface ThreadsVariables {
   category?: string | null
   after?: string | null
+  before?: string | null
 }
 
 interface ThreadsUpdatesData {
@@ -99,28 +97,13 @@ interface ThreadsUpdatesVariables {
 
 export const useBaseThreadsQuery = <TData extends ThreadsData>(
   query: DocumentNode,
-  variables?: ThreadsVariables
+  variables: ThreadsVariables
 ) => {
   const result = useQuery<TData, ThreadsVariables>(query, {
     variables,
     fetchPolicy: "network-only",
     notifyOnNetworkStatusChange: true,
   })
-
-  const fetchMoreThreads = () => {
-    const pageInfo = result.data?.threads.pageInfo
-    if (!pageInfo || !pageInfo.hasNextPage) return
-
-    const after = pageInfo.endCursor
-
-    result.fetchMore({
-      query: THREADS_QUERY,
-      variables: { ...variables, after },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        return mergeMergeThreadsResults(previousResult, fetchMoreResult)
-      },
-    })
-  }
 
   const [updatedThreads, setUpdatedThreadsState] = React.useState<{
     ids: Array<string>
@@ -130,6 +113,7 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
   useSubscription<ThreadsUpdatesData, ThreadsUpdatesVariables>(
     THREADS_UPDATES_SUBSCRIPTION,
     {
+      skip: variables.after !== null || variables.before !== null,
       shouldResubscribe: !!result.data?.threads,
       variables: variables ? { category: variables.category } : undefined,
       onSubscriptionData: ({ subscriptionData: { data } }) => {
@@ -168,7 +152,6 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
 
   return {
     ...result,
-    fetchMoreThreads,
     fetchUpdatedThreads,
     updatedThreads: updatedThreads.length,
     updatingThreads: updateResult.loading,
@@ -176,25 +159,6 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
       threads: updatedThreads.length,
       loading: updateResult.loading,
       fetch: fetchUpdatedThreads,
-    },
-  }
-}
-
-const mergeMergeThreadsResults = <TData extends ThreadsData>(
-  previousResult: TData,
-  fetchMoreResult?: TData
-) => {
-  if (!fetchMoreResult) return previousResult
-
-  return {
-    ...previousResult,
-    threads: {
-      edges: [
-        ...previousResult.threads.edges,
-        ...fetchMoreResult.threads.edges,
-      ],
-      pageInfo: fetchMoreResult.threads.pageInfo,
-      __typename: previousResult.threads.__typename,
     },
   }
 }
@@ -221,11 +185,16 @@ const mergeUpdatedThreadsResults = <TData extends ThreadsData>(
   }
 }
 
-export const useThreadsQuery = () => {
-  return useBaseThreadsQuery<ThreadsData>(THREADS_QUERY)
+interface ThreadsQueryParams {
+  after: string | null
+  before: string | null
 }
 
-interface CategoryQueryParams {
+export const useThreadsQuery = (variables: ThreadsQueryParams) => {
+  return useBaseThreadsQuery<ThreadsData>(THREADS_QUERY, variables)
+}
+
+interface CategoryQueryParams extends ThreadsQueryParams {
   id: string
 }
 
@@ -271,5 +240,7 @@ interface CategoryThreadsData extends ThreadsData {
 export const useCategoryThreadsQuery = (variables: CategoryQueryParams) => {
   return useBaseThreadsQuery<CategoryThreadsData>(CATEGORY_THREADS_QUERY, {
     category: variables.id,
+    after: variables.after,
+    before: variables.before,
   })
 }
