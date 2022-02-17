@@ -1,10 +1,49 @@
 .nav-side .nav-link {
   display: flex;
   align-items: center;
+  margin-bottom: $spacer;
+
+  color: $nav-side-color;
+
+  background-color: $nav-side-bg;
+  border: $nav-side-border-width solid $nav-side-border-color;
+  border-radius: $nav-side-border-radius;
+}
+
+.nav-side .nav-link:hover {
+  color: $nav-side-hover-color;
+
+  background-color: $nav-side-hover-bg;
+  border-color: $nav-side-hover-border-color;
 }
 
 .nav-side .nav-link.active {
+  color: $nav-side-active-color;
   font-weight: bold;
+
+  background-color: $nav-side-active-bg;
+  border-color: $nav-side-active-border-color;
+}
+
+.nav-side .nav-link-child {
+  color: $nav-side-child-color;
+
+  background-color: $nav-side-child-bg;
+  border-color: $nav-side-child-border-color;
+}
+
+.nav-side .nav-link-child:hover {
+  color: $nav-side-child-hover-color;
+
+  background-color: $nav-side-child-hover-bg;
+  border-color: $nav-side-child-hover-border-color;
+}
+
+.nav-side .nav-link-child.active {
+  color: $nav-side-child-active-color;
+
+  background-color: $nav-side-child-active-bg;
+  border-color: $nav-side-child-active-border-color;
 }
 
 .nav-side .nav-link-icon,

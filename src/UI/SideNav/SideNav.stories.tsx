@@ -1,4 +1,3 @@
-import React from "react"
 import { Layout, LayoutSide } from "../Layout"
 import { RootContainer } from "../Storybook"
 import SideNav from "./SideNav"

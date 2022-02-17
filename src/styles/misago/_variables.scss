@@ -4,10 +4,67 @@
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
 // Misago-specific components sizings
-
 $side-col-width: 320px;
 $btn-max-width: 300px;
 
 $threads-list-item-activity: 175px;
 
 $editor-min-height: 135px;
+
+// Color system
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem !default;
+
+// Components
+
+$border-width:                1px !default;
+$border-color:                $gray-300 !default;
+
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
+// Side nav
+$nav-side-color:                    $gray-800 !default;
+$nav-side-bg:                       $gray-200 !default;
+$nav-side-border-color:             $gray-200 !default;
+$nav-side-border-width:             $border-width !default;
+$nav-side-border-radius:            $border-radius-sm !default;
+
+$nav-side-hover-color:              $gray-900 !default;
+$nav-side-hover-bg:                 $gray-200 !default;
+$nav-side-hover-border-color:       $gray-400 !default;
+
+$nav-side-active-color:             $gray-900 !default;
+$nav-side-active-bg:                $gray-200 !default;
+$nav-side-active-border-color:      $gray-200 !default;
+
+$nav-side-child-color:                    $gray-700 !default;
+$nav-side-child-bg:                       $gray-100 !default;
+$nav-side-child-border-color:             $gray-100 !default;
+
+$nav-side-child-hover-color:              $gray-900 !default;
+$nav-side-child-hover-bg:                 $gray-100 !default;
+$nav-side-child-hover-border-color:       $gray-200 !default;
+
+$nav-side-child-active-color:             $gray-900 !default;
+$nav-side-child-active-bg:                $gray-100 !default;
+$nav-side-child-active-border-color:      $gray-100 !default;

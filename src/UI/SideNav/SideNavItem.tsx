@@ -37,12 +37,12 @@ const SideNavItem: React.FC<SideNavItemProps> = ({
     >
       {icon && <span className="nav-link-icon">{icon}</span>}
       <span className="nav-link-text">{children}</span>
-      {hasChildren && <HasChildrenIcon />}
+      {hasChildren && <ChildrenIcon />}
     </Link>
   </li>
 )
 
-const HasChildrenIcon: React.FC = () => (
+const ChildrenIcon: React.FC = () => (
   <span className="has-children-icon">
     <Icon icon="far fa-plus-square" />
   </span>
