@@ -34,7 +34,7 @@ const CategoriesNavItem: React.FC<CategoriesNavItemProps> = ({
             icon={<CategoryIcon category={child} />}
             key={child.id}
             style={
-              category.color ? { "--color-theme": category.color } : undefined
+              category.color ? { "--color-theme": child.color } : undefined
             }
             to={urls.category(child)}
             isActive={active?.category.id === child.id}
