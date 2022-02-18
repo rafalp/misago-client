@@ -11,6 +11,7 @@ interface SideNavItemProps {
   isActive?: boolean
   isChild?: boolean
   to: string
+  style?: React.CSSProperties
 }
 
 const SideNavItem: React.FC<SideNavItemProps> = ({
@@ -20,9 +21,10 @@ const SideNavItem: React.FC<SideNavItemProps> = ({
   icon,
   isActive,
   isChild,
+  style,
   to,
 }) => (
-  <li className="nav-item">
+  <li className="nav-item" style={style}>
     <Link
       aria-selected={isActive ? "true" : "false"}
       className={classnames(

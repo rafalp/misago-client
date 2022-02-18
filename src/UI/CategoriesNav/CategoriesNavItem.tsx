@@ -20,6 +20,9 @@ const CategoriesNavItem: React.FC<CategoriesNavItemProps> = ({
       <SideNavItem
         hasChildren={category.children.length > 0}
         icon={<CategoryIcon category={category} />}
+        style={
+          category.color ? { "--color-theme": category.color } : undefined
+        }
         to={urls.category(category)}
         isActive={isActive}
       >
@@ -30,6 +33,9 @@ const CategoriesNavItem: React.FC<CategoriesNavItemProps> = ({
           <SideNavItem
             icon={<CategoryIcon category={child} />}
             key={child.id}
+            style={
+              category.color ? { "--color-theme": category.color } : undefined
+            }
             to={urls.category(child)}
             isActive={active?.category.id === child.id}
             isChild

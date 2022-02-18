@@ -8,6 +8,10 @@
   background-color: $nav-side-bg;
   border: $nav-side-border-width solid $nav-side-border-color;
   border-radius: $nav-side-border-radius;
+
+  .nav-link-icon {
+    color: var(--color-theme, $nav-side-color);
+  }
 }
 
 .nav-side .nav-link:hover {
@@ -23,12 +27,11 @@
   &:active {
     color: $nav-side-active-color;
 
-    background-color: $nav-side-active-bg;
-    border-color: $nav-side-active-border-color;
+    background-color: var(--color-theme, $nav-side-active-bg);
+    border-color: var(--color-theme, $nav-side-active-border-color);
 
     .nav-link-icon {
-      background-color: $nav-side-active-color;
-      border-radius: $nav-side-border-radius;
+      color: $nav-side-active-color;
     }
   }
 }
@@ -55,23 +58,17 @@
   &:active {
     color: $nav-side-child-active-color;
 
-    background-color: $nav-side-child-active-bg;
-    border-color: $nav-side-child-active-border-color;
+    background-color: var(--color-theme, $nav-side-child-active-bg);
+    border-color: var(--color-theme, $nav-side-child-active-border-color);
 
     .nav-link-icon {
-      background-color: $nav-side-child-active-color;
+      color: $nav-side-child-active-color;
     }
   }
 }
 
 .nav-side .nav-link-icon {
-  display: block;
-  vertical-align: middle;
-  text-align: center;
   margin-right: $spacer;
-
-  height: 1.5rem;
-  width: 1.5rem;
 }
 
 .nav-side .nav-link-text {
