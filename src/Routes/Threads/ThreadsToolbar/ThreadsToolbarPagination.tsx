@@ -1,9 +1,7 @@
-import classnames from "classnames"
+import { t } from "@lingui/macro"
 import React from "react"
-import { Link } from "react-router-dom"
-import { ButtonSecondary } from "../../../UI/Button"
-import Icon from "../../../UI/Icon"
 import { PageInfo, PageUrl } from "../Threads.types"
+import ThreadsToolbarPaginationButton from "./ThreadsToolbarPaginationButton"
 
 interface ThreadsToolbarPaginationProps {
   pageInfo?: PageInfo | null
@@ -15,37 +13,36 @@ const ThreadsToolbarPagination: React.FC<ThreadsToolbarPaginationProps> = ({
   pageUrl,
 }) => (
   <div className="paginator">
-    {pageInfo?.hasPreviousPage ? (
-      <>
-        <Link
-          className={classnames("btn btn-secondary btn-responsive")}
-          to={pageUrl({})}
-        >
-          <Icon icon="fas fa-angle-double-left" fixedWidth />
-        </Link>
-        <Link
-          className={classnames("btn btn-secondary btn-responsive")}
-          to={pageUrl({ before: pageInfo.startCursor })}
-        >
-          <Icon icon="fas fa-angle-left" fixedWidth />
-        </Link>
-      </>
-    ) : (
-      <>
-        <ButtonSecondary icon="fas fa-angle-double-left" responsive disabled />
-        <ButtonSecondary icon="fas fa-angle-left" responsive disabled />
-      </>
-    )}
-    {pageInfo?.hasNextPage ? (
-      <Link
-        className={classnames("btn btn-secondary btn-responsive")}
-        to={pageUrl({ after: pageInfo.endCursor })}
-      >
-        <Icon icon="fas fa-angle-right" fixedWidth />
-      </Link>
-    ) : (
-      <ButtonSecondary icon="fas fa-angle-right" responsive disabled />
-    )}
+    <ThreadsToolbarPaginationButton
+      icon="fas fa-angle-double-left"
+      title={t({
+        id: "page.first",
+        message: "First page",
+      })}
+      url={pageInfo?.hasPreviousPage ? pageUrl({}) : null}
+    />
+    <ThreadsToolbarPaginationButton
+      icon="fas fa-angle-left"
+      title={t({
+        id: "page.previous",
+        message: "Previous page",
+      })}
+      url={
+        pageInfo?.hasPreviousPage
+          ? pageUrl({ before: pageInfo.startCursor })
+          : null
+      }
+    />
+    <ThreadsToolbarPaginationButton
+      icon="fas fa-angle-right"
+      title={t({
+        id: "page.next",
+        message: "Next page",
+      })}
+      url={
+        pageInfo?.hasNextPage ? pageUrl({ after: pageInfo.endCursor }) : null
+      }
+    />
   </div>
 )
 

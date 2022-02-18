@@ -1,5 +1,4 @@
 import { Trans } from "@lingui/macro"
-import classnames from "classnames"
 import React from "react"
 import { Link } from "react-router-dom"
 import Icon from "../../../UI/Icon"
@@ -14,7 +13,7 @@ interface ThreadsNewButtonProps {
 
 const ThreadsNewButton: React.FC<ThreadsNewButtonProps> = ({ category }) => (
   <Link
-    className={classnames("btn btn-primary btn-responsive")}
+    className={"btn btn-primary btn-responsive"}
     to={urls.postThread(category)}
   >
     <Icon icon="far fa-edit" fixedWidth />

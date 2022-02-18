@@ -37,9 +37,9 @@ msgstr "This page was displayed while you were still logged in and is no longer 
 msgid "auth_alert.logged_out.title"
 msgstr "You have been logged out, <0>{username}</0>."
 
-#: UI/ValidationError/CategoryValidationError.tsx:47
-msgid "category_error.closed"
-msgstr "This category is closed."
+#: AuthModal/AuthModalLogin.tsx:87
+msgid "auth_error.invalid_credentials"
+msgstr "Login or password is incorrect."
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:39
 msgid "auth_error.message"
@@ -53,10 +53,6 @@ msgstr "You need to be signed in to perform this action."
 msgid "auth_error.not_moderator"
 msgstr "You need to be a moderator to perform this action."
 
-#: UI/ValidationError/CategoryValidationError.tsx:38
-msgid "category_error.not_moderator"
-msgstr "You can't moderate this category."
-
 #: UI/ValidationError/PostValidationError.tsx:29
 msgid "auth_error.not_moderator.post"
 msgstr "You can't moderate this post."
@@ -64,27 +60,6 @@ msgstr "You can't moderate this post."
 #: UI/ValidationError/ThreadValidationError.tsx:29
 msgid "auth_error.not_moderator.thread"
 msgstr "You can't moderate this thread."
-
-#: UI/ValidationError/PostValidationError.tsx:56
-msgid "post_error.not_author"
-msgstr "You need to be this post's author to perform this action."
-
-#: UI/ValidationError/PostValidationError.tsx:38
-msgid "post_error.category.closed"
-msgstr "This post's category is closed."
-
-#: UI/ValidationError/PostValidationError.tsx:47
-#: UI/ValidationError/ThreadValidationError.tsx:47
-msgid "thread_error.closed"
-msgstr "This thread is closed."
-
-#: UI/ValidationError/ThreadValidationError.tsx:56
-msgid "thread_error.not_author"
-msgstr "You need to be this thread's author to perform this action."
-
-#: UI/ValidationError/ThreadValidationError.tsx:38
-msgid "thread_error.category.closed"
-msgstr "This thread's category is closed."
 
 #: UI/RouteError/RouteAuthRequiredError.tsx:32
 msgid "auth_error.title"
@@ -106,7 +81,7 @@ msgstr "Upload image"
 msgid "avatar_modal.upload_instruction"
 msgstr "{avatarUploadImageMinSize}x{avatarUploadImageMinSize}px weighting less than {0}."
 
-#: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:22
+#: Routes/Threads/ThreadsNewButton/ThreadsNewButton.tsx:21
 msgid "btn.new-thread"
 msgstr "New thread"
 
@@ -125,6 +100,22 @@ msgstr "{size, plural, one {{size} byte} other {{size} bytes}}"
 #: UI/Form/FormFooter.tsx:27
 msgid "cancel"
 msgstr "Cancel"
+
+#: UI/ValidationError/CategoryValidationError.tsx:47
+msgid "category_error.closed"
+msgstr "This category is closed."
+
+#: UI/ValidationError/CategoryValidationError.tsx:29
+msgid "category_error.missing"
+msgstr "Thread category can't be empty."
+
+#: UI/ValidationError/CategoryValidationError.tsx:56
+msgid "category_error.not_found"
+msgstr "Category could not be found."
+
+#: UI/ValidationError/CategoryValidationError.tsx:38
+msgid "category_error.not_moderator"
+msgstr "You can't moderate this category."
 
 #: Routes/Threads/ThreadsCategoriesModal/ThreadsCategoriesModal.tsx:25
 msgid "category_picker.title"
@@ -150,7 +141,7 @@ msgstr "Site server can't be reached."
 msgid "close"
 msgstr "Close"
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:87
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:86
 msgid "edit_reply.message"
 msgstr "Reply has been edited."
 
@@ -295,18 +286,18 @@ msgstr "{rounded, plural, one {{rounded} gigabytes} other {{rounded} gigabytes}}
 msgid "go"
 msgstr "Go"
 
-#: AuthModal/AuthModalRegister.tsx:132
-#: SiteWizard/SiteWizardForm.tsx:179
+#: AuthModal/AuthModalRegister.tsx:131
+#: SiteWizard/SiteWizardForm.tsx:173
 msgid "input.email"
 msgstr "E-mail"
 
-#: AuthModal/AuthModalRegister.tsx:117
-#: SiteWizard/SiteWizardForm.tsx:164
+#: AuthModal/AuthModalRegister.tsx:116
+#: SiteWizard/SiteWizardForm.tsx:158
 msgid "input.name"
 msgstr "User name"
 
-#: AuthModal/AuthModalRegister.tsx:142
-#: SiteWizard/SiteWizardForm.tsx:189
+#: AuthModal/AuthModalRegister.tsx:141
+#: SiteWizard/SiteWizardForm.tsx:183
 msgid "input.password"
 msgstr "Password"
 
@@ -364,7 +355,7 @@ msgid "moderate_threads"
 msgstr "Moderate threads ({0})"
 
 #: Routes/Thread/ThreadModeration/useThreadModeration.tsx:35
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:40
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:44
 msgid "moderation.close"
 msgstr "Close"
 
@@ -376,11 +367,11 @@ msgstr "Close thread"
 msgid "moderation.close_threads"
 msgstr "Close threads"
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:46
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:45
 #: Routes/Thread/ThreadPost/ThreadPostModeration/useThreadPostModeration.tsx:30
 #: Routes/Thread/ThreadPostsModeration/ThreadPostsModerationDelete/ThreadPostsModerationDeleteForm.tsx:94
 #: Routes/Thread/ThreadPostsModeration/useThreadPostsModeration.tsx:28
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:50
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:54
 msgid "moderation.delete"
 msgstr "Delete"
 
@@ -418,16 +409,16 @@ msgstr "Delete thread"
 msgid "moderation.delete_thread_prompt"
 msgstr "Are you sure you want to delete this thread?"
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDeleteForm.tsx:107
+#: Routes/Threads/ThreadsModeration/ThreadsModerationDelete/ThreadsModerationDeleteForm.tsx:106
 msgid "moderation.delete_threads.submit"
 msgstr "{0, plural, one {Delete # thread} other {Delete # threads}}"
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:41
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:45
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:40
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:49
 msgid "moderation.move"
 msgstr "Move"
 
-#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:91
+#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:90
 msgid "moderation.move_thread.submit"
 msgstr "Move thread"
 
@@ -436,17 +427,17 @@ msgstr "Move thread"
 msgid "moderation.move_threads"
 msgstr "Move threads"
 
-#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:121
+#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:124
 msgid "moderation.move_threads.submit"
 msgstr "{0, plural, one {Move # thread} other {Move # threads}}"
 
-#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:78
-#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:108
+#: Routes/Thread/ThreadModeration/ThreadModerationMove/ThreadModerationMoveForm.tsx:77
+#: Routes/Threads/ThreadsModeration/ThreadsModerationMove/ThreadsModerationMoveForm.tsx:111
 msgid "moderation.new_category"
 msgstr "New category"
 
-#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:29
-#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:35
+#: Routes/Thread/ThreadModeration/useThreadModeration.tsx:30
+#: Routes/Threads/ThreadsModeration/useThreadsModeration.tsx:39
 msgid "moderation.open"
 msgstr "Open"
 
@@ -588,6 +579,18 @@ msgstr "Requested page could not be found."
 msgid "ok"
 msgstr "Ok"
 
+#: Routes/Threads/ThreadsToolbar/ThreadsToolbarPagination.tsx:18
+msgid "page.first"
+msgstr "First page"
+
+#: Routes/Threads/ThreadsToolbar/ThreadsToolbarPagination.tsx:38
+msgid "page.next"
+msgstr "Next page"
+
+#: Routes/Threads/ThreadsToolbar/ThreadsToolbarPagination.tsx:26
+msgid "page.previous"
+msgstr "Previous page"
+
 #: UI/Paginator/PaginatorDropdown.tsx:35
 msgid "paginator"
 msgstr "Page {page} of {pages}"
@@ -605,6 +608,10 @@ msgstr "{page} of {pages}"
 msgid "post.edit"
 msgstr "Edit"
 
+#: UI/ValidationError/PostValidationError.tsx:74
+msgid "post.not_found"
+msgstr "Post could not be found."
+
 #: Routes/Thread/ThreadPost/ThreadPostPermalink.tsx:24
 msgid "post.permalink"
 msgstr "Permalink"
@@ -621,7 +628,23 @@ msgstr "Quote"
 msgid "post.reply"
 msgstr "Reply"
 
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:83
+#: UI/ValidationError/PostValidationError.tsx:38
+msgid "post_error.category.closed"
+msgstr "This post's category is closed."
+
+#: UI/ValidationError/PostValidationError.tsx:56
+msgid "post_error.not_author"
+msgstr "You need to be this post's author to perform this action."
+
+#: UI/ValidationError/PostValidationError.tsx:47
+msgid "post_error.thread.closed"
+msgstr "This post's thread is closed."
+
+#: UI/ValidationError/PostValidationError.tsx:65
+msgid "post_error.thread_start"
+msgstr "This post is thread's original post."
+
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:82
 msgid "post_reply.message"
 msgstr "Reply has been posted."
 
@@ -695,13 +718,13 @@ msgstr "Please check your internet connection and try again later if the problem
 msgid "posting.form"
 msgstr "Post a new thread"
 
-#: Routes/PostThread/PostThreadForm.tsx:120
+#: Routes/PostThread/PostThreadForm.tsx:116
 msgid "posting.message"
 msgstr "New thread has been posted."
 
 #: Routes/PostThread/PostThreadForm.tsx:177
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:110
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:98
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:109
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:97
 msgid "posting.placeholder"
 msgstr "Message contents"
 
@@ -717,11 +740,11 @@ msgstr "Reply thread"
 msgid "posting.submit"
 msgstr "Post thread"
 
-#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:119
+#: Routes/Thread/ThreadReply/ThreadReplyEditForm.tsx:118
 msgid "posting.submit_changes"
 msgstr "Save changes"
 
-#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:107
+#: Routes/Thread/ThreadReply/ThreadReplyNewForm.tsx:106
 msgid "posting.submit_reply"
 msgstr "Post reply"
 
@@ -744,20 +767,20 @@ msgid "register"
 msgstr "Sign up"
 
 #: AuthModal/AuthModalRegister.tsx:174
-msgid "register.login"
-msgstr "Already a member? <0>Log in</0>"
+#~ msgid "register.login"
+#~ msgstr "Already a member? <0>Log in</0>"
 
 #: AuthModal/AuthModalRegister.tsx:166
-msgid "register.submit"
-msgstr "Sign up"
+#~ msgid "register.submit"
+#~ msgstr "Sign up"
 
 #: AuthModal/AuthModalRegister.tsx:164
-msgid "register.submitting"
-msgstr "Signing up..."
+#~ msgid "register.submitting"
+#~ msgstr "Signing up..."
 
 #: AuthModal/AuthModalRegister.tsx:74
-msgid "register.title"
-msgstr "Sign up"
+#~ msgid "register.title"
+#~ msgstr "Sign up"
 
 #: UI/RichText/RichTextCode.tsx:33
 msgid "rich_text.code_copied"
@@ -783,7 +806,7 @@ msgstr "Hide"
 msgid "rich_text.spoiler_reveal"
 msgstr "Reveal"
 
-#: Routes/Thread/ThreadHeader/ThreadHeaderTitleEditForm.tsx:93
+#: Routes/Thread/ThreadHeader/ThreadHeaderTitleEditForm.tsx:92
 msgid "save"
 msgstr "Save"
 
@@ -798,6 +821,22 @@ msgstr "Closed"
 #: Routes/Thread/ThreadToolbar/ThreadToolbarReplyButton.tsx:20
 msgid "thread.new_reply"
 msgstr "Reply"
+
+#: UI/ValidationError/ThreadValidationError.tsx:38
+msgid "thread_error.category.closed"
+msgstr "This thread's category is closed."
+
+#: UI/ValidationError/ThreadValidationError.tsx:47
+msgid "thread_error.closed"
+msgstr "This thread is closed."
+
+#: UI/ValidationError/ThreadValidationError.tsx:56
+msgid "thread_error.not_author"
+msgstr "You need to be this thread's author to perform this action."
+
+#: UI/ValidationError/ThreadValidationError.tsx:66
+msgid "thread_error.not_found"
+msgstr "Thread could not be found."
 
 #: Routes/Threads/ThreadsList/ThreadsListBlankslate.tsx:21
 msgid "threads.blankslate.header"
@@ -818,7 +857,7 @@ msgstr "Threads list could not be displayed."
 msgid "threads.header"
 msgstr "All threads"
 
-#: Routes/Threads/ThreadsAll.tsx:35
+#: Routes/Threads/ThreadsAll.tsx:58
 msgid "threads.title"
 msgstr "Threads"
 
@@ -892,6 +931,22 @@ msgstr "today at {0}"
 msgid "time.yesterday"
 msgstr "yesterday at {0}"
 
+#: AuthModal/AuthModalRegister.tsx:173
+msgid "userCreate.login"
+msgstr "Already a member? <0>Log in</0>"
+
+#: AuthModal/AuthModalRegister.tsx:165
+msgid "userCreate.submit"
+msgstr "Sign up"
+
+#: AuthModal/AuthModalRegister.tsx:163
+msgid "userCreate.submitting"
+msgstr "Signing up..."
+
+#: AuthModal/AuthModalRegister.tsx:74
+msgid "userCreate.title"
+msgstr "Sign up"
+
 #: AuthModal/AuthModalLogin.tsx:82
 msgid "value_error.all_fields_are_required"
 msgstr "Fill out all fields."
@@ -903,14 +958,6 @@ msgstr "{max, plural, one {This value should be no longer than # character (it h
 #: UI/ValidationError/ValidationError.tsx:48
 msgid "value_error.any_str.min_length"
 msgstr "{min, plural, one {This value should be at least # character long (it has {value}).} other {This value should be at least # characters long (it has {value}).}}"
-
-#: UI/ValidationError/CategoryValidationError.tsx:29
-msgid "category_error.missing"
-msgstr "Thread category can't be empty."
-
-#: UI/ValidationError/CategoryValidationError.tsx:56
-msgid "category_error.not_found"
-msgstr "Category could not be found."
 
 #: UI/ValidationError/EmailValidationError.tsx:39
 msgid "value_error.email"
@@ -928,11 +975,11 @@ msgstr "This e-mail address is not allowed."
 msgid "value_error.email.not_available"
 msgstr "This e-mail address is not available."
 
-#: AvatarModal/AvatarValidationError.tsx:46
+#: AvatarModal/AvatarValidationError.tsx:45
 msgid "value_error.image"
 msgstr "Uploaded file is not a valid image."
 
-#: AvatarModal/AvatarValidationError.tsx:55
+#: AvatarModal/AvatarValidationError.tsx:54
 msgid "value_error.image.min_size"
 msgstr "Uploaded image shouldn't be smaller than {imageMinSize}x{imageMinSize}px."
 
@@ -960,14 +1007,6 @@ msgstr "{min, plural, one {Password should be at least # character long (it has 
 msgid "value_error.password.missing"
 msgstr "Password can't be empty."
 
-#: UI/ValidationError/PostValidationError.tsx:74
-msgid "post.not_found"
-msgstr "Post could not be found."
-
-#: UI/ValidationError/PostValidationError.tsx:65
-msgid "post_error.thread_start"
-msgstr "This post is thread's original post."
-
 #: UI/ValidationError/PostsValidationError.tsx:43
 msgid "value_error.posts.max_items"
 msgstr "{max, plural, one {You can't select more than # post (you've selected {value}).} other {You can't select more than # posts (you've selected {value}).}}"
@@ -975,10 +1014,6 @@ msgstr "{max, plural, one {You can't select more than # post (you've selected {v
 #: UI/ValidationError/PostsValidationError.tsx:31
 msgid "value_error.posts.min_items"
 msgstr "{min, plural, one {Select at least # post.} other {Select at least # posts.}}"
-
-#: UI/ValidationError/ThreadValidationError.tsx:66
-msgid "thread_error.not_found"
-msgstr "Thread could not be found."
 
 #: UI/ValidationError/ThreadTitleValidationError.tsx:41
 msgid "value_error.thread_title"
@@ -1040,11 +1075,7 @@ msgstr "This user name is not allowed."
 msgid "value_error.username.not_available"
 msgstr "This user name is not available."
 
-#: AuthModal/AuthModalLogin.tsx:87
-msgid "auth_error.invalid_credentials"
-msgstr "Login or password is incorrect."
-
-#: SiteWizard/SiteWizardForm.tsx:161
+#: SiteWizard/SiteWizardForm.tsx:155
 msgid "wizard.admin"
 msgstr "Admin account"
 
@@ -1057,28 +1088,28 @@ msgid "wizard.completed.message_1"
 msgstr "Your admin account has been created and you have been signed in."
 
 #: SiteWizard/SiteWizardCompleted.tsx:34
-#: SiteWizard/SiteWizardForm.tsx:213
+#: SiteWizard/SiteWizardForm.tsx:207
 #: SiteWizard/SiteWizardStart.tsx:34
 msgid "wizard.continue"
 msgstr "Continue"
 
-#: SiteWizard/SiteWizardForm.tsx:130
+#: SiteWizard/SiteWizardForm.tsx:124
 msgid "wizard.forum_index"
 msgstr "Forum index"
 
-#: SiteWizard/SiteWizardForm.tsx:144
+#: SiteWizard/SiteWizardForm.tsx:138
 msgid "wizard.forum_index.categories"
 msgstr "Categories"
 
-#: SiteWizard/SiteWizardForm.tsx:137
+#: SiteWizard/SiteWizardForm.tsx:131
 msgid "wizard.forum_index.threads"
 msgstr "Latest threads"
 
-#: SiteWizard/SiteWizardForm.tsx:115
+#: SiteWizard/SiteWizardForm.tsx:109
 msgid "wizard.forum_name"
 msgstr "Forum name"
 
-#: SiteWizard/SiteWizardForm.tsx:112
+#: SiteWizard/SiteWizardForm.tsx:106
 msgid "wizard.site"
 msgstr "Site"
 

@@ -3,6 +3,10 @@ import React from "react"
 import { Link } from "react-router-dom"
 import Icon from "../Icon"
 
+interface SideNavCSSProperties extends React.CSSProperties {
+  "--color-theme"?: string | null
+}
+
 interface SideNavItemProps {
   className?: string | null
   children: React.ReactNode
@@ -11,7 +15,7 @@ interface SideNavItemProps {
   isActive?: boolean
   isChild?: boolean
   to: string
-  style?: React.CSSProperties
+  style?: SideNavCSSProperties
 }
 
 const SideNavItem: React.FC<SideNavItemProps> = ({

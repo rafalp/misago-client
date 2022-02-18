@@ -3,7 +3,13 @@ import { useLocation } from "react-router-dom"
 
 type Cursor = number | null | typeof NaN
 
-const useCursorParams = () => {
+export interface CursorData {
+  valid: boolean
+  after: string | null
+  before: string | null
+}
+
+export const useCursorParams = (): CursorData => {
   const { search } = useLocation()
 
   return React.useMemo(() => {

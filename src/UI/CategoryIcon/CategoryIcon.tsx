@@ -16,7 +16,7 @@ const CategoryIcon: React.FC<CategoryIconProps> = ({
     {category?.icon ? (
       <i className={category.icon + " fa-fw"} />
     ) : (
-      <Icon icon="comment-alt" fixedWidth />
+      <Icon icon="far fa-comment-alt" fixedWidth />
     )}
   </span>
 )

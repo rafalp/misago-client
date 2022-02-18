@@ -18,7 +18,7 @@ const CategoriesNav: React.FC<CategoriesNavProps> = ({ active }) => {
   return (
     <SideNav className="categories-nav">
       <SideNavItem
-        icon={<CategoryIcon category={{ icon: "fas fa-list", color: null }} />}
+        icon={<CategoryIcon category={{ icon: "fas fa-list" }} />}
         to={settings.forumIndexThreads ? urls.index() : urls.threads()}
         isActive={!active}
       >

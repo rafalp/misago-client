@@ -15,6 +15,7 @@ import ThreadsLayout from "./ThreadsLayout"
 import ThreadsList from "./ThreadsList"
 import { ThreadsModeration, useThreadsModeration } from "./ThreadsModeration"
 import ThreadsToolbar from "./ThreadsToolbar"
+import redirectFromInvalidURL from "./redirectFromInvalidURL"
 import useCategoryAcl from "./useCategoryAcl"
 import useCursorParams from "./useCursorParams"
 import { useThreadsQuery } from "./useThreadsQuery"
@@ -46,7 +47,7 @@ const ThreadsAll: React.FC = () => {
     return url
   }
 
-  if (cursor.before && threads?.pageInfo.hasPreviousPage === false) {
+  if (redirectFromInvalidURL(cursor, threads)) {
     return <Redirect to={isIndex ? urls.index() : urls.threads()} />
   }
 
@@ -66,11 +67,11 @@ const ThreadsAll: React.FC = () => {
         pageInfo={threads?.pageInfo}
         pageUrl={pageUrl}
       />
-      <SectionLoader loading={loading}>
+      <SectionLoader loading={loading && !!threads}>
         <ThreadsList
           acl={acl}
           error={error}
-          loading={loading}
+          loading={loading && !threads}
           selectable={!!moderation}
           selection={selection}
           threads={threads}

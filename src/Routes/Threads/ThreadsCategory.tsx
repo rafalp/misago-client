@@ -11,6 +11,7 @@ import ThreadsLayout from "./ThreadsLayout"
 import ThreadsList from "./ThreadsList"
 import { ThreadsModeration, useThreadsModeration } from "./ThreadsModeration"
 import ThreadsToolbar from "./ThreadsToolbar"
+import redirectFromInvalidURL from "./redirectFromInvalidURL"
 import useActiveCategory from "./useActiveCategory"
 import useCategoryAcl from "./useCategoryAcl"
 import useCursorParams from "./useCursorParams"
@@ -50,15 +51,8 @@ const ThreadsCategory: React.FC = () => {
     return url
   }
 
-  if (data?.category) {
-    // Redirect away from explicit first page
-    if (cursor.before && threads?.pageInfo.hasPreviousPage === false) {
-      return <Redirect to={urls.category(data.category)} />
-    }
-    // Redirect away from invalid slug
-    if (data.category.slug !== slug) {
-      return <Redirect to={urls.category(data.category)} />
-    }
+  if (category && redirectFromInvalidURL(cursor, threads, category, slug)) {
+    return <Redirect to={urls.category(category)} />
   }
 
   return (
@@ -80,12 +74,12 @@ const ThreadsCategory: React.FC = () => {
           <ThreadsToolbar acl={acl} category={category} pageUrl={pageUrl} />
         </>
       )}
-      <SectionLoader loading={loading}>
+      <SectionLoader loading={loading && !!threads}>
         <ThreadsList
           acl={acl}
           category={category}
           error={error}
-          loading={loading && false}
+          loading={loading && !threads}
           selectable={!!moderation}
           selection={selection}
           threads={threads}
