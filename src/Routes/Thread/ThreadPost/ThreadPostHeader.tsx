@@ -85,7 +85,10 @@ const ThreadPostHeader: React.FC<ThreadPostHeaderProps> = ({
               )}
             </div>
             <div className="post-header-second-row">
-              <Link className="post-timestamp" to={"/"}>
+              <Link
+                className="post-timestamp"
+                to={urls.threadPost({ id: threadId, slug: threadSlug }, post)}
+              >
                 <Timestamp date={new Date(post.postedAt)} />
               </Link>
             </div>
