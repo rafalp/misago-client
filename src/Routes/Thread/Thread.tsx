@@ -1,5 +1,6 @@
 import React from "react"
 import { Redirect, Route, Switch } from "react-router-dom"
+import { RouteNotFound } from "../../UI/RouteError"
 import * as urls from "../../urls"
 import ThreadRedirectToLastPost from "./ThreadRedirectToLastPost"
 import ThreadRedirectToPost from "./ThreadRedirectToPost"
@@ -41,6 +42,7 @@ const Thread: React.FC = () => (
       component={ThreadPosts}
       exact
     />
+    <Route component={RouteNotFound} />
   </Switch>
 )
 
