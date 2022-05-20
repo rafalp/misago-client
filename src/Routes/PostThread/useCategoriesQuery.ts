@@ -9,14 +9,12 @@ export const CATEGORIES_QUERY = gql`
       icon
       color
       isClosed
-      extra
       children {
         id
         name
         icon
         color
         isClosed
-        extra
       }
     }
   }

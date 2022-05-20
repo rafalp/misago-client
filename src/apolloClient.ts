@@ -14,19 +14,24 @@ import { getAuthToken } from "./auth"
 
 const cache = new InMemoryCache()
 
+const getGraphQLURI = () => {
+  const uri: string | undefined = (process as any).env.REACT_APP_GRAPHQL_URL
+  if (uri) return uri
+
+  return window.location.protocol + window.location.host + "/graphql/"
+}
+
 const httpLink = createUploadLink({
-  uri: "/graphql/",
+  uri: getGraphQLURI(),
 })
 
-const getWebSocketURI = () => {
-  if (!window || !window.location) return "/graphql/"
-
-  const prefix = window.location.protocol === "https:" ? "wss://" : "ws://"
-  return prefix + window.location.host + "/graphql/"
+const getGraphQLWebSocketURI = () => {
+  const uri = getGraphQLURI()
+  return "ws" + uri.substring(4)
 }
 
 const wsLink = new WebSocketLink({
-  uri: getWebSocketURI(),
+  uri: getGraphQLWebSocketURI(),
   options: {
     lazy: true,
     reconnect: true,

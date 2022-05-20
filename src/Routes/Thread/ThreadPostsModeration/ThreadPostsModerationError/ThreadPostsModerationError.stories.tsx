@@ -90,7 +90,6 @@ export const PostsErrors = () => {
             postedAt: "2020-04-01T21:42:51Z",
             posterName: username,
             poster: userFactory({ name: username }),
-            extra: {},
           },
           {
             id: "2",
@@ -106,7 +105,6 @@ export const PostsErrors = () => {
             postedAt: "2020-04-02T11:16:51Z",
             posterName: "Lorem",
             poster: userFactory({ name: "Lorem" }),
-            extra: {},
           },
         ]}
         forDelete={boolean("For delete", false)}
@@ -144,7 +142,6 @@ export const SomePostsErrors = () => {
             postedAt: "2020-04-01T21:42:51Z",
             posterName: username,
             poster: userFactory({ name: username }),
-            extra: {},
           },
           {
             id: "2",
@@ -160,7 +157,6 @@ export const SomePostsErrors = () => {
             postedAt: "2020-04-02T11:16:51Z",
             posterName: "Lorem",
             poster: userFactory({ name: "Lorem" }),
-            extra: {},
           },
         ]}
         forDelete={boolean("For delete", false)}

@@ -19,7 +19,6 @@ export interface AuthUser {
   isAdmin: boolean
   joinedAt: string
   avatars: Array<AvatarData>
-  extra: any
 }
 
 export interface Category {

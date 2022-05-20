@@ -35,7 +35,6 @@ export const SinglePost = () => {
       postedAt: "2020-04-01T21:42:51Z",
       posterName: username,
       poster: userFactory({ name: username }),
-      extra: {},
     },
   ]
 
@@ -65,7 +64,6 @@ export const FewPosts = () => {
       postedAt: "2020-04-01T21:42:51Z",
       posterName: username,
       poster: userFactory({ name: username }),
-      extra: {},
     },
     {
       id: "2",
@@ -81,7 +79,6 @@ export const FewPosts = () => {
       postedAt: "2020-04-02T11:16:51Z",
       posterName: "Lorem",
       poster: userFactory({ name: "Lorem" }),
-      extra: {},
     },
   ]
 
@@ -111,7 +108,6 @@ export const ManyPosts = () => {
       postedAt: "2020-04-01T21:42:51Z",
       posterName: username,
       poster: userFactory({ name: username }),
-      extra: {},
     },
     {
       id: "2",
@@ -127,7 +123,6 @@ export const ManyPosts = () => {
       postedAt: "2020-04-02T11:16:51Z",
       posterName: "Lorem",
       poster: userFactory({ name: "Lorem" }),
-      extra: {},
     },
     {
       id: "3",
@@ -143,7 +138,6 @@ export const ManyPosts = () => {
       postedAt: "2020-04-02T13:52:05Z",
       posterName: "Aenean",
       poster: userFactory({ name: "Aenean" }),
-      extra: {},
     },
   ]
 
@@ -173,7 +167,6 @@ export const WithErrors = () => {
       postedAt: "2020-04-01T21:42:51Z",
       posterName: username,
       poster: userFactory({ name: username }),
-      extra: {},
     },
     {
       id: "2",
@@ -189,7 +182,6 @@ export const WithErrors = () => {
       postedAt: "2020-04-02T11:16:51Z",
       posterName: "Lorem",
       poster: userFactory({ name: "Lorem" }),
-      extra: {},
     },
   ]
 

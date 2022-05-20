@@ -29,7 +29,6 @@ export const PostByUser = () => {
           postedAt: "2020-04-01T21:42:51Z",
           posterName: username,
           poster: userFactory({ name: username }),
-          extra: {},
         }}
         threadId="1"
         threadSlug="test-thread"
@@ -129,7 +128,6 @@ export const PostWithComplexMarkup = () => {
           postedAt: "2020-04-01T21:42:51Z",
           posterName: username,
           poster: userFactory({ name: username }),
-          extra: {},
         }}
         threadId="1"
         threadSlug="test-thread"
@@ -383,7 +381,6 @@ export const PostWithQuotes = () => (
         postedAt: "2020-04-01T21:42:51Z",
         posterName: "John",
         poster: userFactory({ name: "John" }),
-        extra: {},
       }}
       threadId="1"
       threadSlug="test-thread"
@@ -509,7 +506,6 @@ export const PostWithSpoilers = () => (
         postedAt: "2020-04-01T21:42:51Z",
         posterName: "John",
         poster: userFactory({ name: "John" }),
-        extra: {},
       }}
       threadId="1"
       threadSlug="test-thread"
@@ -575,7 +571,6 @@ export const PostWithCode = () => (
         postedAt: "2020-04-01T21:42:51Z",
         posterName: "John",
         poster: userFactory({ name: "John" }),
-        extra: {},
       }}
       threadId="1"
       threadSlug="test-thread"
@@ -602,7 +597,6 @@ export const PostSelectable = () => {
           postedAt: "2020-04-01T21:42:51Z",
           posterName: username,
           poster: userFactory({ name: username }),
-          extra: {},
         }}
         threadId="1"
         threadSlug="test-thread"
@@ -633,7 +627,6 @@ export const PostWithModeration = () => {
             postedAt: "2020-04-01T21:42:51Z",
             posterName: username,
             poster: userFactory({ name: username }),
-            extra: {},
           }}
           threadId="1"
           threadSlug="test-thread"
@@ -664,7 +657,6 @@ export const PostByDeletedUser = () => {
           postedAt: "2020-04-01T21:42:51Z",
           posterName: username,
           poster: null,
-          extra: {},
         }}
         threadId="1"
         threadSlug="test-thread"
@@ -689,7 +681,6 @@ export const PostAfterAnother = () => (
         postedAt: "2020-04-01T21:42:51Z",
         posterName: "John",
         poster: null,
-        extra: {},
       }}
       threadId="1"
       threadSlug="test-thread"
@@ -708,7 +699,6 @@ export const PostAfterAnother = () => (
         postedAt: "2020-04-03T15:22:11Z",
         posterName: "Doe",
         poster: null,
-        extra: {},
       }}
       threadId="1"
       threadSlug="test-thread"

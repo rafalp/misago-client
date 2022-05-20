@@ -13,7 +13,6 @@ export interface Thread {
   starter: ThreadPoster | null
   lastPoster: ThreadPoster | null
   category: ThreadCategory
-  extra: Record<string, any>
 }
 
 export interface ThreadCategory {
@@ -53,7 +52,6 @@ export interface Post {
   richText: RichText
   edits: number
   postedAt: string
-  extra: Record<string, any>
 }
 
 export interface Poster {
@@ -61,7 +59,6 @@ export interface Poster {
   name: string
   slug: string
   avatars: Array<AvatarData>
-  extra: Record<string, any>
 }
 
 export interface Posts {

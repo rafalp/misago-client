@@ -16,7 +16,6 @@ const DELETE_THREAD_POSTS = gql`
           id
           name
           slug
-          extra
           avatars {
             size
             url
@@ -29,18 +28,15 @@ const DELETE_THREAD_POSTS = gql`
           richText
           edits
           postedAt
-          extra
           posterName
           poster {
             id
             name
             slug
-            extra
             avatars {
               size
               url
             }
-            extra
           }
         }
         totalPages

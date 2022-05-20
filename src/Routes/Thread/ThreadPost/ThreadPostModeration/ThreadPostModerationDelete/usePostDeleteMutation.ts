@@ -15,7 +15,6 @@ const POST_DELETE = gql`
           id
           name
           slug
-          extra
           avatars {
             size
             url
@@ -28,18 +27,15 @@ const POST_DELETE = gql`
           richText
           edits
           postedAt
-          extra
           posterName
           poster {
             id
             name
             slug
-            extra
             avatars {
               size
               url
             }
-            extra
           }
         }
         totalPages

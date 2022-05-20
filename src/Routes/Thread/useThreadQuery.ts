@@ -6,7 +6,6 @@ const THREAD_FRAGMENTS = `
     id
     name
     slug
-    extra
     avatars {
       size
       url
@@ -71,11 +70,9 @@ export const THREAD_QUERY = gql`
         richText
         edits
         postedAt
-        extra
         posterName
         poster {
           ...ThreadPoster
-          extra
         }
       }
       totalPages

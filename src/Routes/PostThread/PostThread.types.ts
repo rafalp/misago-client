@@ -4,7 +4,6 @@ export interface CategoryChoiceChild {
   icon: string
   color: string
   isClosed: boolean
-  extra: Record<string, any>
 }
 
 export interface CategoryChoice extends CategoryChoiceChild {

@@ -45,7 +45,6 @@ const defaultUser = {
   isAdmin: false,
   joinedAt: "2010-01-14T18:09:58.387Z",
   avatars: [],
-  extra: {},
 }
 
 export const userFactory = (overrides = {}): AuthUser => {

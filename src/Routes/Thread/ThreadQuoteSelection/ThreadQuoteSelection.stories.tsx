@@ -42,7 +42,6 @@ export const QuotablePosts = () => {
                   postedAt: "2020-04-01T21:42:51Z",
                   posterName: "John",
                   poster: userFactory({ name: "John" }),
-                  extra: {},
                 }}
                 threadId="1"
                 threadSlug="test-thread"
@@ -271,7 +270,6 @@ export const QuotablePosts = () => {
                   postedAt: "2020-04-01T22:19:12Z",
                   posterName: "Aerith",
                   poster: userFactory({ name: "Aerith" }),
-                  extra: {},
                 }}
                 threadId="1"
                 threadSlug="test-thread"
