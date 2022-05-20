@@ -18,7 +18,7 @@ const getGraphQLURI = () => {
   const uri: string | undefined = (process as any).env.REACT_APP_GRAPHQL_URL
   if (uri) return uri
 
-  return window.location.protocol + window.location.host + "/graphql/"
+  return window.location.protocol + "//" + window.location.host + "/graphql/"
 }
 
 const httpLink = createUploadLink({
