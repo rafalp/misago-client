@@ -18,6 +18,7 @@ const AvatarUploadForm: React.FC<AvatarUploadFormProps> = ({ closeModal }) => {
     avatarUploadImageMinSize,
     avatarUploadMaxSize,
   } = useSettingsContext()
+  const uploadLimit = avatarUploadMaxSize * 1024
   const { showToast } = useToastsContext()
   const { loading, avatarUpload } = useAvatarUploadMutation()
   const [errors, setErrors] = React.useState<Array<MutationError> | null>(null)
@@ -60,7 +61,7 @@ const AvatarUploadForm: React.FC<AvatarUploadFormProps> = ({ closeModal }) => {
             <AvatarValidationError
               error={error}
               value={file}
-              uploadMaxSize={avatarUploadMaxSize}
+              uploadMaxSize={uploadLimit}
               imageMinSize={avatarUploadImageMinSize}
               key={i}
             >
@@ -81,7 +82,7 @@ const AvatarUploadForm: React.FC<AvatarUploadFormProps> = ({ closeModal }) => {
           <small>
             <Trans id="avatar_modal.upload_instruction">
               {avatarUploadImageMinSize}x{avatarUploadImageMinSize}px weighting
-              less than {formatFileSizeShort(avatarUploadMaxSize)}.
+              less than {formatFileSizeShort(uploadLimit)}.
             </Trans>
           </small>
         </p>
