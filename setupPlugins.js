@@ -5,7 +5,7 @@ const glob = require("glob")
 const path = require('path')
 
 const main = () => {
-  const plugins = glob.sync("plugins/**/client/src")
+  const plugins = glob.sync("plugins/*/client/src")
   copyPluginsToSrc(plugins)
   registerPluginsTypescript(plugins)
   registerPluginsStyles()
@@ -56,8 +56,8 @@ const MODE = {
 }
 
 const registerPluginsStyles = () => {
-  const variables = glob.sync("src/plugins/**/styles/variables.scss")
-  const components = glob.sync("src/plugins/**/styles/components.scss")
+  const variables = glob.sync("src/plugins/*/client/src/styles/variables.scss")
+  const components = glob.sync("src/plugins/*/client/src/styles/components.scss")
 
   const styles = readFileLinesSync("src/styles/index.scss")
   const stylesNew = []
@@ -115,7 +115,7 @@ const registerPluginsTranslations = () => {
     const coreMessages = getCoreMessages(filepath)
     const pathSegments = filepath.split(path.sep)
     const lang = pathSegments[pathSegments.length - 2]
-    const plugins = glob.sync(`src/plugins/**/locale/${lang}/messages.po`)
+    const plugins = glob.sync(`src/plugins/*/client/src/locale/${lang}/messages.po`)
 
     plugins.forEach((pluginLocale) => {
       const pluginMessages = getPluginMessages(coreMessages, pluginLocale)
