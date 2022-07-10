@@ -60,8 +60,13 @@ const THREADS_FIELDS = `
 export const THREADS_QUERY = gql`
   ${THREADS_FRAGMENTS}
 
-  query Threads($after: ID, $before: ID) {
-    threads(after: $after, before: $before) {
+  query Threads($first: Int, $last: Int, $after: ID, $before: ID) {
+    threads(
+      first: $first,
+      last: $last,
+      after: $after,
+      before: $before,
+    ) {
       ${THREADS_FIELDS}
     }
   }
@@ -188,6 +193,8 @@ const mergeUpdatedThreadsResults = <TData extends ThreadsData>(
 interface ThreadsQueryParams {
   after: string | null
   before: string | null
+  first: number | null
+  last: number | null
 }
 
 export const useThreadsQuery = (variables: ThreadsQueryParams) => {
@@ -207,7 +214,9 @@ export const CATEGORY_THREADS_QUERY = gql`
     slug
   }
 
-  query CategoryThreads($category: ID!, $after: ID) {
+  query CategoryThreads(
+    $category: ID!, $first: Int, $last: Int, $after: ID, $before: ID
+  ) {
     category(id: $category) {
       ...ThreadsListCategory
       threads
@@ -216,7 +225,13 @@ export const CATEGORY_THREADS_QUERY = gql`
         ...ThreadsListCategory
       }
     }
-    threads(category: $category, after: $after) {
+    threads(
+      category: $category,
+      first: $first,
+      last: $last,
+      after: $after,
+      before: $before,
+    ) {
       ${THREADS_FIELDS}
     }
   }

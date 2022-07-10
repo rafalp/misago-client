@@ -58,6 +58,7 @@ export interface Settings {
   postMinLength: number
   threadTitleMinLength: number
   threadTitleMaxLength: number
+  threadsPerPage: number
   usernameMinLength: number
   usernameMaxLength: number
 }

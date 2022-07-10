@@ -15,6 +15,7 @@ const defaultSettings = {
   postMinLength: 3,
   threadTitleMinLength: 5,
   threadTitleMaxLength: 40,
+  threadsPerPage: 30,
   usernameMinLength: 1,
   usernameMaxLength: 10,
 }

@@ -5,6 +5,7 @@ type Cursor = number | null | typeof NaN
 
 export interface CursorData {
   valid: boolean
+  first: boolean
   after: string | null
   before: string | null
 }
@@ -20,6 +21,7 @@ export const useCursorParams = (): CursorData => {
     if (!isValid(cleanAfter, cleanBefore)) {
       return {
         valid: false,
+        first: true,
         after: null,
         before: null,
       }
@@ -27,6 +29,7 @@ export const useCursorParams = (): CursorData => {
 
     return {
       valid: true,
+      first: cleanBefore === null,
       after: cleanAfter ? String(cleanAfter) : null,
       before: cleanBefore ? String(cleanBefore) : null,
     }

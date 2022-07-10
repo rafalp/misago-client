@@ -66,6 +66,7 @@ const INITIAL_DATA_QUERY = gql`
       postMinLength
       threadTitleMinLength
       threadTitleMaxLength
+      threadsPerPage
       usernameMinLength
       usernameMaxLength
     }

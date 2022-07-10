@@ -1,12 +1,12 @@
 import { t } from "@lingui/macro"
 import React from "react"
 import { Redirect } from "react-router-dom"
+import { useForumStatsContext, useSettingsContext } from "../../Context"
 import ResetScrollOnNav from "../../UI/ResetScrollOnNav"
 import RouteLoader from "../../UI/RouteLoader"
 import { RouteNotFound } from "../../UI/RouteError"
 import SectionLoader from "../../UI/SectionLoader"
 import WindowTitle from "../../UI/WindowTitle"
-import { useForumStatsContext, useSettingsContext } from "../../Context"
 import hooks from "../../hooks"
 import * as urls from "../../urls"
 import { PageUrl } from "./Threads.types"
@@ -28,6 +28,8 @@ const ThreadsAll: React.FC = () => {
   const { data, error, loading, update } = useThreadsQuery({
     after: cursor.after,
     before: cursor.before,
+    first: cursor.first ? settings.threadsPerPage : null,
+    last: !cursor.first ? settings.threadsPerPage : null,
   })
   const { threads } = data || { threads: null }
 

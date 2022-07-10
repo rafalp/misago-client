@@ -1,6 +1,7 @@
 import classnames from "classnames"
 import React from "react"
 import { Redirect, useParams } from "react-router-dom"
+import { useSettingsContext } from "../../Context"
 import { RouteNotFound } from "../../UI/RouteError"
 import SectionLoader from "../../UI/SectionLoader"
 import WindowTitle from "../../UI/WindowTitle"
@@ -24,6 +25,7 @@ interface ThreadsCategoryParams {
 }
 
 const ThreadsCategory: React.FC = () => {
+  const settings = useSettingsContext()
   const { id, slug } = useParams<ThreadsCategoryParams>()
   const cursor = useCursorParams()
   const activeCategory = useActiveCategory(id)
@@ -31,6 +33,8 @@ const ThreadsCategory: React.FC = () => {
     id,
     after: cursor.after,
     before: cursor.before,
+    first: cursor.first ? settings.threadsPerPage : null,
+    last: !cursor.first ? settings.threadsPerPage : null,
   })
 
   const { category } = activeCategory || { category: null }
