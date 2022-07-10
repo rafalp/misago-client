@@ -6,7 +6,7 @@ const path = require('path')
 
 const main = () => {
   // Copy over overrides
-  const overrides = glob.sync("plugins/*/client/misago")
+  const overrides = glob.sync("plugins/*/client/override")
   overrides.forEach(override => copyOverridesToSrc(override))
 
   // Merge in plugin files
