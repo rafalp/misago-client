@@ -5,11 +5,25 @@ const glob = require("glob")
 const path = require('path')
 
 const main = () => {
+  // Copy over overrides
+  const overrides = glob.sync("plugins/*/client/misago")
+  overrides.forEach(override => copyOverridesToSrc(override))
+
+  // Merge in plugin files
   const plugins = glob.sync("plugins/*/client/src")
   copyPluginsToSrc(plugins)
   registerPluginsTypescript(plugins)
   registerPluginsStyles()
   registerPluginsTranslations()
+}
+
+const copyOverridesToSrc = (plugin) => {
+  const files = glob.sync(plugin + "/**/*.ts*")
+  files.forEach(src => {
+    const name = src.substring(plugin.length + 1)
+    const dst = `src/${name}`
+    fs.copySync(src, dst)
+  })
 }
 
 const copyPluginsToSrc = (plugins) => {
