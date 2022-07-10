@@ -5,9 +5,9 @@ const glob = require("glob")
 const path = require('path')
 
 const main = () => {
-  // Copy over overrides
-  const overrides = glob.sync("plugins/*/client/override")
-  overrides.forEach(override => copyOverridesToSrc(override))
+  // Replace standard files with plugin ones
+  const replaces = glob.sync("plugins/*/client/replace")
+  replaces.forEach(plugin => replaceSrcFiles(plugin))
 
   // Merge in plugin files
   const plugins = glob.sync("plugins/*/client/src")
@@ -17,7 +17,7 @@ const main = () => {
   registerPluginsTranslations()
 }
 
-const copyOverridesToSrc = (plugin) => {
+const replaceSrcFiles = (plugin) => {
   const files = glob.sync(plugin + "/**/*.ts*")
   files.forEach(src => {
     const name = src.substring(plugin.length + 1)
