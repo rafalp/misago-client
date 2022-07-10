@@ -14,6 +14,13 @@ error() {
 # Commands
 install_plugins() {
     if [[ -d plugins ]]; then
+        # Override default  files with plugin ones if present
+        if compgen -G "plugins/*/client/misago/*" > /dev/null; then
+            for plugin in plugins/*/client/misago; do
+                cp $plugin/* -r src/;
+            done
+        fi
+
         # Run setup script for plugins JS
         node setupPlugins.js
     fi
