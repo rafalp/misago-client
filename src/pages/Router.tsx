@@ -14,7 +14,7 @@ const User = lazy(() => import("./User"))
 
 const sluggable = { id: ":id", slug: ":slug" }
 
-const Routes: React.FC = () => {
+const Router: React.FC = () => {
   const settings = useSettingsContext()
 
   return (
@@ -81,4 +81,4 @@ const Routes: React.FC = () => {
   )
 }
 
-export default Routes
+export default Router

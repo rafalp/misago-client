@@ -12,7 +12,7 @@ import {
   SettingsContext,
   ToastsProvider,
 } from "../Context"
-import Routes from "../Routes"
+import Routes from "../pages"
 import RouteLoader from "../UI/RouteLoader"
 import RouteErrorBoundary from "../UI/RouteErrorBoundary"
 import AppDataQuery from "./AppDataQuery"

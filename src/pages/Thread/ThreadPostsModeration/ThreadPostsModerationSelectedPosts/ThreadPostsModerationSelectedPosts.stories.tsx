@@ -1,11 +1,10 @@
 import { action } from "@storybook/addon-actions"
 import { withKnobs, text } from "@storybook/addon-knobs"
-import React from "react"
 import { Form } from "../../../../UI/Form"
 import { ModalFormContainer, userFactory } from "../../../../UI/Storybook"
 import { RichText } from "../../../../types"
 import { Post } from "../../Thread.types"
-import ThreadsModerationSelectedPosts from "./"
+import ThreadsModerationSelectedPosts from "."
 
 export default {
   title: "Route/Thread/Moderation/Posts Select",
