@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { BodyScroll } from "../BodyScroll"
 import {
   AuthContext,
@@ -12,9 +12,9 @@ import {
   SettingsContext,
   ToastsProvider,
 } from "../Context"
-import Routes from "../pages"
 import RouteLoader from "../UI/RouteLoader"
 import RouteErrorBoundary from "../UI/RouteErrorBoundary"
+import Router from "../routes"
 import AppDataQuery from "./AppDataQuery"
 import AppErrorBoundary from "./AppErrorBoundary"
 import AppLanguageLoader from "./AppLanguageLoader"
@@ -28,7 +28,7 @@ const AuthModal = React.lazy(() => import("../AuthModal"))
 const App: React.FC = () => {
   return (
     <AppErrorBoundary>
-      <Router>
+      <BrowserRouter>
         <BodyScrollLockProvider>
           <BodyScroll />
           <AppDataQuery>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
                                     <Toasts />
                                   </React.Suspense>
                                   <RouteErrorBoundary>
-                                    <Routes />
+                                    <Router />
                                   </RouteErrorBoundary>
                                   <React.Suspense fallback={<div />}>
                                     <AuthModal settings={settings} />
@@ -74,7 +74,7 @@ const App: React.FC = () => {
             )}
           </AppDataQuery>
         </BodyScrollLockProvider>
-      </Router>
+      </BrowserRouter>
     </AppErrorBoundary>
   )
 }
