@@ -90,6 +90,8 @@ interface ThreadsVariables {
   category?: string | null
   after?: string | null
   before?: string | null
+  first?: number | null
+  last?: number | null
 }
 
 interface ThreadsUpdatesData {
@@ -118,9 +120,9 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
   useSubscription<ThreadsUpdatesData, ThreadsUpdatesVariables>(
     THREADS_UPDATES_SUBSCRIPTION,
     {
-      skip: variables.after !== null || variables.before !== null,
+      skip: variables.after === null && variables.before === null,
       shouldResubscribe: !!result.data?.threads,
-      variables: variables ? { category: variables.category } : undefined,
+      variables: variables.category ? { category: variables.category } : undefined,
       onSubscriptionData: ({ subscriptionData: { data } }) => {
         if (!data) return
         const { threads: id } = data
@@ -142,7 +144,10 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
   >(query, {
     fetchPolicy: "no-cache",
     notifyOnNetworkStatusChange: true,
-    variables: variables ? { category: variables.category } : undefined,
+    variables: {
+      category: variables.category || null,
+      first: variables.first || variables.last,
+    },
     onCompleted: (data) => {
       setUpdatedThreadsState({
         ids: [],
