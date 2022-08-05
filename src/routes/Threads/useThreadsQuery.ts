@@ -116,11 +116,11 @@ export const useBaseThreadsQuery = <TData extends ThreadsData>(
     ids: Array<string>
     length: number
   }>({ ids: [], length: 0 })
-
+  console.log(variables)
   useSubscription<ThreadsUpdatesData, ThreadsUpdatesVariables>(
     THREADS_UPDATES_SUBSCRIPTION,
     {
-      skip: variables.after === null && variables.before === null,
+      skip: variables.after !== null && variables.before !== null,
       shouldResubscribe: !!result.data?.threads,
       variables: variables.category ? { category: variables.category } : undefined,
       onSubscriptionData: ({ subscriptionData: { data } }) => {
